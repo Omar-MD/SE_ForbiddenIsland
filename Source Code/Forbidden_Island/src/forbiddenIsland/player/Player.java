@@ -1,10 +1,9 @@
-package player;
+package forbiddenIsland.player;
 
+import forbiddenIsland.board.IslandTile;
+import forbiddenIsland.card.Card;
 import java.util.List;
 import java.util.ArrayList;
-
-import board.IslandTile;
-import cards.Card;
 
 
 // Abstract class representing player classes

@@ -1,6 +1,6 @@
-package player;
+package forbiddenIsland.player;
 
-import board.IslandTile;
+import forbiddenIsland.board.IslandTile;
 
 //Class depicting adventurer type Messenger 
 public class Messenger extends Player {

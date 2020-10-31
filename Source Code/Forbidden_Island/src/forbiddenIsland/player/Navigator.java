@@ -1,6 +1,6 @@
-package player;
+package forbiddenIsland.player;
 
-import board.IslandTile;
+import forbiddenIsland.board.IslandTile;
 
 // Class depicting adventurer type Navigator 
 public class Navigator extends Player {
