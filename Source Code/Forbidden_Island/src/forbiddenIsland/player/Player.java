@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Player {
 
 	// Player position, deck, and count of actions taken. 
-	private IslandTile islandTile = new IslandTile();
+	private IslandTile islandTile;
 	private List<Card> handDeck = new ArrayList<Card>();
 	private int actionsTaken; 
 	
@@ -31,10 +31,10 @@ public abstract class Player {
 	
 	/* toString Method*/
 	public String toString() {
-		return "Adventurer: "+this.getClass()
-		+"\nPlayer IslandTile:"+this.getIslandTile()
-		+", No. Actions Taken:"+this.getActionsTaken()
-		+"\nHand Deck:"+this.getHandDeck().toString();
+		return "Adventurer: " + this.getClass() +
+				"\nPlayer IslandTile:" + this.islandTile.getTileName() +
+				", No. Actions Taken:" + this.getActionsTaken() +
+				"\nHand Deck:" + this.getHandDeck().toString();
 	}
 	//-----------------------------------
 	// Setters
