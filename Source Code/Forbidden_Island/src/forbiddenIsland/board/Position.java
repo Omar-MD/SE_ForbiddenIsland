@@ -62,6 +62,22 @@ public class Position {
     }
 
     /**
+     * Returns boolean to check if positions are equal
+     * @return the boolean
+     */
+    @Override
+	public boolean equals(Object o) {
+		// Check if o is an instance of Position
+		if(o instanceof Position) {
+			// Typecast o to Position so that we can compare data members
+			Position p = (Position) o;
+			// Compare the data members and return accordingly
+			return x == p.getX() && y == p.getY();
+		}
+		return false;
+	}
+
+    /**
 	 * Returns string representing the Position object
 	 * @return the string representation in (X,Y) coordinate form
 	 */

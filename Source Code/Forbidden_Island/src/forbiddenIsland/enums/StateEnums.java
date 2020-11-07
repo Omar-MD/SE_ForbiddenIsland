@@ -8,18 +8,29 @@ package forbiddenIsland.enums;
  *
  */
 public enum StateEnums {
-	DRY     ("Dry"     ),
-	FLOODED ("Flooded" ),
-	SUNK    ("Sunk"    );
+	DRY     ("Dry"     ,'X'),
+	FLOODED ("Flooded" ,'~'),
+	SUNK    ("Sunk"    ,' ');
 
 	private final String displayName;
+	private final char mapChar;
 
 	/**
 	 * Constructor for tile state enum
 	 * @param s String which will be set to the display name of the tile state.
+	 * @param c Character associated with tile state to be printed on Board
 	 */
-    private StateEnums(String s){
+    private StateEnums(String s, char c){
     	displayName = s; // String for state of IslandTile
+    	mapChar = c; // char for default representation of tile state on Board
+    }
+
+    /**
+     * gets character relating to a Tile state
+     * @return the character.
+     */
+    public char getChar() {
+        return mapChar;
     }
 
 	/**
@@ -28,6 +39,6 @@ public enum StateEnums {
 	 */
     @Override
 	public String toString() {
-	    return this.displayName;
+	    return displayName;
 	}
 }
