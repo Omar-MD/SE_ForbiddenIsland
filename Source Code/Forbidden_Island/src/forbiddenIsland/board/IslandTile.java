@@ -203,6 +203,25 @@ public class IslandTile {
         }
 	}
 
+    //-----------------------------------
+    // Other
+    //-----------------------------------
+    /**
+	 * Returns true if Island tile is dry and false otherwise
+	 * @return boolean
+	 */
+    public boolean isDry() {
+        return this.getState() == StateEnums.DRY;
+    }
+
+    /**
+	 * Returns true if Island tile is flooded and false otherwise
+	 * @return boolean
+	 */
+    public boolean isFlooded() {
+        return this.getState() == StateEnums.FLOODED;
+    }
+
     /**
 	 * Returns true if Island tile is sunk and false otherwise
 	 * @return boolean

@@ -1,18 +1,45 @@
 package forbiddenIsland.card;
 
-// Abstract class depicting card object
-public abstract class Card{
+/**
+ * Abstract class depicting a Card object.
+ * @author Jithin James and Omar Duadu
+ * @version 1.0
+ *
+ */
+public abstract class Card<E>{
 
-	// Card name
-	private Enum name;
+    //-----------------------------------
+    // Variable Setup
+    //-----------------------------------
+	private E name;
 	
-	// Constructor
-	Card(Enum name){
-		this.name = name;
+	//-----------------------------------
+    // Constructor
+    //-----------------------------------
+    /**
+     * Constructor for a Card object.
+     * @param cardName The name of the Card
+     */
+	Card(E cardName){
+		this.name = cardName;
 	}
 	
-	// Getter
-	public Enum getName(){
+    //-----------------------------------
+    // Getters and Setters
+    //-----------------------------------
+    /**
+     * Returns the Card name
+     * @return the card name 
+     */
+	public E getName(){
 		return this.name;
-	}
+    }
+    
+	 /**
+     * Sets the Card name
+     * @param cardName the Card name
+     */
+	public void setName(E cardName) {
+        this.name = cardName;
+    }
 }
