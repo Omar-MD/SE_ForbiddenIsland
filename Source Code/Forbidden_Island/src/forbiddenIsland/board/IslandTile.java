@@ -12,10 +12,11 @@ public class IslandTile {
     //-----------------------------------
     // Variable Setup
     //-----------------------------------
-    private TilesEnums tileName;
-    private Position loc;
-    private StateEnums state;
+    private TilesEnums    tileName;
+    private Position      loc;
+    private StateEnums    state;
     private TreasureEnums treasure;
+    private Board         theBoard;
 
     //-----------------------------------
     // Constructor
@@ -31,6 +32,7 @@ public class IslandTile {
         this.loc = loc;
         this.state = state;
         this.treasure = checkForTreasure();
+        this.theBoard = Board.getInstance(); // Get instance of Board
     }
 
     //-----------------------------------
@@ -158,7 +160,6 @@ public class IslandTile {
 	 * @param xStart The beginning of the top of Tile
 	 */
 	private void drawTop(int y, int xStart) {
-		Board theBoard = Board.getInstance();
 		// If tile is sunk, replace top of tile with space chars
 		if (isSunk()) {
 			for (int x = xStart; x < xStart + 3; x++) {
@@ -183,7 +184,6 @@ public class IslandTile {
 	 * @param xMax The end of the bottom of Tile
 	 */
 	private void drawBottom(char mapChar, int y, int xMin, int xMax) {
-		Board theBoard = Board.getInstance();
 		for (int x = xMin; x < xMax + 1; x++) {
 			theBoard.getDisplayGrid()[x][y] = mapChar;
         }
@@ -197,18 +197,36 @@ public class IslandTile {
 	 * @param yMax The end of the side of Tile
 	 */
 	private void drawSide(char mapChar, int x, int yMin, int yMax) {
-		Board theBoard = Board.getInstance();
 		for (int y = yMin; y < yMax + 1; y++) {
 			theBoard.getDisplayGrid()[x][y] = mapChar;
         }
 	}
+
+    //-----------------------------------
+    // Other
+    //-----------------------------------
+    /**
+	 * Returns true if Island tile is dry and false otherwise
+	 * @return boolean
+	 */
+    public boolean isDry() {
+        return getState().equals(StateEnums.DRY);
+    }
+
+    /**
+	 * Returns true if Island tile is flooded and false otherwise
+	 * @return boolean
+	 */
+    public boolean isFlooded() {
+        return getState().equals(StateEnums.FLOODED);
+    }
 
     /**
 	 * Returns true if Island tile is sunk and false otherwise
 	 * @return boolean
 	 */
     public boolean isSunk() {
-        return this.getState() == StateEnums.SUNK;
+        return getState().equals(StateEnums.SUNK);
     }
     
     /**

@@ -3,6 +3,7 @@ package forbiddenIsland.board;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumSet;
+import java.util.List;
 
 import forbiddenIsland.enums.StateEnums;
 import forbiddenIsland.enums.TilesEnums;
@@ -178,7 +179,7 @@ public class Board {
      * @param tile the Island Tile.
      * @return the list of diagonal Island tiles
      */
-    public ArrayList<IslandTile> getDiagonals(IslandTile tile) {
+    public List<IslandTile> getDiagonals(IslandTile tile) {
     	// Create an array list of the diagonal Island tiles
         ArrayList<IslandTile> diagonalTiles = new ArrayList<IslandTile>();
         Position pos = tile.getLoc();
@@ -205,7 +206,7 @@ public class Board {
      * @param tile the Island Tile.
      * @return the list of adjacent Island tiles
      */
-    public ArrayList<IslandTile> getAdjacent(IslandTile tile) {
+    public List<IslandTile> getAdjacent(IslandTile tile) {
     	// Create an array list of the adjacent Island tiles
         ArrayList<IslandTile> adjacentTiles = new ArrayList<IslandTile>();
         Position pos = tile.getLoc();
