@@ -6,7 +6,7 @@ import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.enums.StateEnums;
 import forbiddenIsland.enums.TreasureEnums;
-//import forbiddenIsland.gameplay.WaterMeter;
+import forbiddenIsland.gameplay.WaterMeter;
 import forbiddenIsland.player.Player;
 
 /**
@@ -36,10 +36,10 @@ public class SpecialCard extends Card{
 	/**
 	 * Method to play the Waters Rise card, increases the game water level.
 	 */
-	/*public void useWatersRise(){
+	public void useWatersRise(){
 		WaterMeter  WMeter = WaterMeter.getInstance();
 		WMeter.raiseWaterLevel();
-	}*/
+	}
 
 	/**
 	 * Use the ability of the Sandbags card, used to shore up any Island Tile. 
@@ -64,7 +64,7 @@ public class SpecialCard extends Card{
 	 * @param flyingPlayers. List of Players to be transported
 	 * @param destination. 	 Island Tile destination.
 	 */
-	/*public void useHelicopterLift(List<Player> flyingPlayers,IslandTile destination){
+	public void useHelicopterLift(List<Player> flyingPlayers,IslandTile destination){
 		IslandTile StartPosition = flyingPlayers.get(0).getIslandTile(); // Start Tile
 		// Check if destination Island Tile is Sunk
 		if(destination.isSunk()) {
@@ -84,5 +84,5 @@ public class SpecialCard extends Card{
 			System.out.println("Msg: successfull transport to "+ destination.getTileName().toString());
 			return;
 		}
-	}*/
+	}
 }

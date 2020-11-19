@@ -252,6 +252,23 @@ public class Board {
     // Other
     //-----------------------------------
     /**
+     * returns the IslandTile of a given TilesEnums.
+     * @return the Island tiles on the Board.
+     */
+    public IslandTile getIslandTile(TilesEnums tileEnum) {
+		// Loop through each y position value
+    	for (int y = 0; y < 6; y++) {
+    		// Loop through each corresponding x value
+    		for (int x = 0; x < 6; x++) {
+    			// If there exists a valid Island tile corresponding to tileEnum return it
+    			if(getTiles()[x][y].getTileName().equals(tileEnum)) 
+    				return getTile(getTiles()[x][y].getLoc());
+    		}
+    	}
+		return null;
+    }
+
+    /**
      * Void function to print the board with the island tiles, pawns, treasures etc. Public as
      * function simply prints the board which is needed by gameplay package.
      */
