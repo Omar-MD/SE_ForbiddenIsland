@@ -3,18 +3,16 @@ package forbiddenIsland.adventurer;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.board.Board;
 
-import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.card.SpecialCard;
+import forbiddenIsland.card.Card;
 
 import forbiddenIsland.enums.StateEnums;
-import forbiddenIsland.enums.TreasureEnums;
 import forbiddenIsland.enums.SpecialCardEnums;
 
 import forbiddenIsland.player.Pawn;
 import forbiddenIsland.player.Player;
 
 import java.util.List;
-import java.util.ArrayList;
 
 
 /**
@@ -27,8 +25,17 @@ import java.util.ArrayList;
 public abstract class Adventurer {
 	
 	// Get Board Instance
-	protected Board board = Board.getInstance();
+	private Board board;
 	
+	//----------------------------
+	// Constructor
+	//----------------------------
+	/**
+     * Constructor for a Diver forbiddenIsland.adventurer role.
+     */
+	public Adventurer() {
+		this.board = Board.getInstance();
+	}
 	//-----------------------------------
 	// Adventurer Methods
 	//-----------------------------------
@@ -39,7 +46,7 @@ public abstract class Adventurer {
 	 * @param newTile. New Adventurer Island Tile
 	 */
 	public void move(Pawn pawn,IslandTile newTile){
-		if (board.getAdjacent(pawn.getPawnTile()).contains(newTile)) {
+		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile)) {
 			if (!newTile.isSunk())
 				pawn.setPawnTile(newTile);
 			else
@@ -56,7 +63,7 @@ public abstract class Adventurer {
 	 * @param pawnTile.	   Player pawn Island Tile
 	 */
 	public void shoreUp(IslandTile pawnTile,IslandTile shoredTile) {
-		if (pawnTile.equals(shoredTile) || board.getAdjacent(pawnTile).contains(shoredTile)) {
+		if (pawnTile.equals(shoredTile) || this.board.getAdjacent(pawnTile).contains(shoredTile)) {
 			if(shoredTile.isFlooded())
 				pawnTile.setState(StateEnums.DRY);
 			
@@ -111,7 +118,7 @@ public abstract class Adventurer {
 	public void useHelicopterLiftCard(List<Card> handDeck,SpecialCard card,List<Player> flyingPlayers,IslandTile newTile) {
 		if(handDeck.contains(card))
 			if(card.getName().equals(SpecialCardEnums.HELICOPTER_LIFT)) {
-				card.useHelicopter(flyingPlayers, newTile);
+				card.useHelicopterLift(flyingPlayers, newTile);
 				handDeck.remove(card);
 			}
 	}

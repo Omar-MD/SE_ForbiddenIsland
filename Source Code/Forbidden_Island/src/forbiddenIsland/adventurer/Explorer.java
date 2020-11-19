@@ -1,5 +1,6 @@
 package forbiddenIsland.adventurer;
 
+import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.player.Pawn;
 
@@ -11,6 +12,9 @@ import forbiddenIsland.player.Pawn;
  *
  */ 
 public class Explorer extends Adventurer {
+	
+	// Get Board Instance
+	private Board board;
 	
 	//----------------------------
 	// Constructor
@@ -30,8 +34,8 @@ public class Explorer extends Adventurer {
 	 * @param newTile. New Adventurer Island Tile
 	 */
 	public void move(Pawn pawn,IslandTile newTile){
-		if (board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||
-				board.getDiagonals(pawn.getPawnTile()).contains(newTile)) {
+		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||
+				this.board.getDiagonals(pawn.getPawnTile()).contains(newTile)) {
 			if (!newTile.isSunk())
 				pawn.setPawnTile(newTile);
 			else

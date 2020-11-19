@@ -241,7 +241,7 @@ public class Player {
 	 * @return Treasure name.
 	 */
 	public TreasureEnums getTreasureName() {
-		return this.handDeck.get(0).getName();
+		return  (TreasureEnums) this.handDeck.get(0).getName();
 	}
 
 	//----------------------------
