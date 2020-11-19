@@ -16,7 +16,6 @@ public class IslandTile {
     private Position      loc;
     private StateEnums    state;
     private TreasureEnums treasure;
-    private Board         theBoard;
 
     //-----------------------------------
     // Constructor
@@ -32,7 +31,6 @@ public class IslandTile {
         this.loc = loc;
         this.state = state;
         this.treasure = checkForTreasure();
-        this.theBoard = Board.getInstance(); // Get instance of Board
     }
 
     //-----------------------------------
@@ -163,14 +161,14 @@ public class IslandTile {
 		// If tile is sunk, replace top of tile with space chars
 		if (isSunk()) {
 			for (int x = xStart; x < xStart + 3; x++) {
-				theBoard.getDisplayGrid()[x][y] = ' ';
+				Board.getInstance().getDisplayGrid()[x][y] = ' ';
 			}
 		}
 		// If tile is not sunk, draw top of tile
 		else {
 			char[] mapArr = getTileName().getMapString().toCharArray();
 			for (char c : mapArr) {
-				theBoard.getDisplayGrid()[xStart][y] = c;
+				Board.getInstance().getDisplayGrid()[xStart][y] = c;
 				xStart++;
 			}
 		}
@@ -185,7 +183,7 @@ public class IslandTile {
 	 */
 	private void drawBottom(char mapChar, int y, int xMin, int xMax) {
 		for (int x = xMin; x < xMax + 1; x++) {
-			theBoard.getDisplayGrid()[x][y] = mapChar;
+			Board.getInstance().getDisplayGrid()[x][y] = mapChar;
         }
 	}
 
@@ -198,7 +196,7 @@ public class IslandTile {
 	 */
 	private void drawSide(char mapChar, int x, int yMin, int yMax) {
 		for (int y = yMin; y < yMax + 1; y++) {
-			theBoard.getDisplayGrid()[x][y] = mapChar;
+			Board.getInstance().getDisplayGrid()[x][y] = mapChar;
         }
 	}
 
