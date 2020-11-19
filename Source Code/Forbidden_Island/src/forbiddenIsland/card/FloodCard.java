@@ -9,7 +9,7 @@ import forbiddenIsland.enums.TilesEnums;
  * @version 1.0
  *
  */
-public class FloodCard extends Card<TilesEnums>{
+public class FloodCard extends Card{
     //-----------------------------------
     // Constructor
     //-----------------------------------

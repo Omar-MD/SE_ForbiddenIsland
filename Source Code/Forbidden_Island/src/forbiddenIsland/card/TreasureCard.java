@@ -9,7 +9,7 @@ import forbiddenIsland.enums.TreasureEnums;
  * @version 1.0
  *
  */
-public class TreasureCard extends Card<TreasureEnums>{
+public class TreasureCard extends Card{
     //-----------------------------------
     // Constructor
     //-----------------------------------

@@ -16,7 +16,7 @@ import forbiddenIsland.player.Player;
  * @version 1.0
  *
  */
-public class SpecialCard extends Card<SpecialCardEnums>{
+public class SpecialCard extends Card{
 	
     //-----------------------------------
     // Constructor

@@ -6,12 +6,13 @@ package forbiddenIsland.card;
  * @version 1.0
  *
  */
-public abstract class Card<E>{
+public abstract class Card{
 
     //-----------------------------------
     // Variable Setup
     //-----------------------------------
-	private E name;
+	@SuppressWarnings("rawtypes")
+	private Enum name;
 	
 	//-----------------------------------
     // Constructor
@@ -20,7 +21,8 @@ public abstract class Card<E>{
      * Constructor for a Card object.
      * @param cardName The name of the Card
      */
-	Card(E cardName){
+	@SuppressWarnings("rawtypes")
+	Card(Enum cardName){
 		this.name = cardName;
 	}
 	
@@ -31,7 +33,8 @@ public abstract class Card<E>{
      * Returns the Card name
      * @return the card name 
      */
-	public E getName(){
+	@SuppressWarnings("rawtypes")
+	public Enum getName(){
 		return this.name;
     }
     
@@ -39,7 +42,8 @@ public abstract class Card<E>{
      * Sets the Card name
      * @param cardName the Card name
      */
-	public void setName(E cardName) {
+	@SuppressWarnings("rawtypes")
+	public void setName(Enum cardName) {
         this.name = cardName;
     }
 }
