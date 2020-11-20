@@ -80,4 +80,12 @@ public class Pawn {
 		return this.pawnTile;
 	}
 
+	@Override 
+	/**
+	 * Print Pawn location 
+	 * @return String
+	 */
+	public String toString() {
+		return getPawnTile().toString();
+	}
 }

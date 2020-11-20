@@ -2,18 +2,8 @@ package forbiddenIsland.adventurer;
 
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.board.Board;
-
-import forbiddenIsland.card.SpecialCard;
-import forbiddenIsland.card.Card;
-
 import forbiddenIsland.enums.StateEnums;
-import forbiddenIsland.enums.SpecialCardEnums;
-
 import forbiddenIsland.player.Pawn;
-import forbiddenIsland.player.Player;
-
-import java.util.List;
-
 
 /**
  * Abstract Class depicting player adventurers
@@ -25,25 +15,26 @@ import java.util.List;
 public abstract class Adventurer {
 	
 	// Get Board Instance
-	private Board board;
+	protected Board board;
 	
 	//----------------------------
 	// Constructor
 	//----------------------------
 	/**
-     * Constructor for a Diver forbiddenIsland.adventurer role.
+     * Constructor for an abstract Adventurer role.
      */
 	public Adventurer() {
 		this.board = Board.getInstance();
 	}
+
 	//-----------------------------------
 	// Adventurer Methods
 	//-----------------------------------
 	/**
-	 * Move Adventurer Island Tile, can only move to neighbouring tiles.
+	 * Move Adventurer, can only move to neighbouring tiles.
 	 * Cannot move to diagonal or non-sunk tiles. 
-	 * @param pawn.	   Player pawn 
-	 * @param newTile. New Adventurer Island Tile
+	 * @param pawn	   Player pawn 
+	 * @param newTile  New Adventurer Island Tile
 	 */
 	public void move(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile)) {
@@ -59,8 +50,8 @@ public abstract class Adventurer {
 	/**
 	 * Shore Up an Island Tile i.e. flip an Island Tile to its Dry state.
 	 * Can only shoreUp Adventurer Island Tile, and non-diagonal adjacent tiles. 
-	 * @param shoredTile.  Shored up Island Tile.
-	 * @param pawnTile.	   Player pawn Island Tile
+	 * @param shoredTile   Shored up Island Tile.
+	 * @param pawnTile	   Player pawn Island Tile
 	 */
 	public void shoreUp(IslandTile pawnTile,IslandTile shoredTile) {
 		if (pawnTile.equals(shoredTile) || this.board.getAdjacent(pawnTile).contains(shoredTile)) {
@@ -77,50 +68,14 @@ public abstract class Adventurer {
 			System.out.println("Error(shoreUp): Cannot Shore Up non-adjacent Island Tile");
 	}
 
-	//-----------------------------------
-	// SpecialCard Methods
-	//-----------------------------------
-
 	/**
-	 * Use WatersRise Special Card in Adventurer's Hand Deck.  
-	 * @param handDeck. 	Player HandDeck
-	 * @param card. 		WaterRise card
+	 * Swim method for Adventurer, can only move to neighbouring tiles.
+	 * Cannot move to diagonal or non-sunk tiles. 
+	 * @param pawn	   Player pawn 
+	 * @param newTile  New Adventurer Island Tile
 	 */
-	public void useWatersRiseCard(List<Card> handDeck,SpecialCard card) {
-		if(handDeck.contains(card))
-			if(card.getName().equals(SpecialCardEnums.WATERS_RISE)) {
-				card.useWatersRise();
-				handDeck.remove(card);
-			}
-	}
-
-	/**
-	 * Use Sandbags Special Card in Adventurer's Hand Deck.
-	 * @param handDeck. 	Player HandDeck  
-	 * @param card. 	 	Sandbags card.
-	 * @param shoredTile.	Shored Island Tile. 
-	 */
-	public void useSandbagsCard(List<Card> handDeck,SpecialCard card,IslandTile shoredTile) {
-		if(handDeck.contains(card))
-			if(card.getName().equals(SpecialCardEnums.SANDBAGS)) {
-				card.useSandbags(shoredTile);
-				handDeck.remove(card);
-			}
-	}
-
-	/**
-	 * Use HelicopterLift Special Card in Adventurer's Hand Deck.  
-	 * @param handDeck. 	Player HandDeck
-	 * @param card. 		Helicopter card.
-	 * @param flyingPlayers.Players to be flown.
-	 * @param newTile.		Island Tile Destination.
-	 */
-	public void useHelicopterLiftCard(List<Card> handDeck,SpecialCard card,List<Player> flyingPlayers,IslandTile newTile) {
-		if(handDeck.contains(card))
-			if(card.getName().equals(SpecialCardEnums.HELICOPTER_LIFT)) {
-				card.useHelicopterLift(flyingPlayers, newTile);
-				handDeck.remove(card);
-			}
+	public void swim(Pawn pawn,IslandTile newTile){
+		move(pawn, newTile);
 	}
 
 	// toString Method
@@ -132,6 +87,5 @@ public abstract class Adventurer {
 	public String toString() {
 		return "Adventurer: " + this.getClass();
 	}
-
 }
 

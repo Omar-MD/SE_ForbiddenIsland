@@ -1,11 +1,10 @@
 package forbiddenIsland.adventurer;
 
-import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.player.Pawn;
 
 /**
- * Class depicting forbiddenIsland.adventurer type Explorer
+ * Class depicting adventurer type Explorer
  * in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
@@ -13,36 +12,43 @@ import forbiddenIsland.player.Pawn;
  */ 
 public class Explorer extends Adventurer {
 	
-	// Get Board Instance
-	private Board board;
-	
 	//----------------------------
 	// Constructor
 	//----------------------------
 	/**
-     * Constructor for an Engineer forbiddenIsland.adventurer role.
+     * Constructor for an Explorer role.
      */
 	public Explorer() {
 		super();
 	}
 	
+	//----------------------------
+	// Methods
+	//----------------------------
 	@Override
 	/**
-	 * Move Adventurer Island Tile, can only move to neighbouring tiles.
-	 * Can move to diagonal tiles. 
-	 * @param pawn.	   Player pawn 
-	 * @param newTile. New Adventurer Island Tile
+	 * Explorer Swim Method, can also swim to diagonal tiles. 
+	 * @param pawn	   Player pawn 
+	 * @param newTile  New Adventurer Island Tile
 	 */
-	public void move(Pawn pawn,IslandTile newTile){
+	public void swim(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||
 				this.board.getDiagonals(pawn.getPawnTile()).contains(newTile)) {
 			if (!newTile.isSunk())
 				pawn.setPawnTile(newTile);
 			else
-				System.out.println("Error(move): Cannot move to Sunk Island Tile");
+				System.out.println("Error(swim): Cannot swim to Sunk Island Tile");
 		} 
 		else
-			System.out.println("Error(move): Cannot move to non-adjacent Island Tile");
+			System.out.println("Error(swim): Cannot swim to non-adjacent Island Tile");
 	}
 
+	@Override 
+	/**
+	 * Print Explorer role 
+	 * @return String
+	 */
+	public String toString() {
+		return "Adventurer: Explorer";
+	}
 }

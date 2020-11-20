@@ -6,11 +6,15 @@ import java.util.List;
 
 import forbiddenIsland.adventurer.*;
 import forbiddenIsland.board.IslandTile;
+
 import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.card.SpecialCard;
 import forbiddenIsland.card.Card;
+
 import forbiddenIsland.enums.TilesEnums;
 import forbiddenIsland.enums.TreasureEnums;
+import forbiddenIsland.enums.SpecialCardEnums;
+
 import forbiddenIsland.gameplay.Treasure;
 
 public class Player {
@@ -29,8 +33,8 @@ public class Player {
 	//----------------------------
 	/**
 	 * Constructor for a Player object.
-	 * @param name.	 Player Name
-	 * @param role.	 String depicting Adventurer Role
+	 * @param name	 Player Name
+	 * @param role	 String depicting Adventurer Role
 	 * 
 	 */
 	public Player(String name, String role){
@@ -44,10 +48,9 @@ public class Player {
 	//----------------------------
 	// Player Actions 
 	//----------------------------
-
 	/**
 	 * Move Player.  
-	 * @param newTile. New Island Tile
+	 * @param newTile		New Island Tile
 	 */
 	public void move(IslandTile newTile){
 		getRole().move(getPawn(),newTile);
@@ -55,7 +58,7 @@ public class Player {
 
 	/**
 	 * Shore Up Island Tile.
-	 * @param shoredTile. 	 ShoredUp IslandTile.
+	 * @param shoredTile	ShoredUp IslandTile.
 	 */
 	public void shoreUp(IslandTile shoredTile) {
 		getRole().shoreUp(getPawn().getPawnTile(),shoredTile);
@@ -63,10 +66,10 @@ public class Player {
 
 	/**
 	 * Give a treasure card present in player deck to another player.
-	 * Except for the Messenger forbiddenIsland.adventurer.Treasure card, can only be given
+	 * Except for the Messenger the Treasure card can only be given
 	 * if both players are on same Island Tile
-	 * @param card.  	 Treasure Card given.
-	 * @param teamMate.	 Player receiving card
+	 * @param card		Treasure Card given.
+	 * @param teamMate	Player receiving card
 	 */
 	public void giveTreasurerCard(TreasureCard card, Player teamMate) {
 		if(getHandDeck().contains(card)) {
@@ -80,7 +83,6 @@ public class Player {
 		else
 			System.out.println("Error(giveTreasureCard): Treasure Card not in player Deck");
 	}
-
 
 	/**
 	 * Capture Treasure if the Player is on a treasure Tile 
@@ -127,7 +129,7 @@ public class Player {
 
 	/**
 	 * Verify Deck consists of a full matching trasurer card.
-	 * @param list. 	HandDeck
+	 * @return boolean
 	 */
 	private boolean isTreasureDeck() {
 		if(getHandDeck().size() == 5)
@@ -152,45 +154,46 @@ public class Player {
 	//-----------------------------------
 	// SpecialCard Actions
 	//-----------------------------------
-
+	// To be added to PlayerTurn Class
 	/**
 	 * Use WatersRise Special Card.  
-	 * @param card. 		WaterRise card
+	 * @param handDeck 	Player HandDeck
+	 * @param card 		WaterRise card
 	 */
-	public void watersRiseCard(SpecialCard card) {
-		getRole().useWatersRiseCard(getHandDeck(), card);
-	}
-
+	// public void useWatersRiseCard() {
+	// 	if(hasSpecialCard(SpecialCardEnums.WATERS_RISE)){
+	// 		getCard(getIndex(SpecialCardEnums.WATERS_RISE))
+	// 		.useWatersRise();
+	// 	}
+	// 	else
+	// 		System.out.println("Error(useWatersRiseCard): WatersRise card not in Hand"); 
+	// }
+	
 	/**
-	 * Use Sandbags Special Card.  
-	 * @param card. 	 	Sandbags card.
-	 * @param shoredTile.	Shored Island Tile. 
+	 * Use Sandbags Special Card.
+	 * @param shoredTile	Shored Island Tile. 
 	 */
-	public void useSandbagsCard(SpecialCard card,IslandTile shoredTile) {
-		getRole().useSandbagsCard(getHandDeck(), card, shoredTile);
+	public void useSandbagsCard(IslandTile shoredTile) {
+		if(hasSpecialCard(SpecialCardEnums.SANDBAGS)){
+			getCard(getIndex(SpecialCardEnums.SANDBAGS))
+			.useSandbags(shoredTile);
+		}
+		else
+			System.out.println("Error(useSandbagsCard): SandBags card not in Hand"); 
 	}
 
 	/**
 	 * Use HelicopterLift Special Card.
-	 * @param card. 		Helicopter card.
-	 * @param flyingPlayers.Players to be flown.
-	 * @param newTile.		Island Tile Destination.
+	 * @param flyingPlayers Players to be flown.
+	 * @param newTile		Island Tile Destination.
 	 */
-	public void useHelicopterLiftCard(SpecialCard card, List<Player> flyingPlayers, IslandTile newTile) {
-		getRole().useHelicopterLiftCard(getHandDeck(), card, flyingPlayers, newTile);
-	}
-
-	@Override
-	/**
-	 * Print Player state 
-	 * @return String containing Player state
-	 */
-	public String toString() {
-		return "Name: " + getName() +
-				"\nAdventurer: " + getRole().toString() +
-				"\nLocation: " + getPawn().toString() +
-				"\nHand Deck: " + getHandDeck().toString()+
-				"\nCaptured Treasure: " + getCapturedTreasure().toString();
+	public void useHelicopterLiftCard(List<Player> flyingPlayers,IslandTile newTile) {
+		if(hasSpecialCard(SpecialCardEnums.HELICOPTER_LIFT)){
+			getCard(getIndex(SpecialCardEnums.HELICOPTER_LIFT))
+			.useHelicopterLift(flyingPlayers, newTile);
+		}
+		else
+			System.out.println("Error(useHelicopterLiftCard): HelicopterLift card not in Hand"); 
 	}
 
 	//----------------------------
@@ -198,7 +201,7 @@ public class Player {
 	//----------------------------
 	/**
 	 * Return Player name.
-	 * @return name. Player Name
+	 * @return name 
 	 */
 	public String getName() {
 		return this.name;
@@ -206,7 +209,7 @@ public class Player {
 
 	/**
 	 * Return Player role.
-	 * @return role. Adventurer role
+	 * @return role 
 	 */
 	public Adventurer getRole() {
 		return this.role;
@@ -214,7 +217,7 @@ public class Player {
 
 	/**
 	 * Return Player pawn 
-	 * @return pawn.
+	 * @return pawn		
 	 */
 	public Pawn getPawn(){
 		return this.pawn;
@@ -222,7 +225,7 @@ public class Player {
 
 	/**
 	 * Return Player Hand Deck 
-	 * @return handDeck.
+	 * @return handDeck
 	 */
 	public List<Card> getHandDeck(){
 		return this.handDeck;
@@ -230,7 +233,7 @@ public class Player {
 
 	/**
 	 * Return set of Player captured treasure.
-	 * @return capturedTreasure. Player captured treasure set
+	 * @return captured Treasure 
 	 */
 	public HashSet<Treasure> getCapturedTreasure() {
 		return this.capturedTreasure;
@@ -238,19 +241,58 @@ public class Player {
 
 	/**
 	 * Return Name of Treasure to be captured.
-	 * @return Treasure name.
+	 * @return Treasure name
 	 */
 	public TreasureEnums getTreasureName() {
 		return  (TreasureEnums) this.handDeck.get(0).getName();
 	}
 
+	/**
+	 * Return SpecialCard in hand.
+	 * @param index	Special Card index
+	 */
+	public SpecialCard getCard(int index) {
+		return  (SpecialCard) this.handDeck.get(index);
+	}
+
+	/**
+	 * Return index of SpecialCard in hand.
+	 * @param int	Special Card integer index
+	 */
+	public int getIndex(SpecialCardEnums cardName){
+		boolean hasCard=false;
+		int i=0;
+		while(!hasCard){
+			if(getCard(i).getName().equals(cardName))
+				hasCard=true;
+			else
+				i+=1;
+		}
+		return i;
+	}
+
+	/**
+	 * Check if Special Card in hand.
+	 * @return boolean 
+	 */
+	public boolean hasSpecialCard(SpecialCardEnums cardName){
+		for(Card card:getHandDeck()){
+			if(card instanceof SpecialCard){
+				SpecialCard specialCard = (SpecialCard) card;
+				if(specialCard.getName().equals(cardName)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	//----------------------------
 	// Setters 
 	//----------------------------
-
 	/**
-	 * Setter for Player forbiddenIsland.adventurer role.
-	 * @param String role.	  Players role
+	 * Setter for Player adventurer role.
+	 * @param String role	Players role
 	 */
 	private void setRole(String role) {
 		switch(role) {
@@ -279,7 +321,7 @@ public class Player {
 
 	/**
 	 * Setter for Player pawn.
-	 * @param String role.	  Players role
+	 * @param String role	Players role
 	 */
 	private void setPawn(String role) {
 		switch(role) {
@@ -307,8 +349,8 @@ public class Player {
 	}
 
 	/**
-	 * Adds new Player captured treasure.
-	 * @param capturedTreasure.	 New captured treasure
+	 * Adds new captured treasure.
+	 * @param capturedTreasure	New captured treasure
 	 */
 	public void addCapturedTreasure(Treasure capturedTreasure) {
 		this.capturedTreasure.add(capturedTreasure);
@@ -316,10 +358,23 @@ public class Player {
 
 	/**
 	 * Adds new Player card to hand deck.
-	 * @param card.	
+	 * @param card	New card to hand
 	 */
 	public void addCard(Card card) {
 		this.handDeck.add(card);
+	}
+
+	@Override
+	/**
+	 * Print Player state 
+	 * @return String containing Player state
+	 */
+	public String toString() {
+		return "Name: " + getName() +
+				"\nAdventurer: " + getRole().toString() +
+				"\nLocation: " + getPawn().toString() +
+				"\nHand Deck: " + getHandDeck().toString()+
+				"\nCaptured Treasure: " + getCapturedTreasure().toString();
 	}
 }
 
