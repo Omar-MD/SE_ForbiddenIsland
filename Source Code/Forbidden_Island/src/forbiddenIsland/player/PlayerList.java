@@ -54,7 +54,7 @@ public class PlayerList {
 	
 	/**
 	 * Method returns list of players in game.
-	 * @return playerList. 	Player List
+	 * @return playerList 	Player List
 	 */
 	public List<Player> getAllPlayers() {
 		return this.playerList;
@@ -62,8 +62,8 @@ public class PlayerList {
 	
     /**
      * Method returns Player's index in the PlayerList.
-     * @param player. The player of interest
-     * @return Player's integer index.
+     * @param player	The player of interest
+     * @return 			Player's integer index.
      */
     public int getPlayerIndex(Player player){
     	return playerList.indexOf(player)+1;
@@ -71,8 +71,8 @@ public class PlayerList {
 
 	/**
 	 * Method returns Player from list.
-	 * @param index.
-	 * @return Player at index.
+	 * @param index		Index of Player
+	 * @return 			Player at index.
 	 */
 	public Player getPlayer(int index) {
 		return this.playerList.get(index-1);
@@ -84,11 +84,9 @@ public class PlayerList {
     
     /**
 	 * Method used for adding a new player to list.
-	 * @param player.	Added player
+	 * @param player	Added player
 	 */
 	public void addPlayer(Player player) {
 		playerList.add(player);
 	}
-
-
 }

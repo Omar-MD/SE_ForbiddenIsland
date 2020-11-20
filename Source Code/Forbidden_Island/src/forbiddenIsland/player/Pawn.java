@@ -22,11 +22,11 @@ public class Pawn {
 	// Constructor
 	//----------------------------
 	/**
-	 * Constructor for a Adventurer forbiddenIsland.adventurer object.
-	 * @param islandTile.	 Adventurer Island Tile
+	 * Constructor for a player Pawn object.
+	 * @param startTileEnum	 Pawn Island Tile
 	 */
 	Pawn(TilesEnums startTileEnum){
-		initIslandTile(startTileEnum);
+		initPawnTile(startTileEnum);
 	}
 
 	//-----------------------------------
@@ -34,9 +34,9 @@ public class Pawn {
 	//-----------------------------------
 	/**
 	 * Check if two Pawns are on the same Island Tile.
-	 * @param islandTile
+	 * @param pawn
 	 */
-	public boolean equals(Pawn pawn) {
+	public boolean isSameTile(Pawn pawn) {
 		return getPawnTile().equals(pawn.getPawnTile());
 	}
 	
@@ -50,7 +50,6 @@ public class Pawn {
 	//-----------------------------------
 	// Setters
 	//-----------------------------------
-	
 	/**
 	 * Set Pawn Island Tile
 	 * @param islandTile
@@ -63,12 +62,11 @@ public class Pawn {
 	 * Initialize Pawn Island Tile
 	 * @param startTileEnum
 	 */
-	public void initIslandTile(TilesEnums startTileEnum) {
+	public void initPawnTile(TilesEnums startTileEnum) {
 		Board board = Board.getInstance();
 		setPawnTile(board.getIslandTile(startTileEnum));
 	}
 	
-
 	//------------------------------------
 	// Getters
 	//------------------------------------

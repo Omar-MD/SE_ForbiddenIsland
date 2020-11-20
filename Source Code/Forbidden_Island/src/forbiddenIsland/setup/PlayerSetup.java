@@ -3,10 +3,17 @@ package forbiddenIsland.setup;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
+/**
+ * PlayerSetup class for creating the players in the game of Forbidden Island.
+ * @author Jithin James and Omar Duadu
+ * @version 1.0
+ *
+ */
 public class PlayerSetup {
 
 	//--------------------------------------
@@ -14,7 +21,7 @@ public class PlayerSetup {
 	//--------------------------------------
 	private PlayerList playerList;
 	private Boolean validNumPlayers = false;
-	private List<String> roles = Arrays.asList("Pilot","Navigator","Messenger","Engineer","Explorer","Diver");
+	private List<String> roles = new ArrayList<>(Arrays.asList("Pilot","Navigator","Messenger","Engineer","Explorer","Diver"));
 
 	//--------------------------------------
 	// Constructor
@@ -50,8 +57,8 @@ public class PlayerSetup {
 
 	/**
 	 * Gets Number of Players who are playing.
-	 * @param user The scanner the user which we read the users input from
-	 * @return The number of Players to create
+	 * @param user 	The scanner the user which we read the users input from
+	 * @return 		The number of Players to create
 	 */
 	public int getNumberOfPlayers(Scanner user) {
 		String userString;
@@ -62,8 +69,8 @@ public class PlayerSetup {
 
 	/**
 	 * Helper method, Parses user string for number of players.
-	 * @param userString. The user String containing number of players.
-	 * @return The number of Players to create.
+	 * @param userString	 The user String containing number of players.
+	 * @return 				 The number of Players to create.
 	 */
 	private int setNumPlayers(String userString) {
 		int numOfPlayers =0;
@@ -84,7 +91,7 @@ public class PlayerSetup {
 
 	/**
 	 * Assign role to a player, create Player and add Player to PlayerList
-	 * @param user. Scanner which we read the users input from
+	 * @param user	Scanner which we read the users input from
 	 */
 	public void createIndividualPlayer(Scanner user) {
 		System.out.println("\nPlayer "+(playerList.getNumPlayers()+1)+"...");

@@ -17,6 +17,13 @@ import forbiddenIsland.enums.SpecialCardEnums;
 
 import forbiddenIsland.gameplay.Treasure;
 
+/**
+ * Player class containing the name,adventurer role, pawn
+ * hand Deck and set of captured treasures in the game of Forbidden Island.
+ * @author Jithin James and Omar Duadu
+ * @version 1.0
+ *
+ */
 public class Player {
 
 	//---------------------------
@@ -73,7 +80,7 @@ public class Player {
 	 */
 	public void giveTreasurerCard(TreasureCard card, Player teamMate) {
 		if(getHandDeck().contains(card)) {
-			if(getPawn().equals(teamMate.getPawn()) || (getRole() instanceof Messenger)) {
+			if(getPawn().isSameTile(teamMate.getPawn()) || (getRole() instanceof Messenger)) {
 				getHandDeck().remove(card);
 				teamMate.addCard(card); 
 			}
@@ -86,7 +93,7 @@ public class Player {
 
 	/**
 	 * Capture Treasure if the Player is on a treasure Tile 
-	 * and if the player deck consists of the full matching trasurer cards.
+	 * and if the player deck consists of 4 matching treasure cards.
 	 */
 	public void captureTreasure() {
 		if(getPawn().isTreasureTile()) {
@@ -95,25 +102,25 @@ public class Player {
 				case THE_CRYSTAL_OF_FIRE:
 					if(getTreasureName().equals(TreasureEnums.THE_CRYSTAL_OF_FIRE)) {
 						addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
-						getHandDeck().clear();
+						getHandDeck().removeAll(getTreasureCards());
 						break;
 					}
 				case THE_EARTH_STONE:
 					if(getTreasureName().equals(TreasureEnums.THE_EARTH_STONE)) {
 						addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
-						getHandDeck().clear();
+						getHandDeck().removeAll(getTreasureCards());
 						break;
 					}
 				case THE_OCEANS_CHALICE:
 					if(getTreasureName().equals(TreasureEnums.THE_OCEANS_CHALICE)) {
 						addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
-						getHandDeck().clear();
+						getHandDeck().removeAll(getTreasureCards());
 						break;
 					}
 				case THE_STATUE_OF_THE_WIND:
 					if(getTreasureName().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)) {
 						addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
-						getHandDeck().clear();
+						getHandDeck().removeAll(getTreasureCards());
 						break;
 					}
 				default:
@@ -128,12 +135,12 @@ public class Player {
 	} 
 
 	/**
-	 * Verify Deck consists of a full matching trasurer card.
+	 * Verify Deck consists of a full matching treasure card.
 	 * @return boolean
 	 */
 	private boolean isTreasureDeck() {
-		if(getHandDeck().size() == 5)
-			return (new HashSet<Card>(getHandDeck()).size() == 1);
+		if(getTreasureCards().size() == 4)
+			return (new HashSet<TreasureCard>(getTreasureCards()).size() == 1);
 		return false;
 	}
 
@@ -154,21 +161,6 @@ public class Player {
 	//-----------------------------------
 	// SpecialCard Actions
 	//-----------------------------------
-	// To be added to PlayerTurn Class
-	/**
-	 * Use WatersRise Special Card.  
-	 * @param handDeck 	Player HandDeck
-	 * @param card 		WaterRise card
-	 */
-	// public void useWatersRiseCard() {
-	// 	if(hasSpecialCard(SpecialCardEnums.WATERS_RISE)){
-	// 		getCard(getIndex(SpecialCardEnums.WATERS_RISE))
-	// 		.useWatersRise();
-	// 	}
-	// 	else
-	// 		System.out.println("Error(useWatersRiseCard): WatersRise card not in Hand"); 
-	// }
-	
 	/**
 	 * Use Sandbags Special Card.
 	 * @param shoredTile	Shored Island Tile. 
@@ -240,11 +232,30 @@ public class Player {
 	}
 
 	/**
+	 * Return set of matched treasure cards.
+	 * @return Treasure card set 
+	 */
+	public List<TreasureCard> getTreasureCards(){
+		List<TreasureCard> matchedCards = new ArrayList<TreasureCard>();
+		for(Card c:getHandDeck()){
+			if(c instanceof TreasureCard)
+				matchedCards.add((TreasureCard)c);
+		}
+		return matchedCards;
+	}
+
+	/**
 	 * Return Name of Treasure to be captured.
 	 * @return Treasure name
 	 */
 	public TreasureEnums getTreasureName() {
-		return  (TreasureEnums) this.handDeck.get(0).getName();
+		for(Card c:getHandDeck()){
+			if(isTreasureDeck()){
+				if(c instanceof TreasureCard)
+					return (TreasureEnums) c.getName();
+			}
+		}
+		return null;
 	}
 
 	/**
