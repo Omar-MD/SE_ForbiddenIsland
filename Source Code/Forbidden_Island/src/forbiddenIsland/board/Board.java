@@ -175,6 +175,25 @@ public class Board {
     }
 
     /**
+     * returns the IslandTile corresponding to a given TilesEnums.
+     * @param tileEnum the the tile name
+     * @return the corresponding Island tile on the Board.
+     */
+    public IslandTile getIslandTile(TilesEnums tileEnum) {
+		// Loop through each y position value
+    	for (int y = 0; y < 6; y++) {
+    		// Loop through each corresponding x value
+    		for (int x = 0; x < 6; x++) {
+    			// If there exists a valid Island tile and it corresponds to tileEnum return it
+    			if(boardTiles[x][y] != null && boardTiles[x][y].getTileName() == tileEnum) { 
+    				return boardTiles[x][y];
+    			}
+    		}
+    	}
+		return null;
+    }
+
+    /**
      * returns the list of diagonal Island tiles
      * @param tile the Island Tile.
      * @return the list of diagonal Island tiles
