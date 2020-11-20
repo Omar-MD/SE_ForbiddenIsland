@@ -31,10 +31,10 @@ public class Pilot extends Adventurer {
 	 * @param newTile  New Adventurer Island Tile
 	 */
 	public void fly(Pawn pawn,IslandTile newTile){
-			if (!newTile.isSunk())
-				pawn.setPawnTile(newTile);
-			else
-				System.out.println("Error(fly): Cannot fly to Sunk Island Tile");
+		if (!newTile.isSunk())
+			pawn.setPawnTile(newTile);
+		else
+			System.out.println("Error(fly): Cannot fly to Sunk Island Tile");
 	}
 
 	@Override 

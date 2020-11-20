@@ -2,6 +2,8 @@ package forbiddenIsland.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import forbiddenIsland.gameplay.Treasure;
 
 /**
  * Class depicting PlayerList in the game of Forbidden Island.
@@ -16,6 +18,7 @@ public class PlayerList {
 	//------------------------
 	private static PlayerList thePlayerList = null;
 	private List<Player> playerList;
+	private HashSet<Treasure> capturedTreasure;
 
 	//-----------------------------------
 	// Get Instance of Singleton
@@ -37,13 +40,13 @@ public class PlayerList {
 	 * Constructor for PlayerList object.
 	 */
 	private PlayerList() {
-		playerList = new ArrayList<Player>();
+		this.playerList = new ArrayList<Player>();
+		this.capturedTreasure = new HashSet<Treasure>();
 	}
 
 	//----------------------------------
 	// Getter
 	//----------------------------------
-	
 	/**
 	 * Method returns list of players in game.
 	 * @return Integer Number of players.
@@ -77,16 +80,31 @@ public class PlayerList {
 	public Player getPlayer(int index) {
 		return this.playerList.get(index-1);
 	}
+
+	/**
+	 * Return set of Player captured treasure.
+	 * @return captured Treasure 
+	 */
+	public HashSet<Treasure> getCapturedTreasure() {
+		return this.capturedTreasure;
+	}
 	
 	//----------------------------------
 	// Setter
 	//----------------------------------
-    
     /**
 	 * Method used for adding a new player to list.
 	 * @param player	Added player
 	 */
 	public void addPlayer(Player player) {
 		playerList.add(player);
+	}
+
+	/**
+	 * Adds new captured treasure.
+	 * @param capturedTreasure	New captured treasure
+	 */
+	public void addCapturedTreasure(Treasure capturedTreasure) {
+		this.capturedTreasure.add(capturedTreasure);
 	}
 }

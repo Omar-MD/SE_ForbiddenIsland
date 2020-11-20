@@ -77,15 +77,5 @@ public abstract class Adventurer {
 	public void swim(Pawn pawn,IslandTile newTile){
 		move(pawn, newTile);
 	}
-
-	// toString Method
-	@Override 
-	/**
-	 * Print Adventurer role 
-	 * @return String containing Adventurer role
-	 */
-	public String toString() {
-		return "Adventurer: " + this.getClass();
-	}
 }
 

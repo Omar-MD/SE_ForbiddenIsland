@@ -42,28 +42,25 @@ public class WaterMeter {
 	//-----------------------
 	// Method
 	//-----------------------
-
 	/**
 	 * Increment Water level by 1.  
 	 */
 	public void raiseWaterLevel() {
+		this.waterLevel = getWaterLevel()+1;
 		if(this.waterLevel == 10){
 			System.out.println("Msg(raiseWaterLevel): GameOver, Water level at Skull & Bones");
 			/////////////////
 			// Game over logic
 			////////////////
 		}
-		else
-			this.waterLevel = getWaterLevel()+1;
 	}
 
 	//-----------------------
 	// Setter
 	//-----------------------
-
 	/**
 	 * Set Water level to its associated difficulty 
-	 * @param difficulty.  
+	 * @param difficulty Game Difficulty  
 	 */
 	public void setWaterLevel(String difficulty){
 		switch(difficulty) {
@@ -89,7 +86,7 @@ public class WaterMeter {
 	//-----------------------
 	/**
 	 * Return Water meter level 
-	 * @return waterLevel. Water level 
+	 * @return waterLevel Water level 
 	 */
 	public int getWaterLevel(){
 		return this.waterLevel;

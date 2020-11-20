@@ -21,7 +21,7 @@ public class Treasure {
 	//----------------------------
 	/**
 	 * Constructor for a Treasure object.
-	 * @param name.	 Treasure name
+	 * @param name	 Treasure name
 	 */
 	public Treasure(TreasureEnums name){
 		this.treasureName=name;
@@ -32,7 +32,7 @@ public class Treasure {
 	//----------------------------
 	/**
 	 * Getter for the name of a Treasurer object.
-	 * @return name. Treasure name
+	 * @return name	 Treasure name
 	 */
 	public TreasureEnums getTreasureName() {
 		return this.treasureName;

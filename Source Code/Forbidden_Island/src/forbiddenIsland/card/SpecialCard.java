@@ -22,7 +22,7 @@ public class SpecialCard extends Card{
     //-----------------------------------
     /**
      * Constructor for a Special Card object.
-     * @param cardName The name of the Card
+     * @param cardName 	The name of the Card
      */
 	SpecialCard(SpecialCardEnums cardName){
 		super(cardName);
@@ -31,7 +31,6 @@ public class SpecialCard extends Card{
 	//-----------------------------------
 	// Methods
 	//-----------------------------------
-
 	/**
 	 * Method to play the Waters Rise card, increases the game water level.
 	 */
@@ -42,7 +41,7 @@ public class SpecialCard extends Card{
 
 	/**
 	 * Use the ability of the Sandbags card, used to shore up any Island Tile. 
-	 * @param islandTile Island Tile to be shored up. 
+	 * @param islandTile 	Island Tile to be shored up. 
 	 */
 	public void useSandbags(IslandTile islandTile){
 		if (islandTile.isFlooded()) {
@@ -60,8 +59,8 @@ public class SpecialCard extends Card{
 	 * Use the ability of the Helicopter lift card, transports Player(s) to another Island Tile.
 	 * Players must be on the same tile. 
 	 * If all team players are on Fool's landing, used to reach the Finish.
-	 * @param flyingPlayers. List of Players to be transported
-	 * @param newTile. 	 Island Tile destination.
+	 * @param flyingPlayers	 List of Players to be transported
+	 * @param newTile	 	 Island Tile destination.
 	 */
 	public void useHelicopterLift(List<Player> flyingPlayers,IslandTile newTile){
 		// Check if destination Island Tile is Sunk
@@ -71,7 +70,7 @@ public class SpecialCard extends Card{
 		}
 		// Ensure all flying members are on the same Island Tile.
 		for(Player p: flyingPlayers) {
-			if(!p.getPawn().equals(flyingPlayers.get(0).getPawn())) {
+			if(!p.getPawn().isSameTile(flyingPlayers.get(0).getPawn())) {
 				System.out.println("Error: All Flying players must be on the same Island Tile");
 				return;
 			}

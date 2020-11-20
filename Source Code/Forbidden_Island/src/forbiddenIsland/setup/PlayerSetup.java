@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
@@ -98,7 +99,8 @@ public class PlayerSetup {
 		System.out.println("Enter your name:");
 		String name = user.nextLine();
 
-		//Assign adventurer role
+		//Randomly assign adventurer role
+		Collections.shuffle(roles);
 		String role = roles.remove(0);
 		System.out.println(name + " is playing as " + role + "\n");
 		// create Player and add them to PlayerList
