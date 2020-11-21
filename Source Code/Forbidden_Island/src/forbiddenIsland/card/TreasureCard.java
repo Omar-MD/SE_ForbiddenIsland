@@ -17,7 +17,7 @@ public class TreasureCard extends Card{
      * Constructor for a TreasureCard object.
      * @param cardName The name of the Card
      */
-	TreasureCard(TreasureEnums cardName){
+	public TreasureCard(TreasureEnums cardName){
 		super(cardName);
 	}
     
