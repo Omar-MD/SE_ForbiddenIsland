@@ -6,6 +6,7 @@ import java.util.HashSet;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
 import forbiddenIsland.card.TreasureCard;
+import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.TreasureEnums;
 import forbiddenIsland.enums.SpecialCardEnums;
 
@@ -35,11 +36,15 @@ public class Hand {
 	//---------------------------
 	// Methods
 	//---------------------------
-	/** NOT COMPLETE
+	/**
 	 * Method to discard used treasure Cards to treasure Discard pile
 	 */
-	public void discard(){
-		getDeck().removeAll(getTreasureCardSet());
+	public void discardTreasureSet(){
+		TreasureDeck treasureDeck = TreasureDeck.getInstance();
+		for (TreasureCard tCard:getTreasureCardSet()) {
+			treasureDeck.discard(tCard);
+			handDeck.remove(tCard);
+		}
 	}
 
 	/**
@@ -123,12 +128,12 @@ public class Hand {
 	}
 
 	/**
-	 * Return SpecialCard in hand.
-	 * @param index	Special Card index
-	 * @return Special Card 
+	 * Return Card in hand.
+	 * @param index	Card index
+	 * @return Card
 	 */
-	public SpecialCard getCard(int index) {
-		return  (SpecialCard) this.handDeck.get(index);
+	public Card getCard(int index) {
+		return this.handDeck.get(index);
 	}
 
 	/**
