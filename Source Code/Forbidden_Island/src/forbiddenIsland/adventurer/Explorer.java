@@ -34,13 +34,10 @@ public class Explorer extends Adventurer {
 	public void swim(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||
 				this.board.getDiagonals(pawn.getPawnTile()).contains(newTile)) {
-			if (!newTile.isSunk())
-				pawn.setPawnTile(newTile);
-			else
-				System.out.println("Error(swim): Cannot swim to Sunk Island Tile");
+			pawn.setPawnTile(newTile);
 		} 
 		else
-			System.out.println("Error(swim): Cannot swim to non-adjacent Island Tile");
+			System.out.println("Error(swim): Cannot swim to chosen Island Tile");
 	}
 
 	@Override 

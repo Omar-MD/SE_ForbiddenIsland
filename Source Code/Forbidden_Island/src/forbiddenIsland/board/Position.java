@@ -62,6 +62,15 @@ public class Position {
     }
 
     /**
+	 * Returns the Manhattan distance between two positions
+	 * @param pos the Position to calculate the distance against
+     * @return the Manhattan distance
+     */
+    public int getManhattan(Position pos) {
+        return Math.abs(x-pos.getX())+Math.abs(y-pos.getY());
+    }
+
+    /**
      * Returns boolean to check if positions are equal
      * @return the boolean
      */
