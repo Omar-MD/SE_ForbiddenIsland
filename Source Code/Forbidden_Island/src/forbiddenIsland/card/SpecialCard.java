@@ -24,7 +24,7 @@ public class SpecialCard extends Card{
      * Constructor for a Special Card object.
      * @param cardName 	The name of the Card
      */
-	SpecialCard(SpecialCardEnums cardName){
+	public SpecialCard(SpecialCardEnums cardName){
 		super(cardName);
 	}
 	

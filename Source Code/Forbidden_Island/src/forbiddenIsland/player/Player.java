@@ -91,29 +91,21 @@ public class Player {
 			if(hand.isTreasureDeck()) {
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
-					if(hand.getTreasureName().equals(TreasureEnums.THE_CRYSTAL_OF_FIRE)) {
-						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
-						hand.discard();
-						break;
-					}
+					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
+					hand.discard();
+					break;
 				case THE_EARTH_STONE:
-					if(hand.getTreasureName().equals(TreasureEnums.THE_EARTH_STONE)) {
-						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
-						hand.discard();
-						break;
-					}
+					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
+					hand.discard();
+					break;
 				case THE_OCEANS_CHALICE:
-					if(hand.getTreasureName().equals(TreasureEnums.THE_OCEANS_CHALICE)) {
-						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
-						hand.discard();
-						break;
-					}
+					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
+					hand.discard();
+					break;
 				case THE_STATUE_OF_THE_WIND:
-					if(hand.getTreasureName().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)) {
-						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
-						hand.discard();
-						break;
-					}
+					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
+					hand.discard();
+					break;
 				default:
 					System.out.println("Error(captureTreasure): Failed to Capture Treasure"); 
 				}

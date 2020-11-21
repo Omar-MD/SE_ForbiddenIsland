@@ -17,7 +17,7 @@ public class FloodCard extends Card{
      * Constructor for a FloodCard object.
      * @param cardName The name of the Card
      */
-	FloodCard(TilesEnums cardName){
+	public FloodCard(TilesEnums cardName){
 		super(cardName);
 	}
     
