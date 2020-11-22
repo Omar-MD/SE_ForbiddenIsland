@@ -38,13 +38,10 @@ public abstract class Adventurer {
 	 */
 	public void move(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile)) {
-			if (!newTile.isSunk())
-				pawn.setPawnTile(newTile);
-			else
-				System.out.println("Error(move): Cannot move to Sunk Island Tile");
+			pawn.setPawnTile(newTile);
 		} 
 		else
-			System.out.println("Error(move): Cannot move to non-adjacent Island Tile");
+			System.out.println("Error(move): Cannot move to the chosen Island Tile");
 	}
 
 	/**

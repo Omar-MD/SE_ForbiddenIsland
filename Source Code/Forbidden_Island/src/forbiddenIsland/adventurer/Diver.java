@@ -32,7 +32,11 @@ public class Diver extends Adventurer {
 	 * @param newTile New Adventurer Island Tile
 	 */
 	public void swim(Pawn pawn, IslandTile newTile) {
-		// super.swim(pawn, newTile);
+		if (this.board.getNearestTiles(pawn.getPawnTile()).contains(newTile)) {
+			pawn.setPawnTile(newTile);
+		}
+		else
+			System.out.println("Error(swim): Cannot swim to chosen Island Tile");
 	}
 
 	@Override

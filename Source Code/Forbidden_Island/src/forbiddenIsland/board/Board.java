@@ -200,7 +200,7 @@ public class Board {
      */
     public List<IslandTile> getDiagonals(IslandTile tile) {
     	// Create an array list of the diagonal Island tiles
-        ArrayList<IslandTile> diagonalTiles = new ArrayList<IslandTile>();
+        List<IslandTile> diagonalTiles = new ArrayList<IslandTile>();
         Position pos = tile.getLoc();
 
         // deltaPos contains the x and y values to be added to get the diagonal positions
@@ -227,7 +227,7 @@ public class Board {
      */
     public List<IslandTile> getAdjacent(IslandTile tile) {
     	// Create an array list of the adjacent Island tiles
-        ArrayList<IslandTile> adjacentTiles = new ArrayList<IslandTile>();
+        List<IslandTile> adjacentTiles = new ArrayList<IslandTile>();
         Position pos = tile.getLoc();
 
         // deltaPos contains the x and y values to be added to get the adjacent positions
@@ -245,6 +245,43 @@ public class Board {
             }
         }
         return adjacentTiles;
+    }
+
+    /**
+     * returns the list of nearest Island tiles.
+     * Needed for diver swim exception.
+     * @param tile the Island Tile.
+     * @return the list of nearest Island tiles
+     */
+    public List<IslandTile> getNearestTiles(IslandTile tile) {
+    	// Create an array list of the adjacent Island tiles
+        List<IslandTile> nearestTiles = getAdjacent(tile);
+        List<Integer> manhattan = new ArrayList<Integer>(); // List containing the Manhattan distances
+        Position tilePos = tile.getLoc();
+
+        for (Position pos:validTilePositions) {
+        	IslandTile t = getTile(pos);
+        	// If the tiles are different and the tile is not sunk, then add the distance to list
+        	if (!tilePos.equals(pos) && !t.isSunk()) {
+        		manhattan.add(tilePos.getManhattan(pos));
+        	}
+        }
+
+        // Find the minimum value of the Manhattan distances
+        int minDist = Collections.min(manhattan);
+
+        for (Position pos:validTilePositions) {
+        	IslandTile t = getTile(pos);
+        	// If the tiles are different and the tile is not sunk, then compute the distance
+        	if (!tilePos.equals(pos) && !t.isSunk()) {
+        		// If the Manhattan distance is equal to the minimum distance we found above,
+        		// add the corresponding Island tile to the nearestTiles list
+        		if (tilePos.getManhattan(pos) == minDist) {
+        			nearestTiles.add(t);
+        		}
+        	}
+        }
+        return nearestTiles;
     }
 
     /**
