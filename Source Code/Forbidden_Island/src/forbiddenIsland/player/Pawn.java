@@ -84,6 +84,6 @@ public class Pawn {
 	 * @return String
 	 */
 	public String toString() {
-		return getPawnTile().toString();
+		return getPawnTile().getTileName().toString();
 	}
 }

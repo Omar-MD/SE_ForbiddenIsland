@@ -3,7 +3,10 @@ package forbiddenIsland.player;
 import java.util.List;
 import forbiddenIsland.adventurer.*;
 import forbiddenIsland.board.IslandTile;
+import forbiddenIsland.card.Card;
+import forbiddenIsland.card.SpecialCard;
 import forbiddenIsland.card.TreasureCard;
+import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.TilesEnums;
 import forbiddenIsland.enums.TreasureEnums;
 import forbiddenIsland.enums.SpecialCardEnums;
@@ -85,6 +88,7 @@ public class Player {
 	/**
 	 * Capture Treasure if the Player is on a treasure Tile 
 	 * and if the player deck consists of 4 matching treasure cards.
+	 * Also discards the used treasure cards to the Treasure Discard pile.
 	 */
 	public void captureTreasure() {
 		if(getPawn().isTreasureTile()) {
@@ -92,19 +96,19 @@ public class Player {
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
-					hand.discard();
+					hand.discardTreasureSet();
 					break;
 				case THE_EARTH_STONE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
-					hand.discard();
+					hand.discardTreasureSet();
 					break;
 				case THE_OCEANS_CHALICE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
-					hand.discard();
+					hand.discardTreasureSet();
 					break;
 				case THE_STATUE_OF_THE_WIND:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
-					hand.discard();
+					hand.discardTreasureSet();
 					break;
 				default:
 					System.out.println("Error(captureTreasure): Failed to Capture Treasure"); 
@@ -140,8 +144,13 @@ public class Player {
 	 */
 	public void useSandbagsCard(IslandTile shoredTile) {
 		if(hand.hasSpecialCard(SpecialCardEnums.SANDBAGS)){
-			hand.getCard(hand.getIndex(SpecialCardEnums.SANDBAGS))
-			.useSandbags(shoredTile);
+			Card c = hand.getCard(hand.getIndex(SpecialCardEnums.SANDBAGS));
+			SpecialCard sCard = (SpecialCard) c;
+			// If Sandbags card was used successfully, send card to treasure discard pile.
+			if (sCard.useSandbags(shoredTile)) {
+				TreasureDeck.getInstance().discard(c);
+				hand.getDeck().remove(c);
+			}
 		}
 		else
 			System.out.println("Error(useSandbagsCard): SandBags card not in Hand"); 
@@ -154,8 +163,13 @@ public class Player {
 	 */
 	public void useHelicopterLiftCard(List<Player> flyingPlayers,IslandTile newTile) {
 		if(hand.hasSpecialCard(SpecialCardEnums.HELICOPTER_LIFT)){
-			hand.getCard(hand.getIndex(SpecialCardEnums.HELICOPTER_LIFT))
-			.useHelicopterLift(flyingPlayers, newTile);
+			Card c = hand.getCard(hand.getIndex(SpecialCardEnums.HELICOPTER_LIFT));
+			SpecialCard sCard = (SpecialCard) c;
+			// If Helicopter Lift card was used successfully, send card to treasure discard pile.
+			if (sCard.useHelicopterLift(flyingPlayers, newTile)) {
+				TreasureDeck.getInstance().discard(c);
+				hand.getDeck().remove(c);
+			}
 		}
 		else
 			System.out.println("Error(useHelicopterLiftCard): HelicopterLift card not in Hand"); 
@@ -166,7 +180,7 @@ public class Player {
 	//----------------------------
 	/**
 	 * Return Player name.
-	 * @return name 
+	 * @return name
 	 */
 	public String getName() {
 		return this.name;
@@ -174,18 +188,26 @@ public class Player {
 
 	/**
 	 * Return Player role.
-	 * @return role 
+	 * @return role
 	 */
 	public Adventurer getRole() {
 		return this.role;
 	}
 
 	/**
-	 * Return Player pawn 
-	 * @return pawn		
+	 * Return Player pawn
+	 * @return pawn
 	 */
 	public Pawn getPawn(){
 		return this.pawn;
+	}
+
+	/**
+	 * Return Player hand
+	 * @return hand
+	 */
+	public Hand getHand(){
+		return this.hand;
 	}
 
 	//----------------------------

@@ -46,4 +46,13 @@ public abstract class Card{
 	public void setName(Enum cardName) {
         this.name = cardName;
     }
+
+	@Override
+	/**
+	 * Print Card enum name
+	 * @return String containing Card enum
+	 */
+	public String toString() {
+		return getName().toString();
+	}
 }
