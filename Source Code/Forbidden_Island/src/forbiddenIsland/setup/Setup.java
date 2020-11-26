@@ -21,6 +21,7 @@ public class Setup {
     private PlayerSetup playerHandler;
     private CardSetup   cardHandler;
     private BoardSetup  boardHandler;
+    private WaterMeterSetup waterMeterHandler;
 
     //===========================================================
     // Get Instance of Singleton
@@ -43,9 +44,10 @@ public class Setup {
      * Constructor class for Setup
      */
     private Setup() {
-        this.playerHandler  = new PlayerSetup();
-        this.cardHandler    = new CardSetup();
-        this.boardHandler   = new BoardSetup();
+        this.playerHandler      = new PlayerSetup();
+        this.cardHandler        = new CardSetup();
+        this.boardHandler       = new BoardSetup();
+        this.waterMeterHandler  = new WaterMeterSetup();
     }
 
     //===========================================================
@@ -68,7 +70,7 @@ public class Setup {
 
         cardHandler.drawTreasureCards();
 
-        //TODO: waterMeterHandler.setupWaterLevel();
+        waterMeterHandler.setupWaterLevel(user);
 
     }
 
