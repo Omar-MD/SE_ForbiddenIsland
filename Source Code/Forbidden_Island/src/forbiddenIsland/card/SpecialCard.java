@@ -47,20 +47,20 @@ public class SpecialCard extends Card{
 	public boolean useSandbags(IslandTile islandTile){
 		if (islandTile.isFlooded()) {
 			islandTile.setState(StateEnums.DRY);
-			System.out.println("Msg: Successfully shored up "+ islandTile.getTileName().toString());
+			System.out.println("Successfully shored up "+ islandTile.getTileName().toString());
 			return true;
 		}
 		else if(islandTile.isDry()) {
-			System.out.println("Error: Island Tile is already Dry");
+			System.out.println("Error(useSandbags): Island Tile is already Dry");
 			return false;
 		}
 		else if(islandTile.isSunk()) {
-			System.out.println("Error: Island Tile is Sunk");
+			System.out.println("Error(useSandbags): Island Tile is Sunk");
 			return false;
 		}
-		else {
-			return false;
-		}
+		else if(islandTile.getState()==null)
+			System.out.println("Error(useSandbags):Null pointers exception");
+		return false;
 	}
 
 	/**
@@ -74,22 +74,21 @@ public class SpecialCard extends Card{
 	public boolean useHelicopterLift(List<Player> flyingPlayers,IslandTile newTile){
 		// Check if destination Island Tile is Sunk
 		if(newTile.isSunk()) {
-			System.out.println("Error: Destination Island Tile is Sunk.");
+			System.out.println("\nError: Destination Island Tile is Sunk.");
 			return false;
 		}
 		// Ensure all flying members are on the same Island Tile.
 		for(Player p: flyingPlayers) {
 			if(!p.getPawn().isSameTile(flyingPlayers.get(0).getPawn())) {
-				System.out.println("Error: All Flying players must be on the same Island Tile");
+				System.out.println("\nError: All Flying players must be on the same Island Tile");
 				return false;
 			}
 		}
 		// Move all players
 		for(Player p: flyingPlayers) {
 			p.getPawn().setPawnTile(newTile);
-			System.out.println("Msg: Successfull transport to "+ newTile.getTileName().toString());
-			return true;
+			System.out.println("\nPlayer "+ p.getName()+" transported to "+ newTile.getTileName().toString());
 		}
-		return false;
+		return true;
 	}
 }

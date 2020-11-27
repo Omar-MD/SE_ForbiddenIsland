@@ -1,6 +1,8 @@
 package forbiddenIsland.card;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 import forbiddenIsland.enums.TilesEnums;
@@ -99,6 +101,24 @@ public class FloodDeck {
 		return drawnCard;
 	}
 
+	/**
+	 * Draw the top i cards from the Flood Deck and
+	 * place them in the Flood discard pile.
+	 * @return List<Card> The drawn Cards
+	 */
+	public List<Card> drawCard(int i) {
+		List<Card> drawnCards = new ArrayList<Card>();
+		for(int j=0; j<=i; j++){
+			if (cardsInDeck.isEmpty()) {
+				refillDeck();
+			}
+			// Draw the top card
+			Card drawnCard = cardsInDeck.pop(); // Pop from deck
+			discardPile.push(drawnCard);
+			drawnCards.add(drawnCard);
+		}
+		return drawnCards;
+	}
 	//-----------------------------------
     // Getters
     //-----------------------------------

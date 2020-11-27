@@ -59,6 +59,19 @@ public class IslandTile {
 		}
 	}
 
+    /**
+	 * Changes the Island Tile state from DRY to FLOODED 
+     * or from FLOODED to SUNK.
+     */
+    public void flip() {
+        if(isDry())
+            this.state = StateEnums.FLOODED;
+        else if(isFlooded())
+            this.state = StateEnums.SUNK;
+        setTileOutline();
+        //notifyAllObserver()
+    }
+
     //-----------------------------------
     // Getters and Setters
     //-----------------------------------

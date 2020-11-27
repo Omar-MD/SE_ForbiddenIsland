@@ -5,7 +5,6 @@ import forbiddenIsland.adventurer.*;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
-import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.TilesEnums;
 import forbiddenIsland.enums.TreasureEnums;
@@ -51,89 +50,82 @@ public class Player {
 	//----------------------------
 	/**
 	 * Move Player.  
-	 * @param newTile		New Island Tile
+	 * @param newTile	New Island Tile
+	 * @return boolean	True if successful, false otherwise
 	 */
-	public void move(IslandTile newTile){
-		getRole().move(getPawn(),newTile);
+	public boolean move(IslandTile newTile){
+		return getRole().move(getPawn(),newTile);
 	}
 
 	/**
 	 * Shore Up Island Tile.
-	 * @param shoredTile	ShoredUp IslandTile.
+	 * @param shoredTile  ShoredUp IslandTile.
+	 * @return boolean	  True if successful, false otherwise
 	 */
-	public void shoreUp(IslandTile shoredTile) {
-		getRole().shoreUp(getPawn().getPawnTile(),shoredTile);
+	public boolean shoreUp(IslandTile shoredTile) {
+		return getRole().shoreUp(getPawn().getPawnTile(),shoredTile);
 	}
 
 	/**
 	 * Give a treasure card present in player deck to another player.
 	 * Except for the Messenger the Treasure card can only be given
 	 * if both players are on same Island Tile
-	 * @param card		Treasure Card given.
-	 * @param teamMate	Player receiving card
+	 * @param  card		Treasure Card given.
+	 * @param  teamMate	Player receiving card
+	 * @return boolean	True if successful, false otherwise
 	 */
-	public void giveTreasurerCard(TreasureCard card, Player teamMate) {
+	public boolean giveTreasurerCard(Card card, Player teamMate) {
 		if(hand.getDeck().contains(card)) {
 			if(getPawn().isSameTile(teamMate.getPawn()) || (getRole() instanceof Messenger)) {
 				hand.getDeck().remove(card);
 				teamMate.hand.addCard(card); 
+				return true;
 			}
 			else
-				System.out.println("Error(giveTreasureCard): Pawns must be on the same Island Tile to give Treasure Card");
+				System.out.println("\nError(giveTreasureCard): Pawns must be on the same Island Tile to give Treasure Card");
 		}
 		else
-			System.out.println("Error(giveTreasureCard): Treasure Card not in player Deck");
+			System.out.println("\nError(giveTreasureCard): Treasure Card not in player Deck");
+		return false;
 	}
 
 	/**
 	 * Capture Treasure if the Player is on a treasure Tile 
 	 * and if the player deck consists of 4 matching treasure cards.
 	 * Also discards the used treasure cards to the Treasure Discard pile.
+	 * @return boolean	True if successful, false otherwise
 	 */
-	public void captureTreasure() {
+	public boolean captureTreasure() {
 		if(getPawn().isTreasureTile()) {
 			if(hand.isTreasureDeck()) {
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
 					hand.discardTreasureSet();
-					break;
+					return true;
 				case THE_EARTH_STONE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
 					hand.discardTreasureSet();
-					break;
+					return true;
 				case THE_OCEANS_CHALICE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
 					hand.discardTreasureSet();
-					break;
+					return true;
 				case THE_STATUE_OF_THE_WIND:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
 					hand.discardTreasureSet();
-					break;
+					return true;
 				default:
-					System.out.println("Error(captureTreasure): Failed to Capture Treasure"); 
+					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
 				}
 			}
 			else
-				System.out.println("Error(captureTreasure): Missing Matching Treasure Cards"); 
+				System.out.println("\nError(captureTreasure): Missing Matching Treasure Cards"); 
 		}
 		else
-			System.out.println("Error(captureTreasure): Not on Treasure Tile"); 
+			System.out.println("\nError(captureTreasure): Not on Treasure Tile"); 
+		return false;
 	} 
-
-	//	public void toVictory() {
-	//	// Check if all Forbidden Island Players are present, and on Fool's Landing 
-	//	if(flyingPlayers.containsAll(team.getTeamList()) && 
-	//			StartPosition.getTileName().equals(TilesEnums.FOOLS_LANDING)) {
-	//
-	//		System.out.println("Msg: Arrived at Finish");
-	//		////////////////////////
-	//		// Logic for Game Finish
-	//		////////////////////////
-	//	}else {
-	//		System.out.println("Msg: Successfull Transport to: "+destination.getTileName().toString());
-	//	}
-	//}
 
 	//-----------------------------------
 	// SpecialCard Actions
@@ -141,8 +133,9 @@ public class Player {
 	/**
 	 * Use Sandbags Special Card.
 	 * @param shoredTile	Shored Island Tile. 
+	 * @return boolean		True if successful, false otherwise
 	 */
-	public void useSandbagsCard(IslandTile shoredTile) {
+	public boolean useSandbagsCard(IslandTile shoredTile) {
 		if(hand.hasSpecialCard(SpecialCardEnums.SANDBAGS)){
 			Card c = hand.getCard(hand.getIndex(SpecialCardEnums.SANDBAGS));
 			SpecialCard sCard = (SpecialCard) c;
@@ -150,18 +143,21 @@ public class Player {
 			if (sCard.useSandbags(shoredTile)) {
 				TreasureDeck.getInstance().discard(c);
 				hand.getDeck().remove(c);
+				return true;
 			}
 		}
 		else
-			System.out.println("Error(useSandbagsCard): SandBags card not in Hand"); 
+			System.out.println("\nError(useSandbagsCard): SandBags card not in Hand"); 
+		return false;
 	}
 
 	/**
 	 * Use HelicopterLift Special Card.
 	 * @param flyingPlayers Players to be flown.
 	 * @param newTile		Island Tile Destination.
+	 * @return boolean		True if successful, false otherwise
 	 */
-	public void useHelicopterLiftCard(List<Player> flyingPlayers,IslandTile newTile) {
+	public boolean useHelicopterLiftCard(List<Player> flyingPlayers,IslandTile newTile) {
 		if(hand.hasSpecialCard(SpecialCardEnums.HELICOPTER_LIFT)){
 			Card c = hand.getCard(hand.getIndex(SpecialCardEnums.HELICOPTER_LIFT));
 			SpecialCard sCard = (SpecialCard) c;
@@ -169,10 +165,12 @@ public class Player {
 			if (sCard.useHelicopterLift(flyingPlayers, newTile)) {
 				TreasureDeck.getInstance().discard(c);
 				hand.getDeck().remove(c);
+				return true;
 			}
 		}
 		else
-			System.out.println("Error(useHelicopterLiftCard): HelicopterLift card not in Hand"); 
+			System.out.println("\nError(useHelicopterLiftCard): HelicopterLift card not in Hand"); 
+		return false;
 	}
 
 	//----------------------------
@@ -238,7 +236,7 @@ public class Player {
 			this.role = new Diver(); 
 			break; 
 		default: 
-			System.out.println("Error(setRole): Incorrect Adventurer role String"); 
+			System.out.println("\nError(setRole): Incorrect Adventurer role String"); 
 		}
 	}
 
@@ -267,7 +265,7 @@ public class Player {
 			this.pawn = new Pawn(TilesEnums.IRON_GATE); 
 			break; 
 		default: 
-			System.out.println("Error(setPawn): Incorrect Adventurer role String"); 
+			System.out.println("\nError(setPawn): Incorrect Adventurer role String"); 
 		}
 	}
 

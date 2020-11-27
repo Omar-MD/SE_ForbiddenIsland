@@ -133,6 +133,7 @@ public class Hand {
 	 * @return Card
 	 */
 	public Card getCard(int index) {
+		System.out.println(this.handDeck.get(index));
 		return this.handDeck.get(index);
 	}
 
@@ -161,5 +162,17 @@ public class Hand {
 	 */
 	public void addCard(Card card) {
 		this.handDeck.add(card);
+	}
+	@Override
+	/**
+	 * Print Player Hand 
+	 * @return String containing Player Hand
+	 */
+	public String toString() {
+		List<String> cards = new ArrayList<String>();
+		for(int i=1; i < handDeck.size()+1; i++){
+			 cards.add("\n"+"["+i+"]"+" : "+getCard(i-1).toString());
+		}
+		return String.join(",", cards);
 	}
 }
