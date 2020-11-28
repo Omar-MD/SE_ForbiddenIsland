@@ -259,8 +259,9 @@ public class Board {
     }
 
     /**
-	 * Resets the Treasure characters once corresponding input treasure
-	 * has been captured
+	 * Resets the Treasure characters from both Treasure Tiles
+	 * once corresponding input treasure has been captured.
+	 * Also sets treasure to null.
 	 * @param treasure the treasure
 	 */
 	public void resetTreasures(TreasureEnums treasure) {
@@ -270,9 +271,8 @@ public class Board {
     		for (int x = 0; x < 6; x++) {
     			// If there exists a valid Island tile and it contains the treasure, reset char
     			if(boardTiles[x][y] != null && boardTiles[x][y].getTreasure() == treasure) {
-    				int[] bL = {8*x, 4*y}; // Bottom left corner of a tile
-    				int[] tLoc = {bL[0] + 1, bL[1] + 1}; // Position of mapChar corresponding to the Treasure
-    				grid.getDisplayGrid()[tLoc[0]][tLoc[1]] = ' ';
+    				// Set treasure to null once treasure has been captured for both IslandTiles
+    				boardTiles[x][y].resetTreasure();
     			}
     		}
     	}
