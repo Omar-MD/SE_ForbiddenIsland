@@ -88,8 +88,7 @@ public class SpecialCard extends Card{
 		for(Player p: flyingPlayers) {
 			p.getPawn().setPawnTile(newTile);
 			System.out.println("Msg: Successfull transport to "+ newTile.getTileName().toString());
-			return true;
 		}
-		return false;
+		return true;
 	}
 }
