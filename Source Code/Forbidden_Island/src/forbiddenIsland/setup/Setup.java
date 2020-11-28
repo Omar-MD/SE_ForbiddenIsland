@@ -66,7 +66,7 @@ public class Setup {
 
         playerHandler.createAllPlayers(user);
 
-        //TODO: boardHandler.addPlayerPawns();
+        boardHandler.addPlayerPawns();
 
         cardHandler.drawTreasureCards();
 

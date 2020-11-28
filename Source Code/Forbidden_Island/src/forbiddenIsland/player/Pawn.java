@@ -1,6 +1,7 @@
 package forbiddenIsland.player;
 
 import forbiddenIsland.board.Board;
+import forbiddenIsland.board.Grid;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.enums.TilesEnums;
 
@@ -17,6 +18,7 @@ public class Pawn {
 	// Variable Setup
 	//---------------------------
 	private IslandTile pawnTile;
+	private char       mapChar;
 
 	//----------------------------
 	// Constructor
@@ -25,8 +27,9 @@ public class Pawn {
 	 * Constructor for a player Pawn object.
 	 * @param startTileEnum	 Pawn Island Tile
 	 */
-	Pawn(TilesEnums startTileEnum){
+	Pawn(TilesEnums startTileEnum, char mapChar){
 		initPawnTile(startTileEnum);
+		this.mapChar = mapChar;
 	}
 
 	//-----------------------------------
@@ -51,11 +54,24 @@ public class Pawn {
 	// Setters
 	//-----------------------------------
 	/**
+	 * Method to return the character associated to this
+	 * pawn which will be printed to the board.
+	 * @return the pawn character
+	 */
+	public char getChar() {
+	    return mapChar;
+	}
+
+	/**
 	 * Set Pawn Island Tile
 	 * @param islandTile
 	 */
 	public void setPawnTile(IslandTile islandTile){
+		// Resets Pawn char on previous tile on Grid
+		Grid.getInstance().resetPawnChar(pawnTile, mapChar);
 		this.pawnTile=islandTile;
+		// Adds Pawn char to new tile on Grid
+		Grid.getInstance().setPawnOnGrid(pawnTile, mapChar);
 	}
 	
 	/**
@@ -64,7 +80,7 @@ public class Pawn {
 	 */
 	public void initPawnTile(TilesEnums startTileEnum) {
 		Board board = Board.getInstance();
-		setPawnTile(board.getIslandTile(startTileEnum));
+		this.pawnTile=board.getIslandTile(startTileEnum);
 	}
 	
 	//------------------------------------

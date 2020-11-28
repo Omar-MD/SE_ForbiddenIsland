@@ -1,6 +1,8 @@
 package forbiddenIsland.setup;
 
 import forbiddenIsland.board.*;
+import forbiddenIsland.player.Player;
+import forbiddenIsland.player.PlayerList;
 
 /**
  * Class to handle all aspects of setting up the Board for a game of Forbidden Island
@@ -15,8 +17,8 @@ public class BoardSetup {
 	//-----------------------------------
 	// Setup Variables
 	//-----------------------------------
-	private Board     setupBoard;
-	private char[][] displayGrid;
+	private Board setupBoard;
+	private Grid  setupGrid;
 	
 	//-----------------------------------
 	// Constructor
@@ -27,8 +29,8 @@ public class BoardSetup {
 	public BoardSetup() {
 	    // Get first instance of Board
 		this.setupBoard = Board.getInstance();
-		// Get display grid char array
-		this.displayGrid = setupBoard.getDisplayGrid();
+		// Get first instance of Grid
+		this.setupGrid = Grid.getInstance();
 	}
 	
 	//-----------------------------------
@@ -43,11 +45,15 @@ public class BoardSetup {
 	}
 
 	/**
-	 * add all the Pawns relating to the Players in PlayerList to the
-	 * Board
+	 * Add all the Pawns relating to the Players in PlayerList to the Board
 	 */
 	public void addPlayerPawns() { // Add all Players' Pawns to the board
-	    
+		PlayerList playerList = PlayerList.getInstance();
+
+		for (Player i: playerList.getAllPlayers()) {
+			IslandTile pawnTile = i.getPawn().getPawnTile();
+			setupGrid.setPawnOnGrid(pawnTile, i.getChar());
+		}
 	}
 	
 	//-----------------------------------
@@ -83,7 +89,7 @@ public class BoardSetup {
 
 		// mapChar to represent treasure
 		char mapChar = tile.getTreasure().getChar();
-		displayGrid[tLoc[0]][tLoc[1]] = mapChar;
+		setupGrid.getDisplayGrid()[tLoc[0]][tLoc[1]] = mapChar;
 	}
 
 	/**
@@ -97,7 +103,7 @@ public class BoardSetup {
     		for (int x = 0; x < 6; x++) {
     			// If there exists a valid Island tile, draw tile
     			if(boardTiles[x][y] != null) {
-    				boardTiles[x][y].setTileOutline();
+    				setupGrid.setTileOutline(boardTiles[x][y]);
     			}
     		}
     	}

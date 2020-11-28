@@ -53,7 +53,7 @@ public abstract class Adventurer {
 	public void shoreUp(IslandTile pawnTile,IslandTile shoredTile) {
 		if (pawnTile.equals(shoredTile) || this.board.getAdjacent(pawnTile).contains(shoredTile)) {
 			if(shoredTile.isFlooded())
-				pawnTile.setState(StateEnums.DRY);
+				shoredTile.setState(StateEnums.DRY);
 			
 			else if(shoredTile.isDry())
 				System.out.println("Error(shoreUp): Cannot Shore Up Dry Island Tile");
