@@ -121,7 +121,7 @@ public class IslandTile {
      */
     public void setState(StateEnums state) {
         this.state = state;
-        setTileOutline();
+        Grid.getInstance().setTileOutline(this);
     }
 
     /**
@@ -139,79 +139,6 @@ public class IslandTile {
     public void setTreasure(TreasureEnums treasure) {
         this.treasure = treasure;
     }
-
-    //----------------------------------------------------------
-    // Helper methods to draw/update Island tiles on the Board
-    //----------------------------------------------------------
-    /**
-	 * Outline the tile to represent in the form of a grid.
-	 */
-	public void setTileOutline() {
-		// Get position x and y of Island tile
-		int x = getLoc().getX();
-		int y = getLoc().getY();
-
-		// Translating tile position to display grid location
-		int[] bL = {8*x, 4*y}; // Bottom left corner of a tile
-		int[] bR = {bL[0] + 6, bL[1]}; // Bottom right corner of a tile
-		int[] tL = {bL[0], bL[1] + 3}; // Top left corner of a tile
-		int[] tR = {bL[0] + 6, bL[1] + 3}; // Top right corner of a tile		
-
-		// mapChar to represent tile state i.e. dry, flooded or sunk
-		char mapChar = getState().getChar();
-		drawSide(mapChar, bL[0],bL[1] + 1,tL[1]);   // Left side of tile
-		drawSide(mapChar, bR[0],bR[1] + 1,tR[1]);   // Right side of tile
-		drawBottom(mapChar, bL[1],bL[0],bR[0]); // Bottom of tile
-		drawTop(tL[1], tL[0] + 2); // Top of tile
-	}
-
-	/**
-	 * Draw the top of Island Tile
-	 * @param y The row to draw the tile
-	 * @param xStart The beginning of the top of Tile
-	 */
-	private void drawTop(int y, int xStart) {
-		// If tile is sunk, replace top of tile with space chars
-		if (isSunk()) {
-			for (int x = xStart; x < xStart + 3; x++) {
-				Board.getInstance().getDisplayGrid()[x][y] = ' ';
-			}
-		}
-		// If tile is not sunk, draw top of tile
-		else {
-			char[] mapArr = getTileName().getMapString().toCharArray();
-			for (char c : mapArr) {
-				Board.getInstance().getDisplayGrid()[xStart][y] = c;
-				xStart++;
-			}
-		}
-	}
-
-	/**
-	 * Draw the bottom of Island Tile
-	 * @param mapChar The character that represents the tile state
-	 * @param y    The row to draw the tile
-	 * @param xMin The beginning of the bottom of Tile
-	 * @param xMax The end of the bottom of Tile
-	 */
-	private void drawBottom(char mapChar, int y, int xMin, int xMax) {
-		for (int x = xMin; x < xMax + 1; x++) {
-			Board.getInstance().getDisplayGrid()[x][y] = mapChar;
-        }
-	}
-
-	/**
-	 * Draw the side of Island Tile
-	 * @param mapChar The character that represents the tile state
-	 * @param x    The column to draw the tile
-	 * @param yMin The beginning of the side of Tile
-	 * @param yMax The end of the side of Tile
-	 */
-	private void drawSide(char mapChar, int x, int yMin, int yMax) {
-		for (int y = yMin; y < yMax + 1; y++) {
-			Board.getInstance().getDisplayGrid()[x][y] = mapChar;
-        }
-	}
 
     //-----------------------------------
     // Other

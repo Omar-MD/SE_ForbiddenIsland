@@ -12,7 +12,7 @@ import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.gameplay.Treasure;
 
 /**
- * Player class containing the name,adventurer role, pawn and hand in the game of Forbidden Island.
+ * Player class containing the name, adventurer role, pawn and hand in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -37,10 +37,10 @@ public class Player {
 	 * @param role	 String depicting Adventurer Role
 	 * 
 	 */
-	public Player(String name, String role){
+	public Player(int playerNum, String name, String role){
 		this.name=name;
 		setRole(role);
-		setPawn(role);
+		setPawn(role, playerNum);
 		this.hand = new Hand();
 		this.team = PlayerList.getInstance();
 	}
@@ -208,6 +208,14 @@ public class Player {
 		return this.hand;
 	}
 
+	/**
+	 * Gets the character associated to a Player's Pawn
+	 * @return the pawn character
+	 */
+	public char getChar() {
+	    return pawn.getChar();
+	}
+
 	//----------------------------
 	// Setters 
 	//----------------------------
@@ -244,28 +252,32 @@ public class Player {
 	 * Setter for Player pawn.
 	 * @param String role	Players role
 	 */
-	private void setPawn(String role) {
+	private void setPawn(String role, int playerNum) {
 		switch(role) {
 		case "Pilot": 
-			this.pawn = new Pawn(TilesEnums.FOOLS_LANDING); 
+			this.pawn = new Pawn(TilesEnums.FOOLS_LANDING, (char) (playerNum+48)); // Convert int to char (ASCII)
 			break; 
 		case "Navigator": 
-			this.pawn = new Pawn(TilesEnums.GOLD_GATE); 
+			this.pawn = new Pawn(TilesEnums.GOLD_GATE, (char) (playerNum+48));
 			break; 
 		case "Messenger": 
-			this.pawn = new Pawn(TilesEnums.SILVER_GATE); 
+			this.pawn = new Pawn(TilesEnums.SILVER_GATE, (char) (playerNum+48));
 			break; 
 		case "Explorer": 
-			this.pawn = new Pawn(TilesEnums.COPPER_GATE); 
+			this.pawn = new Pawn(TilesEnums.COPPER_GATE, (char) (playerNum+48));
 			break; 
 		case "Engineer": 
-			this.pawn = new Pawn(TilesEnums.BRONZE_GATE); 
+			this.pawn = new Pawn(TilesEnums.BRONZE_GATE, (char) (playerNum+48));
 			break; 
 		case "Diver": 
-			this.pawn = new Pawn(TilesEnums.IRON_GATE); 
+			this.pawn = new Pawn(TilesEnums.IRON_GATE, (char) (playerNum+48));
 			break; 
 		default: 
+<<<<<<< HEAD
 			System.out.println("\nError(setPawn): Incorrect Adventurer role String"); 
+=======
+			System.out.println("Error(setPawn): Incorrect Adventurer role String");
+>>>>>>> 9f096f63643db657297de94a4d65e3911c0b923c
 		}
 	}
 

@@ -23,10 +23,8 @@ public class Board {
 	//-----------------------------------
 	private static Board        theBoard;
     private IslandTile[][]      boardTiles;
-    private char[][]            displayGrid;
+    private Grid                grid;
     private ArrayList<Position> validTilePositions;
-    private int                 numRows;
-    private int                 numCols;
 
     //-----------------------------------
     // Get Instance of Singleton
@@ -50,22 +48,18 @@ public class Board {
      * Sets up the board including the island tiles. 
      */
     private Board() {
-        // The dimensions of displayGrid needed when printing Board
-        this.numRows = 24;
-        this.numCols = 47;
         this.validTilePositions = createValidTilePositions();
 
-        // Create blank Display Grid
-        this.displayGrid = new char[numCols][numRows];
-        initDisplayGrid(); // Initialise Display Grid
-        
+        // Get instance of Grid
+        this.grid = Grid.getInstance();
+
         // Create blank Tiles for Board
         this.boardTiles = new IslandTile[6][6];
         initBoard(); // Initialise Board
     }
 
     //----------------------------------------------------------
-    // Private methods to help initialise Board and Display Grid
+    // Private methods to help initialise Board
     //----------------------------------------------------------
     /**
      * Creates the ArrayList of Island Tile Positions.
@@ -114,18 +108,6 @@ public class Board {
     	}
 	}
 
-    /**
-     * Initialise the display grid to be printed.
-     * The grid should be filled with spaces initially.
-     */
-    private void initDisplayGrid() {
-    	for (int y=0; y<numRows; y++) {         // For each row in displayGrid
-            for (int x=0; x<numCols; x++) {     // For each column in row
-                displayGrid[x][y]=' ';
-            }
-      }
-	}
-
     //-----------------------------------
     // Getters
     //----------------------------------- 
@@ -135,14 +117,6 @@ public class Board {
      */
     public IslandTile[][] getTiles() {
         return boardTiles;
-    }
-
-    /**
-     * returns the char array of grid to be displayed.
-     * @return the char array.
-     */
-    public char[][] getDisplayGrid() {
-        return displayGrid;
     }
 
     /**
@@ -317,7 +291,7 @@ public class Board {
     			if(boardTiles[x][y] != null && boardTiles[x][y].getTreasure() == treasure) {
     				int[] bL = {8*x, 4*y}; // Bottom left corner of a tile
     				int[] tLoc = {bL[0] + 1, bL[1] + 1}; // Position of mapChar corresponding to the Treasure
-    				displayGrid[tLoc[0]][tLoc[1]] = ' ';
+    				grid.getDisplayGrid()[tLoc[0]][tLoc[1]] = ' ';
     			}
     		}
     	}
@@ -327,23 +301,10 @@ public class Board {
     // Other
     //-----------------------------------
     /**
-     * Void function to print the board with the island tiles, pawns, treasures etc. Public as
-     * function simply prints the board which is needed by gameplay package.
+     * Void function to print the board. Calls the printGrid method.
      */
     public void printBoard() { // Print the Board to the terminal
-        
-        String rowString;
-        
-        for (int y=numRows-1; y>=0; y--) {  // Cycle down through rows in Grid
-            rowString = "";
-
-            for (int x=0; x<numCols; x++) { // Cycle across through cols in row
-                rowString += displayGrid[x][y];
-                rowString += ' ';
-            }
-            
-            System.out.println(rowString); // Print row
-        }
+        grid.printGrid();
     }
 
     //------------------------------------------

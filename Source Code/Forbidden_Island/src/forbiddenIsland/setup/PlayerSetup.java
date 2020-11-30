@@ -50,7 +50,7 @@ public class PlayerSetup {
 				numOfPlayers = getNumberOfPlayers(user);
 			}
 			for (int i = 0; i < numOfPlayers; i++) {
-				createIndividualPlayer(user);
+				createIndividualPlayer(user, i);
 			}
 			playersSelected = true;
 		}
@@ -93,9 +93,10 @@ public class PlayerSetup {
 	/**
 	 * Assign role to a player, create Player and add Player to PlayerList
 	 * @param user	Scanner which we read the users input from
+	 * @param i     Integer value representing the player number
 	 */
-	public void createIndividualPlayer(Scanner user) {
-		System.out.println("\nPlayer "+(playerList.getNumPlayers()+1)+"...");
+	public void createIndividualPlayer(Scanner user, int i) {
+		System.out.println("\nPlayer "+(i+1)+"...");
 		System.out.println("Enter your name:");
 		String name = user.nextLine();
 
@@ -104,8 +105,8 @@ public class PlayerSetup {
 		String role = roles.remove(0);
 		System.out.println(name + " is playing as " + role + "\n");
 		// create Player and add them to PlayerList
-		// want players to be from 2-4 rather than 0-3
-		playerList.addPlayer(new Player(name,role));
+		// want players to be from 1-4 rather than 0-3
+		playerList.addPlayer(new Player(i+1, name, role));
 	}
 	
 }
