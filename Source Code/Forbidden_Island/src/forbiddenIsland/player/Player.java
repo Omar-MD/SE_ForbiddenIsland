@@ -2,6 +2,7 @@ package forbiddenIsland.player;
 
 import java.util.List;
 import forbiddenIsland.adventurer.*;
+import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
@@ -93,22 +94,27 @@ public class Player {
 	public void captureTreasure() {
 		if(getPawn().isTreasureTile()) {
 			if(hand.isTreasureDeck()) {
+				Board board = Board.getInstance();
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
 					break;
 				case THE_EARTH_STONE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_EARTH_STONE);
 					break;
 				case THE_OCEANS_CHALICE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_OCEANS_CHALICE);
 					break;
 				case THE_STATUE_OF_THE_WIND:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_STATUE_OF_THE_WIND);
 					break;
 				default:
 					System.out.println("Error(captureTreasure): Failed to Capture Treasure"); 
