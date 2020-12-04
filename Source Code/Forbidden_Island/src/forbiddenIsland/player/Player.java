@@ -2,6 +2,7 @@ package forbiddenIsland.player;
 
 import java.util.List;
 import forbiddenIsland.adventurer.*;
+import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
@@ -67,6 +68,15 @@ public class Player {
 	}
 
 	/**
+	 * Swim away from sinking Island Tile.
+	 * @param newTile  	new IslandTile.
+	 * @return boolean	True if successful, false otherwise
+	 */
+	public boolean swim(IslandTile newTile) {
+		return getRole().swim(getPawn(),newTile);
+	}
+
+	/**
 	 * Give a treasure card present in player deck to another player.
 	 * Except for the Messenger the Treasure card can only be given
 	 * if both players are on same Island Tile
@@ -98,22 +108,27 @@ public class Player {
 	public boolean captureTreasure() {
 		if(getPawn().isTreasureTile()) {
 			if(hand.isTreasureDeck()) {
+				Board board = Board.getInstance();
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
 					return true;
 				case THE_EARTH_STONE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_EARTH_STONE);
 					return true;
 				case THE_OCEANS_CHALICE:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_OCEANS_CHALICE);
 					return true;
 				case THE_STATUE_OF_THE_WIND:
 					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
 					hand.discardTreasureSet();
+					board.resetTreasures(TreasureEnums.THE_STATUE_OF_THE_WIND);
 					return true;
 				default:
 					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
@@ -273,11 +288,7 @@ public class Player {
 			this.pawn = new Pawn(TilesEnums.IRON_GATE, (char) (playerNum+48));
 			break; 
 		default: 
-<<<<<<< HEAD
-			System.out.println("\nError(setPawn): Incorrect Adventurer role String"); 
-=======
 			System.out.println("Error(setPawn): Incorrect Adventurer role String");
->>>>>>> 9f096f63643db657297de94a4d65e3911c0b923c
 		}
 	}
 

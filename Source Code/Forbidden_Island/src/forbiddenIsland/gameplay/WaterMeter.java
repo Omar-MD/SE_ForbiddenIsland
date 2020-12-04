@@ -47,12 +47,7 @@ public class WaterMeter {
 	 */
 	public void raiseWaterLevel() {
 		this.waterLevel = getWaterLevel()+1;
-		if(this.waterLevel == 10){
-			System.out.println("Msg(raiseWaterLevel): GameOver, Water level at Skull & Bones");
-			/////////////////
-			// Game over logic
-			////////////////
-		}
+		System.out.println("***   WATER LEVEL AT "+getWaterLevel() +"   ***");
 	}
 
 	//-----------------------

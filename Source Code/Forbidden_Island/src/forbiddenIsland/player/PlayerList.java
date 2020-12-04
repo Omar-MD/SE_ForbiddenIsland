@@ -73,7 +73,6 @@ public class PlayerList {
      * @return 			Player's integer index.
      */
     public int getPlayerIndex(Player player){
-		System.out.println(playerList.indexOf(player));
     	return playerList.indexOf(player);
     }
 

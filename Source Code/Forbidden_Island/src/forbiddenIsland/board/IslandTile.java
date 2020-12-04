@@ -66,10 +66,12 @@ public class IslandTile {
     public void flip() {
         if(isDry())
             this.state = StateEnums.FLOODED;
-        else if(isFlooded())
+        else if(isFlooded()){
+            System.out.println("***   "+this.tileName.toString()+" SUNK   ***");
             this.state = StateEnums.SUNK;
-        setTileOutline();
-        //notifyAllObserver()
+            resetTreasure();
+        }
+        Grid.getInstance().setTileOutline(this);
     }
 
     //-----------------------------------
@@ -133,9 +135,9 @@ public class IslandTile {
     }
 
     /**
-	 * Sets the Treasure enum associated with the Island Tile or null
-     * @param treasure the treasure
-     */
+    * Sets the Treasure enum associated with the Island Tile
+    * @param treasure the treasure
+    */
     public void setTreasure(TreasureEnums treasure) {
         this.treasure = treasure;
     }
@@ -143,6 +145,14 @@ public class IslandTile {
     //-----------------------------------
     // Other
     //-----------------------------------
+    /**
+     * Resets the Treasure associated with the Island Tile to null.
+     */
+    public void resetTreasure() {
+        this.treasure = null;
+        Grid.getInstance().resetTreasureChar(this);
+    }
+
     /**
 	 * Returns true if Island tile is dry and false otherwise
 	 * @return boolean

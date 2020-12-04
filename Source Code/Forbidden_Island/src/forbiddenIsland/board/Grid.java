@@ -174,6 +174,20 @@ public class Grid {
 		displayGrid[bL[0]+1+pawnNum][bL[1]+1+(pawnNum%2)] = ' ';
 	}
 
+	/**
+	 * Resets the Treasure character for a treasure tile that is sunk.
+	 * @param tile The tile to draw a corresponding treasure
+	 */
+	public void resetTreasureChar(IslandTile tile) {
+		// Get position x and y of Island tile
+		int x = tile.getLoc().getX();
+		int y = tile.getLoc().getY();
+		int[] bL = {8*x, 4*y}; // Bottom left corner of a tile
+		int[] tLoc = {bL[0] + 1, bL[1] + 1}; // Position of mapChar corresponding to the Treasure
+
+		displayGrid[tLoc[0]][tLoc[1]] = ' ';
+	}
+	
     //-----------------------------------
     // Getters
     //----------------------------------- 

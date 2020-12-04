@@ -1,7 +1,7 @@
 package forbiddenIsland.adventurer;
 
-import java.util.List;
-import forbiddenIsland.board.IslandTile;
+// import java.util.List;
+// import forbiddenIsland.board.IslandTile;
 
 /**
  * Class depicting adventurer type Engineer
@@ -25,20 +25,24 @@ public class Engineer extends Adventurer {
 	//----------------------------
 	// Methods
 	//----------------------------
-	/**
-	 * Shore Up two Island Tiles.
-	 * Can only shoreUp Adventurer Island Tile, and non-diagonal adjacent tiles. 
-	 * @param shoredTiles  List of IslandTiles to be Shored up
-	 * @param pawnTile	   Player pawn Island Tile
-	 */
-	public void shoreUp(IslandTile pawnTile,List<IslandTile> shoredTiles) {
-		if(shoredTiles.size()==1)
-			super.shoreUp(pawnTile, shoredTiles.get(0));
-		else if(shoredTiles.size()==2){
-			super.shoreUp(pawnTile, shoredTiles.get(0));
-			super.shoreUp(pawnTile, shoredTiles.get(1));
-		}
-	}
+	// /**
+	//  * Shore Up two Island Tiles.
+	//  * Can only shoreUp Adventurer Island Tile, and non-diagonal adjacent tiles. 
+	//  * @param shoredTiles  List of IslandTiles to be Shored up
+	//  * @param pawnTile	   Player pawn Island Tile
+	//  * @return 
+	//  */
+	// public boolean shoreUp(IslandTile pawnTile,List<IslandTile> shoredTiles) {
+	// 	if(shoredTiles.size()==1){
+	// 		if(super.shoreUp(pawnTile, shoredTiles.get(0)))
+	// 			return true;
+	// 	}
+	// 	else if(shoredTiles.size()==2){
+	// 		if(super.shoreUp(pawnTile, shoredTiles.get(0)) && super.shoreUp(pawnTile, shoredTiles.get(1)))
+	// 			return true;
+	// 	}
+	// 	return false;
+	// }
 
 	@Override 
 	/**

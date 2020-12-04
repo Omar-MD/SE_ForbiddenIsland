@@ -53,7 +53,7 @@ public class Hand {
 	 */
 	public boolean isTreasureDeck() {
 		if(getTreasureCardSet().size() == 4)
-			return (new HashSet<TreasureCard>(getTreasureCardSet()).size() == 1);
+			return true;
 		return false;
 	}
 
@@ -91,27 +91,42 @@ public class Hand {
 	 */
 	public List<TreasureCard> getTreasureCardSet(){
 		List<TreasureCard> matchedSet = new ArrayList<TreasureCard>();
-		HashSet<TreasureCard> uniqueCards = new HashSet<TreasureCard>();
+		HashSet<String> uniqueCards = new HashSet<String>();
 		
 		// Find unique treasure cards in deck
 		for(Card c:getDeck()){
-			if(c instanceof TreasureCard)
-				uniqueCards.add((TreasureCard)c);
+			if(c instanceof TreasureCard){
+				uniqueCards.add(c.getName().name());
+			}
 		}
+
 		// Find full matched treasure set if in deck
 		// Otherwise return last matched set
-		for(TreasureCard uC:uniqueCards){
+		for(String uC:uniqueCards){
 			matchedSet.clear();
 			for(Card c:getDeck()){
 				if(c instanceof TreasureCard){
-					TreasureCard matchedCard = (TreasureCard)c;
-					if(matchedCard.equals(uC))
-						matchedSet.add(matchedCard);	
+					if(c.getName().name().equals(uC))
+						matchedSet.add((TreasureCard)c);	
 				}
 			}
-			if(matchedSet.size() == 4) return matchedSet;	
+			if(matchedSet.size() == 4) return matchedSet;
 		}
 		return matchedSet;
+	}
+
+	/**
+	 * Return set of SpecialCards in player hand
+	 * @return String
+	 */
+	public String getSpecialCards() {
+		List<String> sCards = new ArrayList<String>();
+		for(int i=1; i < handDeck.size()+1; i++){
+			if(getDeck().get(i-1) instanceof SpecialCard){
+				sCards.add("\n["+i+"]"+" : "+getCard(i-1).toString());
+			}
+		}
+		return String.join(" ", sCards);
 	}
 
 	/**
@@ -133,7 +148,6 @@ public class Hand {
 	 * @return Card
 	 */
 	public Card getCard(int index) {
-		System.out.println(this.handDeck.get(index));
 		return this.handDeck.get(index);
 	}
 
@@ -171,8 +185,8 @@ public class Hand {
 	public String toString() {
 		List<String> cards = new ArrayList<String>();
 		for(int i=1; i < handDeck.size()+1; i++){
-			 cards.add("\n"+"["+i+"]"+" : "+getCard(i-1).toString());
+			 cards.add("\n["+i+"]"+" : "+getCard(i-1).toString());
 		}
-		return String.join(",", cards);
+		return String.join(" ", cards);
 	}
 }
