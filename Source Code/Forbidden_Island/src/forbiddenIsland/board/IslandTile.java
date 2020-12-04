@@ -94,7 +94,7 @@ public class IslandTile {
     }
 
     /**
-	 * Returns the position of the Island Tile
+	   * Returns the position of the Island Tile
      * @return the position
      */
     public Position getLoc() {
@@ -102,7 +102,7 @@ public class IslandTile {
     }
 
     /**
-	 * Sets the position of the Island Tile
+	   * Sets the position of the Island Tile
      * @param loc the Position object
      */
     public void setLoc(Position loc) {
@@ -110,34 +110,34 @@ public class IslandTile {
     }
 
     /**
-	 * Returns the Island Tile state
+	   * Returns the Island Tile state
      * @return the tile state
      */
     public StateEnums getState() {
         return state;
     }
 
-    /**
-	 * Sets the Island Tile state
-     * @param state the tile state
-     */
+   /**
+	  * Sets the Island Tile state
+    * @param state the tile state
+    */
     public void setState(StateEnums state) {
         this.state = state;
         Grid.getInstance().setTileOutline(this);
     }
 
-    /**
-	 * Returns the Treasure enum associated with the Island Tile or null
-     * @return the treasure
-     */
+   /**
+	  * Returns the Treasure enum associated with the Island Tile or null
+    * @return the treasure
+    */
     public TreasureEnums getTreasure() {
         return treasure;
     }
 
-    /**
-    * Sets the Treasure enum associated with the Island Tile
-    * @param treasure the treasure
-    */
+   /**
+   * Sets the Treasure enum associated with the Island Tile
+	 * @param treasure the treasure
+	 */
     public void setTreasure(TreasureEnums treasure) {
         this.treasure = treasure;
     }

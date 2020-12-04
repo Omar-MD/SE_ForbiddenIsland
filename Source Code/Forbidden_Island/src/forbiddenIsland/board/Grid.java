@@ -186,8 +186,8 @@ public class Grid {
 		int[] tLoc = {bL[0] + 1, bL[1] + 1}; // Position of mapChar corresponding to the Treasure
 
 		displayGrid[tLoc[0]][tLoc[1]] = ' ';
-	}
-	
+   }
+  
     //-----------------------------------
     // Getters
     //----------------------------------- 
