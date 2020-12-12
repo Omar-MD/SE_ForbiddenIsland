@@ -17,18 +17,33 @@ public class LoseObserver extends Observer {
     //------------------------
 	// Variables
     //------------------------
+	// Setup Singleton instance 
+    private static LoseObserver instance = null;
     private Board           board; 
     private WaterMeter waterMeter;
     private PlayerList playerList;
 
-     //------------------------
+    //-----------------------------------
+    // Get Instance of Singleton
+    //-----------------------------------
+    /**
+     * getInstance method returns single instance of LoseObserver.
+     * @return instance singleton LoseObserver object.
+     */
+    public static LoseObserver getInstance() {
+    	if(instance == null)
+    		instance = new LoseObserver();
+    	return instance;
+    }
+
+    //------------------------
 	// Constructor
 	//------------------------
 	/**
 	 * LoseConditions Constructor.
 	 * Initializes observer and attaches subjects. 
 	 */
-    public LoseObserver(){
+    private LoseObserver(){
         this.gameController = GameController.getInstance();
         this.gameController.attach(this);
 
@@ -78,6 +93,7 @@ public class LoseObserver extends Observer {
 	 * Method executed if the team loses the game.
 	 */
     private void gameOver(){
+    	gameController.setGameFinish(true);
         System.out.println("***********------------   GAME OVER   ------------***********");
     }
 

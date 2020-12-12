@@ -2,38 +2,42 @@ package forbiddenIsland.gameplay;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import forbiddenIsland.adventurer.Engineer;
-import forbiddenIsland.adventurer.Pilot;
 import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
+import forbiddenIsland.adventurer.Pilot;
+import forbiddenIsland.card.FloodDeck;
+import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.SpecialCardEnums;
-import forbiddenIsland.gameView.*;
+import forbiddenIsland.enums.StateEnums;
+import forbiddenIsland.enums.TilesEnums;
+import forbiddenIsland.enums.TreasureEnums;
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
+import forbiddenIsland.view.*;
 
 /**
- * GameController class performs all of the actions that a player can make.
+ * GameController class interacts with the Model and the Views to perform actions.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
 public class GameController {
-    
-    //----------------------------
-	// Variables
-    //----------------------------
-    // Setup Singleton instance 
-    private static GameController instance = null;
-    
-    private PlayerList           team;
-    private boolean            action;
-    private boolean        gameFinish;
 
-    // Observers 
-    public List<Observer> observers = new ArrayList<Observer>();
-    
+	//----------------------------
+	// Variables
+	//----------------------------
+	// Setup Singleton instance 
+	private static GameController instance;
+	private Board                 board;
+	private FloodDeck             floodDeck;
+	private TreasureDeck          treasureDeck;
+	private WaterMeter            waterMeter;
+	private boolean               gameFinish;
+
+	// Observers 
+	public List<Observer> observers = new ArrayList<Observer>();
+
 	//-----------------------------------
 	// Get Instance of Singleton
 	//-----------------------------------
@@ -45,355 +49,245 @@ public class GameController {
 		if(instance == null)
 			instance = new GameController();
 		return instance;
-    }
-    
-    //----------------------------
+	}
+
+	//----------------------------
 	// Constructor
 	//----------------------------
-   /**
-     * Constructor for PlayerTurn.
-     */
-    private GameController() {
-        this.team         = PlayerList.getInstance();
-        this.action       = false;
-        this.gameFinish   = false;
-    }    
+	/**
+	 * Constructor for GameController.
+	 */
+	private GameController() {
+		this.board        = Board.getInstance();
+		this.floodDeck    = FloodDeck.getInstance();
+		this.treasureDeck = TreasureDeck.getInstance();
+		this.waterMeter   = WaterMeter.getInstance();
+		this.gameFinish   = false;
+	}    
 
-    //----------------------------
+	//----------------------------
 	// Player actions
 	//----------------------------
-    /**
-     * Try move player pawn.
-     */
-    public void tryMove(Player player, Scanner inputScanner){  
-        System.out.println("\nPlayer "+player.getName()+" is on "+ playerPawnTileName(player));
-        System.out.println("\nWhere would you like to move? :");
-		boolean didMove = false;
-        
-        while (!didMove) {
-            // Find Valid Tile on board
-            SelectTile tileOnBoard = new SelectTile();
-            tileOnBoard.findTile(inputScanner);
-        
-            // Try move only once
-            didMove = true;
-        
-            // Move to new Island Tile
-            if(player.move(tileOnBoard.getValidTiles().get(0))){
-                System.out.println("\nPlayer "+player.getName()+" successfully moved to "
-                                    +getName(tileOnBoard.getValidTiles().get(0)));
-                action = true;
-            }
-        }
-    }
-
-    /**
-     * Try Shore Up an Island Tile.
-     */
-    public void tryShoreUp(Player player, Scanner inputScanner){
-        boolean isEngineer = false;
-        boolean didShoreUp = false;
-        List<IslandTile> shoredTiles = new ArrayList<IslandTile>();
-        System.out.println("\nPlayer "+player.getName()+" is on "+ playerPawnTileName(player));
-        
-        if(!(player.getRole() instanceof Engineer)){
-            System.out.println("\nWhich Island would you like to shore up? :");
-            isEngineer = false;
-        }else{
-            System.out.println("\nWhich Two Islands would you like to shore up? :");
-            isEngineer = true;
-        }
-        
-        while (!didShoreUp) {
-            // Find Valid Tile on board
-            SelectTile tileOnBoard = new SelectTile();
-            tileOnBoard.findTile(inputScanner);
-
-            shoredTiles = tileOnBoard.getValidTiles();
-            // Only attempt to ShoreUp once
-            didShoreUp = true;
-
-            // Shore Up Two Island Tile
-            if(isEngineer && shoredTiles.size()==2){
-                if(player.shoreUp(shoredTiles.get(0))){
-                    System.out.println("\nPlayer "+player.getName()+" successfully Shored Up "
-                    + getName(tileOnBoard.getValidTiles().get(0)));
-                    action=true;
-                }
-                if(player.shoreUp(shoredTiles.get(1))){
-                    System.out.println("\nPlayer "+player.getName()+" successfully Shored Up "
-                    + getName(tileOnBoard.getValidTiles().get(1)));
-                    action=true;
-                }
-            }else{
-                // Shore Up single Tile
-                if(player.shoreUp(shoredTiles.get(0))){
-                    System.out.println("\nPlayer "+player.getName()+" successfully Shored Up "
-                    + getName(tileOnBoard.getValidTiles().get(0)));
-                    action=true;
-                }
-            }
-        }
-    }
-    
-    /**
-     * Try Give Treasure Card to another Player.
-     */
-    public void tryGiveTreasureCard(Player player, Scanner inputScanner){ 
-        System.out.println("\nPlayer "+player.getName()+" is on "+ playerPawnTileName(player));
-        System.out.println("\nWhich Treasure card would you like to give? :");
-        System.out.println(player.getHand().toString());
-
-        // Find Valid Card in deck
-        SelectCard cardInDeck = new SelectCard(player);
-        cardInDeck.findCard(inputScanner);
-
-        System.out.println("\nWhich player would you like to give a Treasure Card to? :");
-		boolean didGiveCard = false;
-        
-        while (!didGiveCard) {
-            // Find Valid Card in deck
-            SelectPlayer playerInGame = new SelectPlayer();
-            playerInGame.findPlayer(inputScanner);
-
-            // Card given and Player to receive it
-            Player teamMate = playerInGame.getValidPlayer().get(0);                    
-            Card card =  cardInDeck.getValidCard(); 
-            
-            // Only attempt to give card once
-            didGiveCard = true; 
-            
-            // Give Card
-            if(player.giveTreasurerCard(card, teamMate)){
-                System.out.println("\nPlayer "+player.getName()+" successfully gave "
-                                    +card.getName().name()+" to "+teamMate.getName());       
-                action = true;
-            }
-        }
-    }
-
-    /**
-     * Try capture Treasure().
-     */
-    public void tryCaptureTreasure(Player player){
-        // Try Capture treasure once
-        if(player.captureTreasure()){
-            System.out.println("\nPlayer "+player.getName()+" successfully captured "
-                                +team.getLastTreasure().name());
-            action = true;
-        }
-    }
-
-    //----------------------------
-	// Special actions
-    //----------------------------
-    /**
-     * Try use a Special Action card within player Hand
-     */
-    public void tryUseSpecialCard(Player player, Scanner inputScanner){
-        // Check if player has special cards
-        if(!player.getHand().hasSpecialCard(SpecialCardEnums.SANDBAGS) && !player.getHand().hasSpecialCard(SpecialCardEnums.HELICOPTER_LIFT)){
-            return;
-        }
-
-        // Check if player wants to use special card
-        System.out.println("\nPlayer " + player.getName()+ " would you like to use a special card? (Yes or No)");
-        System.out.println(player.getHand().getSpecialCards());
-
-        String response = inputScanner.nextLine();
-        if(response.toUpperCase().equals("NO")){
-            return;
-        }else {
-            System.out.println("\nWhich card would you like to use? :");
-
-            // Find Valid Card in deck
-            SelectCard cardInDeck = new SelectCard(player);
-            cardInDeck.findCard(inputScanner);
-
-            if(cardInDeck.getValidCard().getName().equals(SpecialCardEnums.HELICOPTER_LIFT)){
-                Board.getInstance().printBoard();
-                tryUseHelicopterLiftCard(player,inputScanner);
-            }else if(cardInDeck.getValidCard().getName().equals(SpecialCardEnums.SANDBAGS)){
-                Board.getInstance().printBoard();
-                tryUseSandbagsCard(player,inputScanner);
-            }
-        }
-    }
-
-     /**
-     * Try use SandBags card.
-     */
-    public void tryUseSandbagsCard(Player player, Scanner inputScanner){
-        System.out.println("\nPlayer "+player.getName()+" is on "+ playerPawnTileName(player));
-        System.out.println("\nWhich Island would you like to shore up? :");
-        boolean didShoreUp = false;
-        
-        while (!didShoreUp) {
-            // Find Valid Tile on board
-            SelectTile tileOnBoard = new SelectTile();
-            tileOnBoard.findTile(inputScanner);
-
-            // Only attempt to use Sandbags Card once
-            didShoreUp =true;
-
-            // Use Sandbags Card
-            player.useSandbagsCard(tileOnBoard.getValidTiles().get(0));
-        }
-    }
-
-    /**
-     * Try use HelicopterLift card.
-     */
-    public void tryUseHelicopterLiftCard(Player player, Scanner inputScanner){
-        
-        // TODO: Needs to be verified
-        // CheckWin Conditions
-        setGameFinish(notifyAllObservers());
-        if(gameFinish) return;
-
-        System.out.println("\nPlayer "+player.getName()+" is on "+ playerPawnTileName(player));
-        System.out.println("\nFlying Players? (Player names separated by space):");
-
-        SelectPlayer flyingPlayers = new SelectPlayer();
-        flyingPlayers.findPlayer(inputScanner);
- 
-        System.out.println("\nWhere would you like to fly? :");
-		boolean didFly = false;
-        
-        while (!didFly) {
-            // Find Valid Tile on board
-            SelectTile tileOnBoard = new SelectTile();
-            tileOnBoard.findTile(inputScanner);
-            
-            // Try fly only once
-            didFly = true;
-            
-            // Fly to new Island Tile
-            player.useHelicopterLiftCard(flyingPlayers.getValidPlayer(),tileOnBoard.getValidTiles().get(0));
-        }
-    }
-
-    //----------------------------
-	// Helper Methods
-    //----------------------------
-    /**
-     * Method for player to escape sinking tile
-     */
-    public void tryEscapeSinkingTile(Player player, Scanner inputScanner){
-        // Method to escape sinking tile
-        System.out.println("\nPlayer " + player.getName()+ " is escaping a sinking tile!");
-        Board.getInstance().printBoard();
-
-        // Obtain new Tile Location
-        System.out.println("\nWhere would you like to escape? :");
-		boolean didEscape = false;
-        
-        while (!didEscape) {
-            // Find Valid Tile on board
-            SelectTile tileOnBoard = new SelectTile();
-            tileOnBoard.findTile(inputScanner);
-        
-            // Try escape only once
-            didEscape = true;
-        
-            if(player.getRole() instanceof Pilot){
-                Pilot pilot = (Pilot) player.getRole();
-                // Fly to new Island Tile
-                if(pilot.fly(player.getPawn(),tileOnBoard.getValidTiles().get(0))){
-                    System.out.println("\nPlayer "+player.getName()+" successfully flown to "
-                                        +getName(tileOnBoard.getValidTiles().get(0)));
-                }
-            }else{
-                 // Swim to new Island Tile
-                if(player.swim(tileOnBoard.getValidTiles().get(0))){
-                    System.out.println("\nPlayer "+player.getName()+" successfully swam to "
-                                        +getName(tileOnBoard.getValidTiles().get(0)));
-                }
-            }
-            // Notify LoseObserver, Check if player Drowned
-            setGameFinish(notifyAllObservers());
-        }
-    }
-
-    /**
-	 * clean playerPawnTile function that returns the name of a players pawn Tile.
-	 * @return Player pawn Tile name
+	/**
+	 * Draw a treasure card from treasure deck as per player turn
 	 */
-	private String playerPawnTileName(Player player) {
-        return getName(player.getPawn().getPawnTile());
-    }
- 
-    /**
-	 * clean getName function that returns the String name of an IslandTile.
-	 * @param  IslandTile islandTile
-     * @return String Name of IslandTile
-	 */
-	private String getName(IslandTile islandTile) {
-		return islandTile.getTileName().name();
-    }
+	public void drawTreasureCard(Player player){
+		Card drawnCard = treasureDeck.drawCard();
 
-    //----------------------------
-	// Getter & Setter Methods
-    //----------------------------
-    /**
-	 * Return boolean action.
-     * @return boolean True or false
-	 */
-    public boolean validAction(){
-        return this.action;
-    }
+		if(drawnCard.getName().equals(SpecialCardEnums.WATERS_RISE)){
+			printout("Waters Rise card has been drawn");
+			waterMeter.raiseWaterLevel();
+			treasureDeck.discard(drawnCard);
+			// Notify LoseObserver, Check if waterLevel at Skull&Bones
+			notifyAllObservers();
+			//controller.setGameFinish(controller.notifyAllObservers());
+		}
+		else{
+			player.getHand().addCard(drawnCard);
+		}
+	}
 
-    /**
-	 * Set boolean action.
-     * @param boolean bool
+	/**
+	 * Return the drawn flood cards corresponding to the water level
 	 */
-    public void setValidAction(boolean bool){
-        this.action = bool;
-    }
+	public List<Card> drawFloodCards(){
+		List<Card> drawnFloodCards = new ArrayList<Card>();
+		switch(WaterMeter.getInstance().getWaterLevel()){
+		case 1:
+		case 2:  drawnFloodCards.addAll(floodDeck.drawCard(2)); break;
+		case 3:
+		case 4:
+		case 5:  drawnFloodCards.addAll(floodDeck.drawCard(3)); break;
+		case 6:
+		case 7:  drawnFloodCards.addAll(floodDeck.drawCard(4)); break;
+		case 8:
+		case 9:  drawnFloodCards.addAll(floodDeck.drawCard(5)); break;
+		default: printout("\nError: In GameView.doTurn() Draw Flood Cards");
+		}
+		return drawnFloodCards;
+	}
 
-    /**
+	/**
+	 * Discard input card from treasure deck and remove from input player deck
+	 */
+	public void discardChosenCard(Player player, Card card){
+		// Discard card
+		treasureDeck.discard(card);
+		player.getHand().getDeck().remove(card);
+	}
+
+	/**
+	 * Change the state of the Island Tiles matching the
+	 * the drawn flood cards. From DRY to Flooded, or from 
+	 * Flooded to SUNK. 
+	 */
+	public void flipIslandTiles(List<Card> floodcards){
+		for(Card c:floodcards){
+			TilesEnums tileName = (TilesEnums) c.getName();
+			board.getIslandTile(tileName).flip();
+		}
+		// Check if there are sinking players and try escape
+		for(Player p:PlayerList.getInstance().getAllPlayers()){
+			if(p.getPawn().getPawnTile().isSunk()){
+				PlayerView playerView = new PlayerView(p);
+				playerView.tryEscapeSinkingTile();
+			}
+		}
+		// Notify LoseObserver, Check if Fools Landing or Treasure Tiles Sunk
+		notifyAllObservers();
+		//controller.setGameFinish(controller.notifyAllObservers());
+	}
+
+	/**
+	 * Printout the Character representation of each State.
+	 */
+	public void showStateNames() {
+		List<String> stateNames = new ArrayList<String>();
+		for(StateEnums state:StateEnums.values()){
+			stateNames.add("\n["+state.getChar()+"]"+" : "+state.toString());
+		}
+		printout(String.join(" ", stateNames));
+	}
+
+	/**
+	 * Printout the Character representation of each Treasure.
+	 */
+	public void showTreasureNames() {
+		List<String> treasureNames = new ArrayList<String>();
+		for(TreasureEnums treasure:TreasureEnums.values()){
+			treasureNames.add("\n["+treasure.getChar()+"]"+" : "+treasure.toString());
+		}
+		printout(String.join(" ", treasureNames));
+	}
+
+	/**
+	 * Printout the String representation of each Tile.
+	 */
+	public void showTileNames() {
+		List<String> tileNames = new ArrayList<String>();
+		for(TilesEnums tile:TilesEnums.values()){
+			tileNames.add("\n["+tile.getMapString()+"]"+" : "+tile.toString());
+		}
+		printout(String.join(" ", tileNames));
+	}
+
+	/**
+	 * Send request to Board to print Board on screen.
+	 */
+	public void showBoard(){
+		// Check if board is visible
+		board.printBoard();
+	}
+	//----------------------------
+	// Player actions
+	//----------------------------
+	/**
+	 * Send request to Player class to move player pawn to input tile.
+	 */
+	public boolean requestMove(Player player, IslandTile moveTile){
+		return player.move(moveTile);
+	}
+
+	/**
+	 * Send request to Player class to shore up an input tile.
+	 */
+	public boolean requestShoreUp(Player player, IslandTile shoredTile){
+		return player.shoreUp(shoredTile);
+	}
+
+	/**
+	 * Send request to Player class to give an input treasure card to an input player.
+	 */
+	public boolean requestGiveTreasureCard(Player player, Card card, Player teamMate){
+		return player.giveTreasureCard(card, teamMate);
+	}
+
+	/**
+	 * Send request to Player class to capture treasure.
+	 */
+	public boolean requestCaptureTreasure(Player player){
+		return player.captureTreasure();
+	}
+
+	/**
+	 * Send request to Player class to use a Sandbags card.
+	 */
+	public boolean requestUseSandbagsCard(Player player, IslandTile tile){
+		return player.useSandbagsCard(tile);
+	}
+
+	/**
+	 * Send request to Player class to use a Helicopter Lift card.
+	 */
+	public boolean requestUseHelicopterLiftCard(Player player, List<Player> flyingPlayers, IslandTile tile){
+		return player.useHelicopterLiftCard(flyingPlayers, tile);
+	}
+
+	/**
+	 * Send request to Player class to escape sinking tile by flying.
+	 * Note we must have a Player with a pilot role
+	 */
+	public boolean requestEscapeSinkingTileByFlight(Player player, IslandTile tile){
+		Pilot pilot = (Pilot) player.getRole();
+		return pilot.fly(player.getPawn(), tile);
+	}
+
+	/**
+	 * Send request to Player class to escape sinking tile by swimming.
+	 */
+	public boolean requestEscapeSinkingTileBySwim(Player player, IslandTile tile){
+		return player.swim(tile);
+	}
+	/**
 	 * Return game finish status.
-     * @return boolean True or false
+	 * @return boolean True or false
 	 */
-    public boolean getGameFinish(){
-        return this.gameFinish;
-    }
+	public boolean getGameFinish(){
+		return this.gameFinish;
+	}
 
-    /**
-     * Set boolean gameFinish.
-     * 
-     * @param boolean bool
-     * @return
-     */
-    public void setGameFinish(boolean bool) {
-        this.gameFinish = bool;
-    }
+	/**
+	 * Set boolean gameFinish.
+	 * 
+	 * @param boolean bool
+	 * @return
+	 */
+	public void setGameFinish(boolean bool) {
+		this.gameFinish = bool;
+	}
 
-    //-----------------------
+	/**
+	 * clean printout function to print to the console.
+	 * @param toPrint The string to be printed.
+	 */
+	private void printout(String toPrint) {
+		System.out.println(toPrint);
+	}
+
+	//-----------------------
 	// Observer Methods
-    //-----------------------
-    /**
+	//-----------------------
+	/**
 	 * Adds new observer to subject.
 	 * @param ob	New Observer
 	 */
-    public void attach(Observer ob){
+	public void attach(Observer ob){
 		observers.add(ob);
 	}
 	/**
 	 * Removes observer from subject.
 	 * @param ob	Observer
 	 */
-    public void dettach(Observer ob){
+	public void detach(Observer ob){
 		observers.remove(ob);
 	}
 	/**
 	 * Notify all observers of subject change.
 	 */
-    public boolean notifyAllObservers(){
+	public void notifyAllObservers(){
 		for(Observer ob:observers){
-			return ob.update();
+			ob.update();
 		}
-        return false;
-    }
+	}
 }
 

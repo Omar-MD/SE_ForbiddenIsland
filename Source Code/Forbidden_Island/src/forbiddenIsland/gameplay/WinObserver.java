@@ -15,8 +15,23 @@ public class WinObserver extends Observer{
     //------------------------
 	// Variables
     //------------------------
+	// Setup Singleton instance 
+    private static WinObserver instance = null;
     private PlayerList playerList;
-    
+
+    //-----------------------------------
+    // Get Instance of Singleton
+    //-----------------------------------
+    /**
+     * getInstance method returns single instance of WinObserver.
+     * @return instance singleton WinObserver object.
+     */
+    public static WinObserver getInstance() {
+    	if(instance == null)
+    		instance = new WinObserver();
+    	return instance;
+    }
+
     //------------------------
 	// Constructor
 	//------------------------
@@ -24,10 +39,9 @@ public class WinObserver extends Observer{
 	 * WinConditions Constructor.
 	 * Initializes observer and attaches subjects. 
 	 */
-    public WinObserver(){
+    private WinObserver(){
         this.gameController = GameController.getInstance();
         this.gameController.attach(this);
-
         this.playerList = PlayerList.getInstance();
     }
 
@@ -65,6 +79,7 @@ public class WinObserver extends Observer{
 	 * Method executed if the team wins the game.
 	 */
     private void gameWin(){
+    	gameController.setGameFinish(true);
         System.out.println("-------------WIN----------");
     }
 }
