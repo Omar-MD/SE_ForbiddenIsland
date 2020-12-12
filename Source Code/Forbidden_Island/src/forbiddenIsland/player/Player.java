@@ -84,7 +84,7 @@ public class Player {
 	 * @param  teamMate	Player receiving card
 	 * @return boolean	True if successful, false otherwise
 	 */
-	public boolean giveTreasurerCard(Card card, Player teamMate) {
+	public boolean giveTreasureCard(Card card, Player teamMate) {
 		if(hand.getDeck().contains(card)) {
 			if(getPawn().isSameTile(teamMate.getPawn()) || (getRole() instanceof Messenger)) {
 				hand.getDeck().remove(card);
@@ -292,17 +292,31 @@ public class Player {
 		}
 	}
 
+	/**
+     * Returns boolean to check if players are the same
+     * @return the boolean
+     */
+    @Override
+	public boolean equals(Object o) {
+		// Check if o is an instance of Position
+		if(o instanceof Player) {
+			// Typecast o to Position so that we can compare data members
+			Player p = (Player) o;
+			// Compare the data members and return accordingly
+			return name.equals(p.getName()) && 
+					role.toString().equals(p.getRole().toString()) &&
+					getChar() == p.getChar();
+		}
+		return false;
+	}
+
 	@Override
 	/**
-	 * Print Player state 
-	 * @return String containing Player state
+	 * Print Player character and name 
+	 * @return String containing necessary Player information
 	 */
 	public String toString() {
-		return "Name: " + getName() +
-				"\nAdventurer: " + getRole().toString() +
-				"\nLocation: " + getPawn().toString() +
-				"\nHand Deck: " + hand.getDeck().toString()+
-				"\nCaptured Treasure: " + team.getCapturedTreasure().toString();
+		return "["+ getChar() +"]"+" : " + getName();
 	}
 }
 

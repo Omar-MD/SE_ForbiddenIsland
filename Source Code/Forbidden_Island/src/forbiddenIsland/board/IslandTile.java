@@ -65,13 +65,12 @@ public class IslandTile {
      */
     public void flip() {
         if(isDry())
-            this.state = StateEnums.FLOODED;
+            setState(StateEnums.FLOODED);
         else if(isFlooded()){
             System.out.println("***   "+this.tileName.toString()+" SUNK   ***");
-            this.state = StateEnums.SUNK;
-            resetTreasure();
+            setState(StateEnums.SUNK);
+            resetTreasure(); // If tile contains treasure, set treasure to null and remove from display grid
         }
-        Grid.getInstance().setTileOutline(this);
     }
 
     //-----------------------------------

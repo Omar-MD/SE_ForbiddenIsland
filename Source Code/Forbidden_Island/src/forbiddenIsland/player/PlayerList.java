@@ -120,4 +120,30 @@ public class PlayerList {
 		this.capturedTreasure.add(capturedTreasure);
 		this.lastCaptured = capturedTreasure.getTreasureName();
 	}
+
+	/**
+	 * Print Player List excluding given player
+	 * @return String containing all the Players 
+	 */
+	public String printOtherPlayers(Player player) {
+		List<String> players = new ArrayList<String>();
+		for(Player p: playerList){
+			if (!player.equals(p))
+				players.add("\n" + p.toString());
+		}
+		return String.join(" ", players);
+	}
+
+	@Override
+	/**
+	 * Print Player List 
+	 * @return String containing all the Players 
+	 */
+	public String toString() {
+		List<String> players = new ArrayList<String>();
+		for(Player p: playerList){
+			players.add("\n" + p.toString());
+		}
+		return String.join(" ", players);
+	}
 }
