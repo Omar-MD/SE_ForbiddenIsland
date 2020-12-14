@@ -119,7 +119,8 @@ public class GameController {
 	/**
 	 * Change the state of the Island Tiles matching the
 	 * the drawn flood cards. From DRY to Flooded, or from 
-	 * Flooded to SUNK. 
+	 * Flooded to SUNK.
+	 * Allow the players to escape from sinking tiles and notify observers.
 	 */
 	public void flipIslandTiles(List<Card> floodcards){
 		for(Card c:floodcards){
@@ -133,9 +134,8 @@ public class GameController {
 				playerView.tryEscapeSinkingTile();
 			}
 		}
-		// Notify LoseObserver, Check if Fools Landing or Treasure Tiles Sunk
+		// Notify LoseObserver, Check if Fools Landing or Player cannot escape sinking tile
 		notifyAllObservers();
-		//controller.setGameFinish(controller.notifyAllObservers());
 	}
 
 	/**

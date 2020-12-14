@@ -44,7 +44,7 @@ public class PlayerView {
     	this.gameView       = GameView.getInstance();
     	this.inputScanner   = gameView.getScanner();
     	this.controller     = gameView.getController();
-    	this.thisPlayer         = thisPlayer;
+    	this.thisPlayer     = thisPlayer;
     	this.thisPlayerNum  = (int) thisPlayer.getChar() - 48;
         this.isValidPlayer  = false;
         this.validPlayerNum = 0;
@@ -68,7 +68,7 @@ public class PlayerView {
         //----------------------------
 	    // Perform at most 3 actions
 	    //----------------------------
-		while (!turnOver && count<3 && !controller.getGameFinish()) {
+		while (!turnOver && count<3) {
 
             int     userInput  = 0;
             boolean validInput = false;
@@ -113,12 +113,10 @@ public class PlayerView {
         //----------------------------
 	    // Draw 2 treasure Cards
         //----------------------------
-		controller.drawTreasureCard(thisPlayer);
-		// Check if need to discard or use a card
-        checkForDiscard(thisPlayer);
-		controller.drawTreasureCard(thisPlayer);
-		// Check if need to discard or use a card
-        checkForDiscard(thisPlayer);
+		if (pickUpTwoCards()) {
+			// If method returns true, game is finished
+			return;
+		}
             
         //----------------------------
 	    // Draw # Flood cards equal to Water level
@@ -129,11 +127,27 @@ public class PlayerView {
 	    // Flip Island Tiles
         //----------------------------
         controller.flipIslandTiles(drawnFloodCards);
-        // Check if there are sinking players and try escape
+        if(controller.getGameFinish()) return;
 
         // End turn
         printout("\nYour turn has ended.\n");
 	}
+
+    /**
+     * Pick up two treasure cards and if game is finished during this, return true.
+     * @return boolean True if game finished, false otherwise
+     */
+    private boolean pickUpTwoCards(){
+    	int i = 0;
+    	while (i < 2) {
+    		controller.drawTreasureCard(thisPlayer);
+    		// Check if need to discard or use a card
+    		if(controller.getGameFinish()) return true;
+            checkForDiscard(thisPlayer);
+            i++;
+    	}
+        return false;
+    }
 
     /**
      * Discard extra card in player deck. If special card is chosen, it can be used first.
@@ -393,7 +407,7 @@ public class PlayerView {
     /**
      * Try use SandBags card.
      */
-    public void tryUseSandbagsCard(Player player){
+    private void tryUseSandbagsCard(Player player){
     	System.out.println("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
     	System.out.println("\nWhich Island would you like to shore up? :");
     	boolean didShoreUp = false;
@@ -414,7 +428,7 @@ public class PlayerView {
     /**
      * Try use HelicopterLift card.
      */
-    public void tryUseHelicopterLiftCard(Player player){
+    private void tryUseHelicopterLiftCard(Player player){
 
     	// TODO: Needs to be verified
     	// CheckWin Conditions
@@ -475,9 +489,6 @@ public class PlayerView {
     						+getName(validTile));
     			}
     		}
-    		// Notify LoseObserver, Check if player Drowned
-    		controller.notifyAllObservers();
-    		//setGameFinish(notifyAllObservers());
     	}
     }
 

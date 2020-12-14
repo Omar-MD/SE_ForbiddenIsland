@@ -57,6 +57,9 @@ public class GameView {
         	for (Player p: PlayerList.getInstance().getAllPlayers()) {
 				PlayerView playerView = new PlayerView(p);
 				playerView.doTurn();
+
+				// Check and return if game is finished between player turns 
+				if(controller.getGameFinish()) return;
 			}
         }
     }

@@ -63,7 +63,7 @@ public class LoseObserver extends Observer {
     public boolean update() {
         // WaterMeter at 10
         if(isSkullAndBones()){
-            System.out.println("Msg(raiseWaterLevel): GameOver, Water level at Skull & Bones");
+            System.out.println("WATER LEVEL AT SKULL & BONES");
             gameOver();
             return true;
         }
@@ -127,31 +127,34 @@ public class LoseObserver extends Observer {
 	 * @return true if that is the case, false otherwise.
 	 */
     private boolean isTreasureLost(){
-        // Crystal of Fire 
-        if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE))){
-            if(board.getIslandTile(TilesEnums.CAVE_OF_EMBERS).isSunk() && 
-                board.getIslandTile(TilesEnums.CAVE_OF_SHADOWS).isSunk()){
-                return true;
-            }
-        // Earth Stone 
-        }else if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_EARTH_STONE))){
-            if(board.getIslandTile(TilesEnums.TEMPLE_OF_THE_MOON).isSunk() && 
-                board.getIslandTile(TilesEnums.TEMPLE_OF_THE_SUN).isSunk()){
-                return true;
-            }
-        // Ocean's Chalice
-        }else if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_OCEANS_CHALICE))){
-            if(board.getIslandTile(TilesEnums.CORAL_PALACE).isSunk() && 
-                board.getIslandTile(TilesEnums.TIDAL_PALACE).isSunk()){
-                return true;
-            }
-        // Statue of Wind
-        }else if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND))){
-            if(board.getIslandTile(TilesEnums.WHISPERING_GARDEN).isSunk() && 
-                board.getIslandTile(TilesEnums.HOWLING_GARDEN).isSunk()) {
-                return true;
-            }
-        }
+    	// Crystal of Fire 
+    	if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE))){
+    		if(board.getIslandTile(TilesEnums.CAVE_OF_EMBERS).isSunk() && 
+    				board.getIslandTile(TilesEnums.CAVE_OF_SHADOWS).isSunk()){
+    			return true;
+    		} 
+    	}
+    	// Earth Stone
+    	if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_EARTH_STONE))){
+    		if(board.getIslandTile(TilesEnums.TEMPLE_OF_THE_MOON).isSunk() && 
+    				board.getIslandTile(TilesEnums.TEMPLE_OF_THE_SUN).isSunk()){
+    			return true;
+    		}
+    	}
+    	// Ocean's Chalice
+    	if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_OCEANS_CHALICE))){
+    		if(board.getIslandTile(TilesEnums.CORAL_PALACE).isSunk() && 
+    				board.getIslandTile(TilesEnums.TIDAL_PALACE).isSunk()){
+    			return true;
+    		}
+    	}
+    	// Statue of Wind
+    	if(!playerList.getCapturedTreasure().contains(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND))){
+    		if(board.getIslandTile(TilesEnums.WHISPERING_GARDEN).isSunk() && 
+    				board.getIslandTile(TilesEnums.HOWLING_GARDEN).isSunk()) {
+    			return true;
+    		}
+    	}
         return false;
     }
 

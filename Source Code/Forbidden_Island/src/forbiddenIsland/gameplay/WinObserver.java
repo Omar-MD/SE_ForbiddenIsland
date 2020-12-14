@@ -70,7 +70,7 @@ public class WinObserver extends Observer{
 	 */
     private boolean isAllAtFoolsLanding(){
         for(Player p:playerList.getAllPlayers())
-            if(!p.getPawn().getPawnTile().getTileName().name().equals(TilesEnums.FOOLS_LANDING.toString()))
+            if(!p.getPawn().getPawnTile().getTileName().equals(TilesEnums.FOOLS_LANDING))
                 return false;
         return true;
     }
