@@ -37,4 +37,29 @@ public class Treasure {
 	public TreasureEnums getTreasureName() {
 		return this.treasureName;
 	}
+
+    /**
+     * Returns boolean to check if treasure are equal
+     * @return the boolean
+     */
+    @Override
+	public boolean equals(Object o) {
+		// Check if o is an instance of Treasure
+		if(o instanceof Treasure) {
+			// Typecast o to Treasure so that we can compare data members
+			Treasure p = (Treasure) o;
+			// Compare the data members and return accordingly
+			return treasureName.equals(p.getTreasureName());
+		}
+		return false;
+	}
+
+    /**
+     * Returns unique integer hashcode value
+     * @return unique integer value
+     */
+    @Override
+	public int hashCode() {
+		return treasureName.hashCode();
+	}
 }

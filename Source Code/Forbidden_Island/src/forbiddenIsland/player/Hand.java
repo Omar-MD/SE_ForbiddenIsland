@@ -101,26 +101,27 @@ public class Hand {
 	 */
 	public List<TreasureCard> getTreasureCardSet(){
 		List<TreasureCard> matchedSet = new ArrayList<TreasureCard>();
-		HashSet<String> uniqueCards = new HashSet<String>();
+		HashSet<TreasureCard> uniqueCards = new HashSet<TreasureCard>();
 		
 		// Find unique treasure cards in deck
 		for(Card c:getDeck()){
 			if(c instanceof TreasureCard){
-				uniqueCards.add(c.getName().name());
+				uniqueCards.add((TreasureCard) c);
 			}
 		}
 
 		// Find full matched treasure set if in deck
 		// Otherwise return last matched set
-		for(String uC:uniqueCards){
+		for(TreasureCard uC:uniqueCards){
 			matchedSet.clear();
 			for(Card c:getDeck()){
 				if(c instanceof TreasureCard){
-					if(c.getName().name().equals(uC))
-						matchedSet.add((TreasureCard)c);	
+					TreasureCard matchedCard = (TreasureCard) c;
+					if(matchedCard.equals(uC))
+						matchedSet.add(matchedCard);
 				}
+				if(matchedSet.size() == 4) return matchedSet;
 			}
-			if(matchedSet.size() == 4) return matchedSet;
 		}
 		return matchedSet;
 	}
