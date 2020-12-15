@@ -58,8 +58,6 @@ public class SpecialCard extends Card{
 			System.out.println("Error(useSandbags): Island Tile is Sunk");
 			return false;
 		}
-		else if(islandTile.getState()==null)
-			System.out.println("Error(useSandbags):Null pointers exception");
 		return false;
 	}
 

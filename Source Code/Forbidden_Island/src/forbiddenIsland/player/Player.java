@@ -6,6 +6,7 @@ import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
+import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.TilesEnums;
 import forbiddenIsland.enums.TreasureEnums;
@@ -84,7 +85,7 @@ public class Player {
 	 * @param  teamMate	Player receiving card
 	 * @return boolean	True if successful, false otherwise
 	 */
-	public boolean giveTreasureCard(Card card, Player teamMate) {
+	public boolean giveTreasureCard(TreasureCard card, Player teamMate) {
 		if(hand.getDeck().contains(card)) {
 			if(getPawn().isSameTile(teamMate.getPawn()) || (getRole() instanceof Messenger)) {
 				hand.getDeck().remove(card);
