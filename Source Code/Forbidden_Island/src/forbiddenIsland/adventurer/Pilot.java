@@ -29,12 +29,17 @@ public class Pilot extends Adventurer {
 	 * Pilot fly method. Can move to any tile. 
 	 * @param pawn	   Player pawn 
 	 * @param newTile  New Adventurer Island Tile
+	 * @return boolean True if moved to new Tile. 
 	 */
-	public void fly(Pawn pawn,IslandTile newTile){
-		if (!newTile.isSunk())
+	public boolean fly(Pawn pawn,IslandTile newTile){
+		if (!newTile.isSunk()){
 			pawn.setPawnTile(newTile);
-		else
+			return true;
+		}
+		else{
 			System.out.println("Error(fly): Cannot fly to Sunk Island Tile");
+			return false;
+		}
 	}
 
 	@Override 

@@ -3,6 +3,8 @@ package forbiddenIsland.player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
+
+import forbiddenIsland.enums.TreasureEnums;
 import forbiddenIsland.gameplay.Treasure;
 
 /**
@@ -16,9 +18,10 @@ public class PlayerList {
 	//------------------------
 	// Setup Singleton PlayerList instance
 	//------------------------
-	private static PlayerList thePlayerList = null;
-	private List<Player> playerList;
-	private HashSet<Treasure> capturedTreasure;
+	private static PlayerList 		thePlayerList;
+	private List<Player> 		   	   playerList;
+	private HashSet<Treasure>    capturedTreasure;
+	private TreasureEnums 			 lastCaptured;
 
 	//-----------------------------------
 	// Get Instance of Singleton
@@ -40,8 +43,9 @@ public class PlayerList {
 	 * Constructor for PlayerList object.
 	 */
 	private PlayerList() {
-		this.playerList = new ArrayList<Player>();
-		this.capturedTreasure = new HashSet<Treasure>();
+		this.playerList 		= new ArrayList<Player>();
+		this.capturedTreasure 	= new HashSet<Treasure>();
+		this.lastCaptured     	= null;
 	}
 
 	//----------------------------------
@@ -69,7 +73,7 @@ public class PlayerList {
      * @return 			Player's integer index.
      */
     public int getPlayerIndex(Player player){
-    	return playerList.indexOf(player)+1;
+    	return playerList.indexOf(player);
     }
 
 	/**
@@ -78,7 +82,7 @@ public class PlayerList {
 	 * @return 			Player at index.
 	 */
 	public Player getPlayer(int index) {
-		return this.playerList.get(index-1);
+		return this.playerList.get(index);
 	}
 
 	/**
@@ -87,6 +91,14 @@ public class PlayerList {
 	 */
 	public HashSet<Treasure> getCapturedTreasure() {
 		return this.capturedTreasure;
+	}
+
+	/**
+	 * Return Name of last captured treasure.
+	 * @return captured Treasure 
+	 */
+	public TreasureEnums getLastTreasure() {
+		return this.lastCaptured;
 	}
 	
 	//----------------------------------
@@ -106,5 +118,32 @@ public class PlayerList {
 	 */
 	public void addCapturedTreasure(Treasure capturedTreasure) {
 		this.capturedTreasure.add(capturedTreasure);
+		this.lastCaptured = capturedTreasure.getTreasureName();
+	}
+
+	/**
+	 * Print Player List excluding given player
+	 * @return String containing all the Players 
+	 */
+	public String printOtherPlayers(Player player) {
+		List<String> players = new ArrayList<String>();
+		for(Player p: playerList){
+			if (!player.equals(p))
+				players.add("\n" + p.toString());
+		}
+		return String.join(" ", players);
+	}
+
+	@Override
+	/**
+	 * Print Player List 
+	 * @return String containing all the Players 
+	 */
+	public String toString() {
+		List<String> players = new ArrayList<String>();
+		for(Player p: playerList){
+			players.add("\n" + p.toString());
+		}
+		return String.join(" ", players);
 	}
 }

@@ -33,36 +33,45 @@ public abstract class Adventurer {
 	/**
 	 * Move Adventurer, can only move to neighbouring tiles.
 	 * Cannot move to diagonal or non-sunk tiles. 
-	 * @param pawn	   Player pawn 
-	 * @param newTile  New Adventurer Island Tile
+	 * @param  pawn	   	Player pawn 
+	 * @param  newTile  New Adventurer Island Tile
+	 * @return boolean	True if successful, false otherwise
 	 */
-	public void move(Pawn pawn,IslandTile newTile){
+	public boolean move(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile)) {
 			pawn.setPawnTile(newTile);
+			return true;
 		} 
 		else
-			System.out.println("Error(move): Cannot move to the chosen Island Tile");
+			System.out.println("Error(move): Cannot move to non-adjacent Island Tile.");
+		return false;
 	}
 
 	/**
 	 * Shore Up an Island Tile i.e. flip an Island Tile to its Dry state.
 	 * Can only shoreUp Adventurer Island Tile, and non-diagonal adjacent tiles. 
-	 * @param shoredTile   Shored up Island Tile.
-	 * @param pawnTile	   Player pawn Island Tile
+	 * @param  shoredTile   Shored up Island Tile.
+	 * @param  pawnTile	    Player pawn Island Tile
+	 * @return boolean		True if successful, false otherwise
 	 */
-	public void shoreUp(IslandTile pawnTile,IslandTile shoredTile) {
+	public boolean shoreUp(IslandTile pawnTile,IslandTile shoredTile) {
 		if (pawnTile.equals(shoredTile) || this.board.getAdjacent(pawnTile).contains(shoredTile)) {
-			if(shoredTile.isFlooded())
+			if(shoredTile.isFlooded()){
 				shoredTile.setState(StateEnums.DRY);
-			
-			else if(shoredTile.isDry())
-				System.out.println("Error(shoreUp): Cannot Shore Up Dry Island Tile");
-		
-			else if(shoredTile.isSunk())
-				System.out.println("Error(shoreUp): Cannot Shore Up Sunk Island Tile");
+				return true;
+			}
+			else if(shoredTile.isDry()){
+				System.out.println("Error(shoreUp): Cannot Shore Up Dry Island Tile.");
+				return false;
+			}
+			else if(shoredTile.isSunk()){
+				System.out.println("Error(shoreUp): Cannot Shore Up Sunk Island Tile.");
+				return false;
+			}
 		}
 		else
 			System.out.println("Error(shoreUp): Cannot Shore Up non-adjacent Island Tile");
+		return false;
 	}
 
 	/**
@@ -71,8 +80,8 @@ public abstract class Adventurer {
 	 * @param pawn	   Player pawn 
 	 * @param newTile  New Adventurer Island Tile
 	 */
-	public void swim(Pawn pawn,IslandTile newTile){
-		move(pawn, newTile);
+	public boolean swim(Pawn pawn,IslandTile newTile){
+		return move(pawn, newTile);
 	}
 }
 

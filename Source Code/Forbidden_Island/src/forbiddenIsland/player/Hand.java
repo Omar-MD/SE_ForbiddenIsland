@@ -53,7 +53,17 @@ public class Hand {
 	 */
 	public boolean isTreasureDeck() {
 		if(getTreasureCardSet().size() == 4)
-			return (new HashSet<TreasureCard>(getTreasureCardSet()).size() == 1);
+			return true;
+		return false;
+	}
+
+	/**
+	 * Checks if the player hand is empty
+	 * @return boolean
+	 */
+	public boolean isEmpty() {
+		if(handDeck.isEmpty())
+			return true;
 		return false;
 	}
 
@@ -95,23 +105,53 @@ public class Hand {
 		
 		// Find unique treasure cards in deck
 		for(Card c:getDeck()){
-			if(c instanceof TreasureCard)
-				uniqueCards.add((TreasureCard)c);
+			if(c instanceof TreasureCard){
+				uniqueCards.add((TreasureCard) c);
+			}
 		}
+
 		// Find full matched treasure set if in deck
 		// Otherwise return last matched set
 		for(TreasureCard uC:uniqueCards){
 			matchedSet.clear();
 			for(Card c:getDeck()){
 				if(c instanceof TreasureCard){
-					TreasureCard matchedCard = (TreasureCard)c;
+					TreasureCard matchedCard = (TreasureCard) c;
 					if(matchedCard.equals(uC))
-						matchedSet.add(matchedCard);	
+						matchedSet.add(matchedCard);
 				}
+				if(matchedSet.size() == 4) return matchedSet;
 			}
-			if(matchedSet.size() == 4) return matchedSet;	
 		}
 		return matchedSet;
+	}
+
+	/**
+	 * Return list of Special Cards in player hand
+	 * @return List of Special Cards
+	 */
+	public List<Card> getSpecialCards() {
+		List<Card> sCards = new ArrayList<Card>();
+		for(int i=0; i < handDeck.size(); i++){
+			if(getCard(i) instanceof SpecialCard){
+				sCards.add(getCard(i));
+			}
+		}
+		return sCards;
+	}
+
+	/**
+	 * Return list of Treasure Cards in player hand
+	 * @return List of Treasure Cards
+	 */
+	public List<Card> getTreasureCards() {
+		List<Card> tCards = new ArrayList<Card>();
+		for(int i=0; i < handDeck.size(); i++){
+			if(getCard(i) instanceof TreasureCard){
+				tCards.add(getCard(i));
+			}
+		}
+		return tCards;
 	}
 
 	/**
@@ -161,5 +201,26 @@ public class Hand {
 	 */
 	public void addCard(Card card) {
 		this.handDeck.add(card);
+	}
+
+	/**
+	 * Print List of Cards from Player Hand 
+	 * @return String containing List of Cards from Player Hand
+	 */
+	public String printCards(List<Card> listCards) {
+		List<String> cards = new ArrayList<String>();
+		for(int i=1; i < listCards.size()+1; i++){
+			 cards.add("\n["+ i +"]"+" : " + listCards.get(i-1).toString());
+		}
+		return String.join(" ", cards);
+	}
+
+	@Override
+	/**
+	 * Print Player Hand 
+	 * @return String containing Player Hand
+	 */
+	public String toString() {
+		return printCards(handDeck);
 	}
 }
