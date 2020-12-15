@@ -11,6 +11,7 @@ import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
+import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.gameplay.GameController;
 import forbiddenIsland.gameplay.Treasure;
@@ -165,7 +166,7 @@ public class PlayerView {
     		if (card instanceof SpecialCard) {
     			boolean validInput = false;
     			while (!validInput) {
-    				System.out.println("\nWould you like to use this special card? : (Yes or No)");
+    				printout("\nWould you like to use this special card? : (Yes or No)");
     				String response = inputScanner.nextLine();
     				if (response.toUpperCase().equals("YES")) {
     					validInput = true;
@@ -179,7 +180,7 @@ public class PlayerView {
     				} else if (response.toUpperCase().equals("NO")) {
     					validInput = true;
     				} else {
-    					System.out.println("\nInvalid Input. Please enter 'Yes' or 'No'");
+    					printout("\nInvalid Input. Please enter 'Yes' or 'No'");
     				}
     			}
     		}
@@ -218,14 +219,14 @@ public class PlayerView {
     		if (userInput == 0) {
     			returnCall = true;
     		} else if (userInput == 1) {
-    			System.out.println("\nWhich player hand would you like to see? :");
-    	    	System.out.println(team.printOtherPlayers(thisPlayer));
+    			printout("\nWhich player hand would you like to see? :");
+    			printout(team.printOtherPlayers(thisPlayer));
 
     	    	// Get a player from input and view the hand
     	    	seeHand(findOtherPlayer());
     		} else if (userInput == 2) {
-    			System.out.println("\nWhich player would like to use a special card? :");
-    	    	System.out.println(team.printOtherPlayers(thisPlayer));
+    			printout("\nWhich player would like to use a special card? :");
+    			printout(team.printOtherPlayers(thisPlayer));
 
     	    	// Get a player from input and try use a special card
     	    	tryUseSpecialCard(findOtherPlayer());
@@ -245,8 +246,8 @@ public class PlayerView {
      * Try move player pawn.
      */
     public void tryMove(){
-    	System.out.println("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
-    	System.out.println("\nWhere would you like to move? (For Example: SIG)");
+    	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
+    	printout("\nWhere would you like to move? (For Example: SIG)");
     	boolean didMove = false;
 
     	while (!didMove) {
@@ -258,7 +259,7 @@ public class PlayerView {
 
     		// Move to new Island Tile
     		if(controller.requestMove(thisPlayer, validTile)){
-    			System.out.println("\nPlayer "+thisPlayer.getName()+" successfully moved to "
+    			printout("\nPlayer "+thisPlayer.getName()+" successfully moved to "
     					+getName(validTile));
     			action = true;
     		}
@@ -272,9 +273,9 @@ public class PlayerView {
     	boolean validInput = false;
     	boolean didShoreUp = false;
     	List<IslandTile> shoredTiles = new ArrayList<IslandTile>();
-    	System.out.println("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
+    	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
 
-    	System.out.println("\nWhich Island would you like to shore up? :");
+    	printout("\nWhich Island would you like to shore up? :");
 
     	while (!didShoreUp) {
     		// Find Valid Tile on board and add to list
@@ -282,19 +283,19 @@ public class PlayerView {
 
     		if(thisPlayer.getRole() instanceof Engineer){
     			while (!validInput) {
-    				System.out.println("\nWould you like to shore up another tile? : (Yes or No)");
+    				printout("\nWould you like to shore up another tile? : (Yes or No)");
     				String response = inputScanner.nextLine();
     				switch (response.toUpperCase()) {
     				case "YES":
     					validInput = true;
-    					System.out.println("\nWhich Island would you like to shore up? :");
+    					printout("\nWhich Island would you like to shore up? :");
     					shoredTiles.add(new TileView().findTile());
     					break;
     				case "NO":
     					validInput = true;
     					break;
     				default: 
-    					System.out.println("\nInvalid Input. Please enter 'Yes' or 'No'");
+    					printout("\nInvalid Input. Please enter 'Yes' or 'No'");
     				}
     			}
     		}
@@ -305,19 +306,19 @@ public class PlayerView {
     		// Shore Up Two Island Tile
     		if(shoredTiles.size() == 2) {
     			if(controller.requestShoreUp(thisPlayer, shoredTiles.get(0))){
-    				System.out.println("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
+    				printout("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
     						+ getName(shoredTiles.get(0)));
     				action=true;
     			}
     			if(controller.requestShoreUp(thisPlayer, shoredTiles.get(1))) {
-    				System.out.println("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
+    				printout("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
     						+ getName(shoredTiles.get(1)));
     				action=true;
     			}
     		} else {
     			// Shore Up single Tile
     			if(controller.requestShoreUp(thisPlayer, shoredTiles.get(0))) {
-    				System.out.println("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
+    				printout("\nPlayer "+thisPlayer.getName()+" successfully Shored Up "
     						+ getName(shoredTiles.get(0)));
     				action=true;
     			}
@@ -329,35 +330,29 @@ public class PlayerView {
      * Try Give Treasure Card to another Player.
      */
     public void tryGiveTreasureCard(){ 
-    	System.out.println("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
-    	System.out.println("\nWhich Treasure card would you like to give? :");
+    	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is on "+ playerPawnTileName());
+    	printout("\nWhich Treasure card would you like to give? :");
     	List<Card> tCards = thisPlayer.getHand().getTreasureCards();
-    	System.out.println(thisPlayer.getHand().printCards(tCards));
+    	printout(thisPlayer.getHand().printCards(tCards));
 
     	// Find Valid Card in deck
-    	Card card = new CardView(thisPlayer).findTreasureCard();
+    	TreasureCard card = new CardView(thisPlayer).findTreasureCard();
 
-    	System.out.println("\nWhich player would you like to give a Treasure Card to? :");
-    	System.out.println(team.printOtherPlayers(thisPlayer));
+    	printout("\nWhich player would you like to give a Treasure Card to? :");
+    	printout(team.printOtherPlayers(thisPlayer));
     	boolean didGiveCard = false;
 
     	while (!didGiveCard) {
     		// Find the selected teamMate
     		Player teamMate = findOtherPlayer();
 
-    		printout("Before giving the card");
-    		seeHand(thisPlayer);
-    		seeHand(teamMate);
     		// Only attempt to give card once
     		didGiveCard = true; 
 
     		// Give Card
     		if(controller.requestGiveTreasureCard(thisPlayer, card, teamMate)){
-    			printout("After giving the card");
-    			seeHand(thisPlayer);
-    			seeHand(teamMate);
     			checkForDiscard(teamMate);
-    			System.out.println("\nPlayer "+thisPlayer.getName()+" successfully gave "
+    			printout("\nPlayer "+thisPlayer.getName()+" successfully gave "
     					+card.toString()+" to "+teamMate.getName());       
     			action = true;
     		}
@@ -370,7 +365,7 @@ public class PlayerView {
     public void tryCaptureTreasure(){
     	// Try Capture treasure once
     	if(controller.requestCaptureTreasure(thisPlayer)){
-    		System.out.println("\nPlayer "+thisPlayer.getName()+" successfully captured "
+    		printout("\nPlayer "+thisPlayer.getName()+" successfully captured "
     				+team.getLastTreasure().toString());
     		action = true;
     	}
@@ -388,12 +383,12 @@ public class PlayerView {
     		printout("Player has no special card");
             return;
         }
-    	System.out.println("\nWhich special card would you like to use? :");
+    	printout("\nWhich special card would you like to use? :");
     	List<Card> sCards = player.getHand().getSpecialCards();
-    	System.out.println(player.getHand().printCards(sCards));
+    	printout(player.getHand().printCards(sCards));
 
     	// Find Valid Card in deck
-    	Card card = new CardView(player).findSpecialCard();
+    	SpecialCard card = new CardView(player).findSpecialCard();
 
     	if(card.getName().equals(SpecialCardEnums.HELICOPTER_LIFT)) {
     		controller.showBoard();
@@ -408,8 +403,8 @@ public class PlayerView {
      * Try use SandBags card.
      */
     private void tryUseSandbagsCard(Player player){
-    	System.out.println("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
-    	System.out.println("\nWhich Island would you like to shore up? :");
+    	printout("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
+    	printout("\nWhich Island would you like to shore up? :");
     	boolean didShoreUp = false;
 
     	while (!didShoreUp) {
@@ -439,11 +434,11 @@ public class PlayerView {
     	boolean didFly = false;
 
     	while (!didFly) {
-    		System.out.println("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
-        	System.out.println("\nWhich players would you like to lift off?: (Please input one player character at a time)");
+    		printout("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
+        	printout("\nWhich players would you like to lift off?: (Please input one player character at a time)");
 
         	List<Player> flyingPlayers = findPlayers();
-        	System.out.println("\nWhere would you like to fly? :");
+        	printout("\nWhere would you like to fly? :");
 
     		// Find Valid Tile on board
     		IslandTile validTile = new TileView().findTile();
@@ -463,11 +458,11 @@ public class PlayerView {
      */
     public void tryEscapeSinkingTile(){
     	// Method to escape sinking tile
-    	System.out.println("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is escaping a sinking tile!");
+    	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is escaping a sinking tile!");
     	Board.getInstance().printBoard();
 
     	// Obtain new Tile Location
-    	System.out.println("\nWhere would you like to escape? :");
+    	printout("\nWhere would you like to escape? :");
     	boolean didEscape = false;
 
     	while (!didEscape) {
@@ -479,13 +474,13 @@ public class PlayerView {
 
     		if(thisPlayer.getRole() instanceof Pilot) {
     			if(controller.requestEscapeSinkingTileByFlight(thisPlayer, validTile)) {
-    				System.out.println("\nPlayer "+thisPlayer.getName()+" has successfully flown to "
+    				printout("\nPlayer "+thisPlayer.getName()+" has successfully flown to "
     						+getName(validTile));
     			}
     		} else {
     			// Swim to new Island Tile
     			if(controller.requestEscapeSinkingTileBySwim(thisPlayer, validTile)) {
-    				System.out.println("\nPlayer "+thisPlayer.getName()+" successfully swam to "
+    				printout("\nPlayer "+thisPlayer.getName()+" successfully swam to "
     						+getName(validTile));
     			}
     		}
@@ -508,13 +503,13 @@ public class PlayerView {
   			// Player cannot choose him/her self and must be within the PlayerList range
   			else if((validPlayerNum >= 1) && (validPlayerNum != thisPlayerNum) && 
   					(validPlayerNum <= team.getAllPlayers().size())){
-  				System.out.println("\nValid player character chosen");
+  				printout("\nValid player character chosen");
   				validPlayer = team.getPlayer(validPlayerNum-1);
   				isValidPlayer = true;
   			}
   			else {
-  				System.out.println("\nIncorrect player character chosen.");
-  				System.out.println("\nPlease choose a player character from the above options: (Eg: 2)");
+  				printout("\nIncorrect player character chosen.");
+  				printout("\nPlease choose a player character from the above options: (Eg: 2)");
   			}
   		}
   		isValidPlayer = false;
@@ -541,9 +536,9 @@ public class PlayerView {
   		while(!userCall){
 
   			for(Player p: remainingPlayers){
-  				System.out.println(p.toString());
+  				printout(p.toString());
   			}
-  			System.out.println("[" + (findMax(remainingPlayerNums)+1) +"] : End choosing players.");
+  			printout("[" + (findMax(remainingPlayerNums)+1) +"] : End choosing players.");
 
   			while(!userCall && !isValidPlayer){
   				validPlayerNum = findValidPlayerNum();
@@ -553,19 +548,19 @@ public class PlayerView {
   				}
   				// Player cannot choose him/her self and must be within the PlayerList range
   				else if(remainingPlayerNums.contains(validPlayerNum)) {
-  					System.out.println("\nValid player character chosen");
+  					printout("\nValid player character chosen");
   					validPlayer = remainingPlayers.remove(remainingPlayerNums.indexOf(validPlayerNum));
   					selectedPlayers.add(validPlayer);
   					remainingPlayerNums.remove(Integer.valueOf(validPlayerNum));
   					isValidPlayer = true;
   				}
   				else if(validPlayerNum == (findMax(remainingPlayerNums)+1)) {
-  					System.out.println("\nEnd choosing players and return");
+  					printout("\nEnd choosing players and return");
   					userCall = true;
   				}
   				else {
-  					System.out.println("\nIncorrect player character chosen.");
-  					System.out.println("\nPlease choose a player character from the above options: (Eg: 2)");
+  					printout("\nIncorrect player character chosen.");
+  					printout("\nPlease choose a player character from the above options: (Eg: 2)");
   				}
   			}
   			isValidPlayer = false;
@@ -582,7 +577,7 @@ public class PlayerView {
   		String userString = inputScanner.nextLine();	
   		try {validPlayerNum = Integer.parseInt(userString);} 
   		catch (NumberFormatException e) {
-  			System.out.println("\n" + userString + " is not a valid input!");
+  			printout("\n" + userString + " is not a valid input!");
   		}
   		return validPlayerNum;
   	}

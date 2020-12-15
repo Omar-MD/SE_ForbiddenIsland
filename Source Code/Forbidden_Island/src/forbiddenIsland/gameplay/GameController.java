@@ -8,6 +8,7 @@ import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.adventurer.Pilot;
 import forbiddenIsland.card.FloodDeck;
+import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.card.TreasureDeck;
 import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.enums.StateEnums;
@@ -198,7 +199,7 @@ public class GameController {
 	/**
 	 * Send request to Player class to give an input treasure card to an input player.
 	 */
-	public boolean requestGiveTreasureCard(Player player, Card card, Player teamMate){
+	public boolean requestGiveTreasureCard(Player player, TreasureCard card, Player teamMate){
 		return player.giveTreasureCard(card, teamMate);
 	}
 

@@ -3,10 +3,12 @@ package forbiddenIsland.view;
 import java.util.Scanner;
 
 import forbiddenIsland.card.Card;
+import forbiddenIsland.card.SpecialCard;
+import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.player.Player;
 
 /**
- * SelectCard class finds selected card in players hand.
+ * CardView class finds selected card in players hand.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
@@ -15,19 +17,19 @@ public class CardView {
     //------------------------
 	// Variables
     //------------------------
-    private Player        player;
-    private GameView       gameView;
-    private Scanner        inputScanner;
-    private Card       validCard;
-    private int        cardIndex;
+    private Player   player;
+    private GameView gameView;
+    private Scanner  inputScanner;
+    private Card     validCard;
+    private int      cardIndex;
     //------------------------
 	// Constructor
 	//------------------------
     public CardView(Player thisPlayer){
-    	this.gameView       = GameView.getInstance();
-    	this.inputScanner   = gameView.getScanner();
-        this.player         = thisPlayer;
-        this.cardIndex      = 0;
+    	this.gameView     = GameView.getInstance();
+    	this.inputScanner = gameView.getScanner();
+        this.player       = thisPlayer;
+        this.cardIndex    = 0;
     }
 
     /**
@@ -61,7 +63,7 @@ public class CardView {
      * @param Scanner input scanner
      * @return selected Treasure Card
      */
-    public Card findTreasureCard(){
+    public TreasureCard findTreasureCard(){
         boolean isValidCard = false;
         // Obtain Valid Card index
         while(!isValidCard){
@@ -79,7 +81,7 @@ public class CardView {
             else
                 printout("\nIncorrect card index");
         }
-        return validCard;
+        return (TreasureCard) validCard;
     }
 
     /**
@@ -87,7 +89,7 @@ public class CardView {
      * @param Scanner input scanner
      * @return selected Special Card
      */
-    public Card findSpecialCard(){
+    public SpecialCard findSpecialCard(){
         boolean isValidCard = false;
         // Obtain Valid Card index
         while(!isValidCard){
@@ -105,7 +107,7 @@ public class CardView {
             else
                 printout("\nIncorrect card index");
         }
-        return validCard;
+        return (SpecialCard) validCard;
     }
 
      /**
