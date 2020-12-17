@@ -112,25 +112,41 @@ public class Player {
 				Board board = Board.getInstance();
 				switch(hand.getTreasureName()) {
 				case THE_CRYSTAL_OF_FIRE:
-					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
-					hand.discardTreasureSet();
-					board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
-					return true;
+					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_CRYSTAL_OF_FIRE)){
+						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_CRYSTAL_OF_FIRE));
+						hand.discardTreasureSet();
+						board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
+						return true;
+					}else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					}
 				case THE_EARTH_STONE:
-					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
-					hand.discardTreasureSet();
-					board.resetTreasures(TreasureEnums.THE_EARTH_STONE);
-					return true;
-				case THE_OCEANS_CHALICE:
-					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
-					hand.discardTreasureSet();
-					board.resetTreasures(TreasureEnums.THE_OCEANS_CHALICE);
-					return true;
+					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_EARTH_STONE)){
+						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_EARTH_STONE));
+						hand.discardTreasureSet();
+						board.resetTreasures(TreasureEnums.THE_EARTH_STONE);
+						return true;
+					}else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					}
+					case THE_OCEANS_CHALICE:
+					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_OCEANS_CHALICE)){
+						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_OCEANS_CHALICE));
+						hand.discardTreasureSet();
+						board.resetTreasures(TreasureEnums.THE_OCEANS_CHALICE);
+						return true;
+					}else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					}
 				case THE_STATUE_OF_THE_WIND:
-					team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
-					hand.discardTreasureSet();
-					board.resetTreasures(TreasureEnums.THE_STATUE_OF_THE_WIND);
-					return true;
+					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)){
+						team.addCapturedTreasure(new Treasure(TreasureEnums.THE_STATUE_OF_THE_WIND));
+						hand.discardTreasureSet();
+						board.resetTreasures(TreasureEnums.THE_STATUE_OF_THE_WIND);
+						return true;
+					}else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					}
 				default:
 					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
 				}

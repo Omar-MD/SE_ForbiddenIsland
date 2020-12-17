@@ -80,6 +80,6 @@ public class WinObserver extends Observer{
 	 */
     private void gameWin(){
     	gameController.setGameFinish(true);
-        System.out.println("-------------WIN----------");
+        System.out.println("***********------------   GAME WIN   ------------***********");
     }
 }
