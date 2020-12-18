@@ -79,9 +79,7 @@ public class GameController {
 			printout("Waters Rise card has been drawn");
 			waterMeter.raiseWaterLevel();
 			treasureDeck.discard(drawnCard);
-			// Notify LoseObserver, Check if waterLevel at Skull&Bones
-			notifyAllObservers();
-			//controller.setGameFinish(controller.notifyAllObservers());
+			notifyAllObservers(); // Check if WaterLevel at Skull & Bones
 		}
 		else{
 			player.getHand().addCard(drawnCard);

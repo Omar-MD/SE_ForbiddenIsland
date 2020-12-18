@@ -111,7 +111,7 @@ public class GameView {
 		// Continue looping until input is valid and return is requested by user
 		while (!validInput || !returnCall) {
 			printout("\nChoose from the options below:");
-			printout("\n[1] Tiles.\n[2] Tile States.\n[3] Treasures.\n[4] Return.\n");
+			printout("\n[1] Tiles \n[2] Tile States \n[3] Treasures \n[4] Return \n");
 			String userString = inputScanner.nextLine();
 			
 			try {userInt = Integer.parseInt(userString);} 

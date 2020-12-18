@@ -15,6 +15,8 @@ import forbiddenIsland.card.TreasureCard;
 import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.gameplay.GameController;
 import forbiddenIsland.gameplay.Treasure;
+import forbiddenIsland.gameplay.WaterMeter;
+import forbiddenIsland.gameplay.WinObserver;
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
@@ -60,12 +62,12 @@ public class PlayerView {
         int count = 0;
         boolean turnOver = false;
 
-        printout("It is "+thisPlayer.getName()+"'s (Player "+ thisPlayer.getChar() +") turn! Press [return] to begin.");
+        printout("It is "+thisPlayer.getName()+"'s (Player "+ thisPlayer.getChar() +") turn!.");
         inputScanner.nextLine(); // Make player press return to confirm turn start
         
         controller.showBoard();
-        printout("Adventurer: "+thisPlayer.getRole().toString());
-
+		printout("Adventurer: "+thisPlayer.getRole().toString());
+		printout("WaterLevel: "+WaterMeter.getInstance().getWaterLevel());
         //----------------------------
 	    // Perform at most 3 actions
 	    //----------------------------
@@ -103,12 +105,16 @@ public class PlayerView {
                 case 8:  gameView.seeHelp();                           break;
                 case 9:  tryTeamPlay();                                break;
 			    default: printout("CASE ERROR IN GameView.doTurn()");
-            }
-
-			// Increment count if action is valid
-			count += (isActionValid())? 1: 0;
-            setValidAction(false);
-            printout("\nActions taken: "+count);
+			}
+			
+			if(!controller.getGameFinish()){
+				// Increment count if action is valid
+				count += (isActionValid())? 1: 0;
+				setValidAction(false);
+				printout("\nActions taken: "+count);
+			}else{
+				return;
+			}
         }
 
         //----------------------------
@@ -155,7 +161,7 @@ public class PlayerView {
      */
     private void checkForDiscard(Player player){
     	if(getPlayerDeck(player).size()>5) {
-    		printout("\n" + player.getName()+" (Player "+ thisPlayer.getChar() + ") has more than 5 cards in hand.");
+    		printout("\n" + player.getName()+" (Player "+ player.getChar() + ") has more than 5 cards in hand.");
     		printout("\nWhich card would you like to discard? :");
     		printout("\nNOTE: If you choose to discard a special card, you may use the card first.");
     		seeHand(player);
@@ -229,7 +235,8 @@ public class PlayerView {
     			printout(team.printOtherPlayers(thisPlayer));
 
     	    	// Get a player from input and try use a special card
-    	    	tryUseSpecialCard(findOtherPlayer());
+				tryUseSpecialCard(findOtherPlayer());
+				if(controller.getGameFinish()) returnCall = true;
     		} else {
     			printout("The treasures captured so far are:");
     			for (Treasure treasure: team.getCapturedTreasure()) {
@@ -425,11 +432,11 @@ public class PlayerView {
      */
     private void tryUseHelicopterLiftCard(Player player){
 
-    	// TODO: Needs to be verified
-    	// CheckWin Conditions
-    	controller.notifyAllObservers();
-    	//setGameFinish(notifyAllObservers());
-    	if(controller.getGameFinish()) return;
+    	controller.notifyAllObservers();    	        // CheckWin Conditions
+    	if(WinObserver.getInstance().getReadyToFly()){
+			WinObserver.getInstance().gameWin();
+			return;
+		}
 
     	boolean didFly = false;
 

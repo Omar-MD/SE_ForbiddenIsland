@@ -18,6 +18,7 @@ public class WinObserver extends Observer{
 	// Setup Singleton instance 
     private static WinObserver instance = null;
     private PlayerList playerList;
+    private boolean    readyToFly;
 
     //-----------------------------------
     // Get Instance of Singleton
@@ -43,6 +44,7 @@ public class WinObserver extends Observer{
         this.gameController = GameController.getInstance();
         this.gameController.attach(this);
         this.playerList = PlayerList.getInstance();
+        this.readyToFly = false;
     }
 
     //------------------------
@@ -57,7 +59,7 @@ public class WinObserver extends Observer{
         if(playerList.getCapturedTreasure().size()==4){
             // Check if all players are on Fool's Landing
             if(isAllAtFoolsLanding()){
-                gameWin();
+                setReadyToFly(true);
                 return true;
             }
         }
@@ -78,8 +80,27 @@ public class WinObserver extends Observer{
     /**TODO: gameWin() Message
 	 * Method executed if the team wins the game.
 	 */
-    private void gameWin(){
+    public void gameWin(){
     	gameController.setGameFinish(true);
-        System.out.println("-------------WIN----------");
+        System.out.println("***********------------   GAME WIN   ------------***********");
+    }
+
+    //------------------------
+	//  Getter & Setter
+    //------------------------
+     /**
+	 * Get readyToFly boolean
+     * @return boolean
+	 */
+    public boolean getReadyToFly(){
+        return this.readyToFly;
+    }
+
+    /**
+	 * Set readyToFly boolean
+     * @param boolean
+	 */
+    private void setReadyToFly(boolean val){
+        this.readyToFly=val;
     }
 }
