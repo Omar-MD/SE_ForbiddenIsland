@@ -75,13 +75,6 @@ public class SpecialCard extends Card{
 			System.out.println("\nError: Destination Island Tile is Sunk.");
 			return false;
 		}
-		// Ensure all flying members are on the same Island Tile.
-		for(Player p: flyingPlayers) {
-			if(!p.getPawn().isSameTile(flyingPlayers.get(0).getPawn())) {
-				System.out.println("\nError: All Flying players must be on the same Island Tile");
-				return false;
-			}
-		}
 		// Move all players
 		for(Player p: flyingPlayers) {
 			p.getPawn().setPawnTile(newTile);
