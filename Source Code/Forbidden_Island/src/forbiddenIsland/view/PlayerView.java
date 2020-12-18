@@ -16,6 +16,7 @@ import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.gameplay.GameController;
 import forbiddenIsland.gameplay.Treasure;
 import forbiddenIsland.gameplay.WaterMeter;
+import forbiddenIsland.gameplay.WinObserver;
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
@@ -70,7 +71,7 @@ public class PlayerView {
         //----------------------------
 	    // Perform at most 3 actions
 	    //----------------------------
-		while (!turnOver && count<3 && !controller.getGameFinish()) {
+		while (!turnOver && count<3) {
 
             int     userInput  = 0;
             boolean validInput = false;
@@ -111,7 +112,8 @@ public class PlayerView {
 				count += (isActionValid())? 1: 0;
 				setValidAction(false);
 				printout("\nActions taken: "+count);
-				if(count!=3) controller.showBoard();
+			}else{
+				return;
 			}
         }
 
@@ -143,7 +145,6 @@ public class PlayerView {
      * @return boolean True if game finished, false otherwise
      */
     private boolean pickUpTwoCards(){
-		if(controller.getGameFinish()) return true;
     	int i = 0;
     	while (i < 2) {
     		controller.drawTreasureCard(thisPlayer);
@@ -431,9 +432,11 @@ public class PlayerView {
      */
     private void tryUseHelicopterLiftCard(Player player){
 
-    	controller.notifyAllObservers();    	// CheckWin Conditions
-    	//setGameFinish(notifyAllObservers());
-    	if(controller.getGameFinish()) return;
+    	controller.notifyAllObservers();    	        // CheckWin Conditions
+    	if(WinObserver.getInstance().getReadyToFly()){
+			WinObserver.getInstance().gameWin();
+			return;
+		}
 
     	boolean didFly = false;
 
