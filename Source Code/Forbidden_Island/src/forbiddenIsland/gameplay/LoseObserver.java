@@ -94,7 +94,10 @@ public class LoseObserver extends Observer {
 	 */
     private void gameOver(){
     	gameController.setGameFinish(true);
-        System.out.println("***********------------   GAME OVER   ------------***********");
+    	System.out.println(" _____  _____  _____  _____    _____  _____  _____  _____");
+        System.out.println("|   __||  _  ||     ||   __|  |     ||  |  ||   __|| __  |");
+        System.out.println("|  |  ||     || | | ||   __|  |  |  ||  |  ||   __||    -|");
+        System.out.println("|_____||__|__||_|_|_||_____|  |_____| \\___/ |_____||__|__|");
     }
 
     //------------------------
