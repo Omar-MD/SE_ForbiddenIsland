@@ -82,7 +82,10 @@ public class WinObserver extends Observer{
 	 */
     public void gameWin(){
     	gameController.setGameFinish(true);
-        System.out.println("***********------------   GAME WIN   ------------***********");
+        System.out.println(" _____  _____  _____  _____    _ _ _  _____  _____ ");
+        System.out.println("|   __||  _  ||     ||   __|  | | | ||_   _||   | |");
+        System.out.println("|  |  ||     || | | ||   __|  | | | | _| |_ | | | |");
+        System.out.println("|_____||__|__||_|_|_||_____|  |_____||_____||_|___|");
     }
 
     //------------------------

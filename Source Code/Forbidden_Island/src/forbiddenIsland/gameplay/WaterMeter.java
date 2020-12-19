@@ -46,8 +46,8 @@ public class WaterMeter {
 	 * Increment Water level by 1.  
 	 */
 	public void raiseWaterLevel() {
-		this.waterLevel = getWaterLevel()+1;
-		System.out.println("***   WATER LEVEL AT "+getWaterLevel() +"   ***");
+		this.waterLevel = waterLevel+1;
+		System.out.println("***   WATER LEVEL AT "+ waterLevel +"   ***");
 	}
 
 	//-----------------------
@@ -87,4 +87,24 @@ public class WaterMeter {
 		return this.waterLevel;
 	}
 
+	/**
+	 * Return number of cards to draw
+	 * @return cardsToDraw Integer number of cards to draw 
+	 */
+	public int getCardsToDraw(){
+		int cardsToDraw = 0;
+		switch(waterLevel){
+		case 1:
+		case 2:  cardsToDraw = 2; break;
+		case 3:
+		case 4:
+		case 5:  cardsToDraw = 3; break;
+		case 6:
+		case 7:  cardsToDraw = 4; break;
+		case 8:
+		case 9:  cardsToDraw = 5; break;
+		default: System.out.println("\nCase Error in WaterMeter.getCardsToDraw()");
+		}
+		return cardsToDraw;
+	}
 }

@@ -87,22 +87,11 @@ public class GameController {
 	}
 
 	/**
-	 * Return the drawn flood cards corresponding to the water level
+	 * Returns the drawn flood cards corresponding to the water level
+	 * @return the drawn flood cards
 	 */
 	public List<Card> drawFloodCards(){
-		List<Card> drawnFloodCards = new ArrayList<Card>();
-		switch(WaterMeter.getInstance().getWaterLevel()){
-		case 1:
-		case 2:  drawnFloodCards.addAll(floodDeck.drawCard(2)); break;
-		case 3:
-		case 4:
-		case 5:  drawnFloodCards.addAll(floodDeck.drawCard(3)); break;
-		case 6:
-		case 7:  drawnFloodCards.addAll(floodDeck.drawCard(4)); break;
-		case 8:
-		case 9:  drawnFloodCards.addAll(floodDeck.drawCard(5)); break;
-		default: printout("\nError: In GameView.doTurn() Draw Flood Cards");
-		}
+		List<Card> drawnFloodCards = floodDeck.drawCard(waterMeter.getCardsToDraw());
 		return drawnFloodCards;
 	}
 
