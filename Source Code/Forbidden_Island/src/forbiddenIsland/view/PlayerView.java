@@ -9,6 +9,7 @@ import forbiddenIsland.adventurer.Engineer;
 import forbiddenIsland.adventurer.Pilot;
 import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
+import forbiddenIsland.board.Position;
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
 import forbiddenIsland.card.TreasureCard;
@@ -418,11 +419,13 @@ public class PlayerView {
     		// Find Valid Tile on board
     		IslandTile validTile = new TileView().findTile();
 
+			// Only attempt to ShoreUp once
+			didShoreUp = true;
+			
     		// Use Sandbags Card
     		if (controller.requestUseSandbagsCard(player, validTile)) {
-    			didShoreUp = true;
-    		} else {
-    			printout("\nPlease enter a valid tile:");
+    			printout("\nPlayer "+player.getName()+" successfully used Sandbags Card to Shore Up "
+				+ getName(validTile));
     		}
     	}
     }
@@ -431,8 +434,8 @@ public class PlayerView {
      * Try use HelicopterLift card.
      */
     private void tryUseHelicopterLiftCard(Player player){
-
-    	controller.notifyAllObservers();    	        // CheckWin Conditions
+ 		// CheckWin Conditions
+    	controller.notifyAllObservers();
     	if(WinObserver.getInstance().getReadyToFly()){
 			WinObserver.getInstance().gameWin();
 			return;
@@ -449,11 +452,12 @@ public class PlayerView {
 
     		// Find Valid Tile on board
     		IslandTile validTile = new TileView().findTile();
+			
+			// Only attempt to fly once
+			didFly = true;
 
     		// Fly to new Island Tile
-    		if (controller.requestUseHelicopterLiftCard(player, flyingPlayers,validTile)) {
-    			didFly = true;
-    		}
+    		controller.requestUseHelicopterLiftCard(player, flyingPlayers,validTile);
     	}
     }
 
@@ -462,38 +466,122 @@ public class PlayerView {
     //----------------------------
     /**
      * Method for player to escape sinking tile
+	 * @param Player player
      */
     public void tryEscapeSinkingTile(){
     	// Method to escape sinking tile
     	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is escaping a sinking tile!");
-    	Board.getInstance().printBoard();
+		Board.getInstance().printBoard();
 
-    	// Obtain new Tile Location
-    	printout("\nWhere would you like to escape? :");
-    	boolean didEscape = false;
+		// Valid Escape Tiles
+		List<IslandTile> escapeTiles = escapeOptions(thisPlayer);
+		
+		if(!escapeTiles.isEmpty()){
+			printout("\nWhere would you like to escape? :");
+			printIslandTiles(escapeTiles);
+		}else{
+			return;
+		}
+		boolean didEscape = false;
 
-    	while (!didEscape) {
-    		// Find Valid Tile on board
-    		IslandTile validTile = new TileView().findTile();
-
-    		// Try escape only once
-    		didEscape = true;
+    	while (!didEscape && !escapeTiles.isEmpty()) {
+    		// Find Valid Escape Tile
+    		IslandTile validTile = findEscapeTile(escapeTiles);
 
     		if(thisPlayer.getRole() instanceof Pilot) {
     			if(controller.requestEscapeSinkingTileByFlight(thisPlayer, validTile)) {
     				printout("\nPlayer "+thisPlayer.getName()+" has successfully flown to "
-    						+getName(validTile));
+							+getName(validTile));
+					didEscape = true;
     			}
     		} else {
     			// Swim to new Island Tile
     			if(controller.requestEscapeSinkingTileBySwim(thisPlayer, validTile)) {
     				printout("\nPlayer "+thisPlayer.getName()+" successfully swam to "
-    						+getName(validTile));
+							+getName(validTile));
+					didEscape = true;
     			}
     		}
     	}
-    }
+	}
+	
+	/**
+     * Method to select player's valid escape Tile
+	 * @param List<IslandTile> escapeTiles 
+     */
+	private IslandTile findEscapeTile(List<IslandTile> escapeTiles){
+		IslandTile validTile = null;
+		boolean isValidTile = false;
+		int tileIndex = 0;
 
+        // Obtain Valid Tile index
+        while(!isValidTile){
+            String userString = inputScanner.nextLine();	
+            try {tileIndex = Integer.parseInt(userString);} 
+            catch (NumberFormatException e) {
+            	printout("\n" + userString + " is not a valid index!");
+            	continue;
+            }
+            if((tileIndex>= 1) && (tileIndex<=escapeTiles.size())){
+                printout("\nValid Escape Tile chosen");
+                validTile = escapeTiles.get(tileIndex-1);
+                isValidTile = true;
+            }
+            else
+                printout("Incorrect Tile index");
+        }
+        return validTile;
+	}
+
+	/**
+  	 * Find players escape Island Tiles.
+	 * @param Player player
+  	 * @return List<IslandTile> 
+  	 */
+	private List<IslandTile> escapeOptions(Player player){
+		Board board = Board.getInstance();
+		switch(player.getRole().toString()){
+			case "Pilot": 
+				return getValidTiles();
+			case "Diver":
+				return board.getNearestTiles(player.getPawn().getPawnTile());
+			case "Explorer":
+				List<IslandTile> escapeTiles = new ArrayList<IslandTile>();
+				escapeTiles = board.getDiagonals(player.getPawn().getPawnTile());
+				escapeTiles.addAll(board.getAdjacent(player.getPawn().getPawnTile()));
+				return escapeTiles;
+			default:
+				return board.getAdjacent(player.getPawn().getPawnTile());
+		}
+	}
+
+	/**
+  	 * Find all non-sunk Island Tiles.
+  	 * @return List<IslandTile> 
+  	 */
+	private List<IslandTile> getValidTiles(){
+		List<IslandTile> validTiles = new ArrayList<IslandTile>();
+		for(Position pos: Board.getInstance().getValidTilePositions()){
+			IslandTile tile = Board.getInstance().getTile(pos);
+			if(!tile.isSunk()){
+				validTiles.add(tile);
+			}
+		}
+		return validTiles;
+	}
+
+	/**
+	 * Print List of IslandTiles
+	 * @return String containing name of IslandTiles
+	 */
+	private void printIslandTiles(List<IslandTile> listTiles) {
+		List<String> tiles = new ArrayList<String>();
+		for(int i=1; i < listTiles.size()+1; i++){
+			 tiles.add("\n["+ i +"]"+" : " + listTiles.get(i-1).toString());
+		}
+		printout(String.join(" ", tiles));
+	}
+	
     /**
   	 * Find selected other player.
   	 * @param Scanner User input
