@@ -229,7 +229,7 @@ public class Board {
      */
     public List<IslandTile> getNearestTiles(IslandTile tile) {
     	// Create an array list of the adjacent Island tiles
-        List<IslandTile> nearestTiles = getAdjacent(tile);
+        List<IslandTile> nearestTiles = new ArrayList<IslandTile>();
         List<Integer> manhattan = new ArrayList<Integer>(); // List containing the Manhattan distances
         Position tilePos = tile.getLoc();
 

@@ -119,7 +119,7 @@ public class GameController {
 		for(Player p:PlayerList.getInstance().getAllPlayers()){
 			if(p.getPawn().getPawnTile().isSunk()){
 				PlayerView playerView = new PlayerView(p);
-				playerView.tryEscapeSinkingTile();
+				playerView.tryEscapeSinkingTile(p);
 			}
 		}
 		// Notify LoseObserver, Check if Fools Landing or Player cannot escape sinking tile
