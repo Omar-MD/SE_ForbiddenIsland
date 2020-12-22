@@ -468,13 +468,13 @@ public class PlayerView {
      * Method for player to escape sinking tile
 	 * @param Player player
      */
-    public void tryEscapeSinkingTile(Player player){
+    public void tryEscapeSinkingTile(){
     	// Method to escape sinking tile
-    	printout("\n"+player.getName()+" (Player "+ player.getChar() +") is escaping a sinking tile!");
+    	printout("\n"+thisPlayer.getName()+" (Player "+ thisPlayer.getChar() +") is escaping a sinking tile!");
 		Board.getInstance().printBoard();
 
 		// Valid Escape Tiles
-		List<IslandTile> escapeTiles = escapeOptions(player);
+		List<IslandTile> escapeTiles = escapeOptions(thisPlayer);
 		
 		if(!escapeTiles.isEmpty()){
 			printout("\nWhere would you like to escape? :");
@@ -488,16 +488,16 @@ public class PlayerView {
     		// Find Valid Escape Tile
     		IslandTile validTile = findEscapeTile(escapeTiles);
 
-    		if(player.getRole() instanceof Pilot) {
-    			if(controller.requestEscapeSinkingTileByFlight(player, validTile)) {
-    				printout("\nPlayer "+player.getName()+" has successfully flown to "
+    		if(thisPlayer.getRole() instanceof Pilot) {
+    			if(controller.requestEscapeSinkingTileByFlight(thisPlayer, validTile)) {
+    				printout("\nPlayer "+thisPlayer.getName()+" has successfully flown to "
 							+getName(validTile));
 					didEscape = true;
     			}
     		} else {
     			// Swim to new Island Tile
-    			if(controller.requestEscapeSinkingTileBySwim(player, validTile)) {
-    				printout("\nPlayer "+player.getName()+" successfully swam to "
+    			if(controller.requestEscapeSinkingTileBySwim(thisPlayer, validTile)) {
+    				printout("\nPlayer "+thisPlayer.getName()+" successfully swam to "
 							+getName(validTile));
 					didEscape = true;
     			}
