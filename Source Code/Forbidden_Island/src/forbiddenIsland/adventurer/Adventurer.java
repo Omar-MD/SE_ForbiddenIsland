@@ -83,5 +83,13 @@ public abstract class Adventurer {
 	public boolean swim(Pawn pawn,IslandTile newTile){
 		return move(pawn, newTile);
 	}
+
+	/**
+	 * Print Adventurer role
+	 * @return String
+	 */
+	public String toString() {
+		return "Adventurer";
+	}
 }
 

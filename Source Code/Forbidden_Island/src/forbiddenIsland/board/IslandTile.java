@@ -182,9 +182,6 @@ public class IslandTile {
 	 */
     @Override
 	public String toString() {
-	    return "Island Tile: " + tileName.toString() + "\n" +
-	            "Treasure: " + getTreasure() + "\n" +
-	    		"State: " + state.toString() + "\n" +
-	            loc.toString();
+	    return tileName.getMapString();
 	}
 }
