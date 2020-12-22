@@ -105,6 +105,20 @@ public class BoardTest {
 
 	@Test
 	public void testGetNearestTiles() {
+		// Tile under Test
+		IslandTile tileUnderTest = testBoard.getTile(new Position(3,5));
+
+		// Using Manhattan distance, the nearest tiles to tile at position (3,5) should be: 
+		// Adjacent tiles at (2,5) and (3,4)
+		List<IslandTile> expectedTiles_1 = new ArrayList<IslandTile>();
+		expectedTiles_1.add(testBoard.getTile(new Position(2,5)));
+		expectedTiles_1.add(testBoard.getTile(new Position(3,4)));
+
+		List<IslandTile> actualTiles_1 = testBoard.getNearestTiles(tileUnderTest);
+
+		assertTrue(expectedTiles_1.size() == actualTiles_1.size(), "Expected tiles must have a size equal to tiles obtained from getNearestTiles() i.e. 2");
+		assertTrue(actualTiles_1.containsAll(expectedTiles_1) && expectedTiles_1.containsAll(actualTiles_1), "Check if both lists contain the same tiles");
+		
 		// Make all the adjacent and diagonal tiles of tile at position (3,5) sunk
 		// Adjacent tiles are at (2,5) and (3,4)
 		// Diagonal tiles are at (2,4) and (4,4)
@@ -115,14 +129,13 @@ public class BoardTest {
 
 		// Using Manhattan distance, the nearest tiles to tile at position (3,5) should be 
 		// just the tile at position (3,3) at a distance of 2 tile units away
-		List<IslandTile> expectedTiles = new ArrayList<IslandTile>();
-		expectedTiles.add(testBoard.getTile(new Position(3,3)));
+		List<IslandTile> expectedTiles_2 = new ArrayList<IslandTile>();
+		expectedTiles_2.add(testBoard.getTile(new Position(3,3)));
 
-		IslandTile tileUnderTest = testBoard.getTile(new Position(3,5));
-		List<IslandTile> actualTiles = testBoard.getNearestTiles(tileUnderTest);
+		List<IslandTile> actualTiles_2 = testBoard.getNearestTiles(tileUnderTest);
 
-		assertTrue(expectedTiles.size() == actualTiles.size(), "Expected tiles must have a size equal to tiles obtained from getNearestTiles() i.e. 1");
-		assertTrue(actualTiles.containsAll(expectedTiles) && expectedTiles.containsAll(actualTiles), "Check if both lists contain the same tiles");
+		assertTrue(expectedTiles_2.size() == actualTiles_2.size(), "Expected tiles must have a size equal to tiles obtained from getNearestTiles() i.e. 1");
+		assertTrue(actualTiles_2.containsAll(expectedTiles_2) && expectedTiles_2.containsAll(actualTiles_2), "Check if both lists contain the same tiles");
 	}
 
 	@Test

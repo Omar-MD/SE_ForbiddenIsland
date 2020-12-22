@@ -13,7 +13,10 @@ import org.junit.platform.suite.api.SelectClasses;
 @SelectClasses({
     BoardTest.class,
     IslandTileTest.class,
-    PositionTest.class
+    PositionTest.class,
+    FloodDeckTest.class,
+    TreasureDeckTest.class,
+    HandTest.class
 })
 
 public class RunAllTests {
