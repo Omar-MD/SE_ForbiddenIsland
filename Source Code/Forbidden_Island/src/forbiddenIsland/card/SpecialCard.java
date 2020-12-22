@@ -75,6 +75,11 @@ public class SpecialCard extends Card{
 			System.out.println("\nError: Destination Island Tile is Sunk.");
 			return false;
 		}
+		// Check if list of flyers is empty
+		if(flyingPlayers.isEmpty()) {
+			System.out.println("\nError: No Flying Players chosen.");
+			return false;
+		}
 		// Move all players
 		for(Player p: flyingPlayers) {
 			p.getPawn().setPawnTile(newTile);
