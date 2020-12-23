@@ -8,11 +8,10 @@ import java.util.List;
 import forbiddenIsland.enums.StateEnums;
 import forbiddenIsland.enums.TilesEnums;
 import forbiddenIsland.enums.TreasureEnums;
+
 /**
  * Board singleton class.
- * A single board object is created and that object is 
- * called using the getInstance method.
- * 
+ * A single board object is created and that object is called using the getInstance method.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
@@ -31,7 +30,7 @@ public class Board {
     //-----------------------------------
     /**
      * getInstance method returns single instance of board.
-     * @return theBoard. singleton Board object.
+     * @return theBoard. singleton Board object
      */
     public static Board getInstance(){
         if(theBoard == null){
@@ -44,8 +43,8 @@ public class Board {
     // Constructor
     //-----------------------------------
     /**
-     * Board constructor. 
-     * Sets up the board including the island tiles. 
+     * Board constructor.
+     * Sets up the board including the island tiles.
      */
     private Board() {
         this.validTilePositions = createValidTilePositions();
@@ -70,7 +69,7 @@ public class Board {
      *   {0,2} {1,2} {2,2} {3,2} {4,2} {5,2}
      *         {1,1} {2,1} {3,1} {4,1}
      *               {2,0} {3,0}
-     * @return the ArrayList of tile positions on the Board.
+     * @return the ArrayList of tile positions on the Board
      */
     private ArrayList<Position> createValidTilePositions() {
     	// Create an array list of the 24 valid Island Tile positions as seen above
@@ -113,7 +112,7 @@ public class Board {
     //----------------------------------- 
     /**
      * returns the array of Island Tiles.
-     * @return the Island tiles on the Board.
+     * @return the Island tiles on the Board
      */
     public IslandTile[][] getTiles() {
         return boardTiles;
@@ -121,7 +120,7 @@ public class Board {
 
     /**
      * returns the ArrayList of valid Island Tile Positions.
-     * @return the ArrayList of Island tile positions.
+     * @return the ArrayList of Island tile positions
      */
     public ArrayList<Position> getValidTilePositions() {
         return validTilePositions;
@@ -133,16 +132,16 @@ public class Board {
     /**
      * returns a particular board tile.
      * @param pos the tiles position
-     * @return the Island tile for a particular position.
+     * @return the Island tile for a particular position
      */
     public IslandTile getTile(Position pos) {
         return boardTiles[pos.getX()][pos.getY()];
     }
 
     /**
-     * returns the Island Tile enum name
-     * @param pos the tiles position.
-     * @return the name of the Island tile is.
+     * returns the Island Tile enum name.
+     * @param pos  tiles position
+     * @return name of the Island tile is
      */
     public TilesEnums getTileType(Position pos) {
         return getTile(pos).getTileName();
@@ -150,8 +149,8 @@ public class Board {
 
     /**
      * returns the IslandTile corresponding to a given TilesEnums.
-     * @param tileEnum the the tile name
-     * @return the corresponding Island tile on the Board.
+     * @param tileEnum tile name
+     * @return corresponding Island tile on the Board
      */
     public IslandTile getIslandTile(TilesEnums tileEnum) {
 		// Loop through each y position value
@@ -168,9 +167,9 @@ public class Board {
     }
     
     /**
-     * returns the list of diagonal Island tiles
-     * @param tile the Island Tile.
-     * @return the list of diagonal Island tiles
+     * returns the list of diagonal Island tiles.
+     * @param tile Island Tile
+     * @return list of diagonal Island tiles
      */
     public List<IslandTile> getDiagonals(IslandTile tile) {
     	// Create an array list of the diagonal Island tiles
@@ -195,9 +194,9 @@ public class Board {
     }
 
     /**
-     * returns the list of adjacent Island tiles
-     * @param tile the Island Tile.
-     * @return the list of adjacent Island tiles
+     * returns the list of adjacent Island tiles.
+     * @param tile Island Tile
+     * @return list of adjacent Island tiles
      */
     public List<IslandTile> getAdjacent(IslandTile tile) {
     	// Create an array list of the adjacent Island tiles
@@ -224,8 +223,8 @@ public class Board {
     /**
      * returns the list of nearest Island tiles.
      * Needed for diver swim exception.
-     * @param tile the Island Tile.
-     * @return the list of nearest Island tiles
+     * @param tile Island Tile
+     * @return list of nearest Island tiles
      */
     public List<IslandTile> getNearestTiles(IslandTile tile) {
     	// Create an array list of the adjacent Island tiles
@@ -262,7 +261,7 @@ public class Board {
 	 * Resets the Treasure characters from both Treasure Tiles
 	 * once corresponding input treasure has been captured.
 	 * Also sets treasure to null.
-	 * @param treasure the treasure
+	 * @param treasure treasure
 	 */
 	public void resetTreasures(TreasureEnums treasure) {
 		// Loop through each y position value
@@ -282,9 +281,11 @@ public class Board {
     // Other
     //-----------------------------------
     /**
-     * Void function to print the board. Calls the printGrid method.
+     * Void function to print the board.
+     * Calls the printGrid method.
      */
-    public void printBoard() { // Print the Board to the terminal
+    public void printBoard() { 
+        // Print the Board to the terminal
         grid.printGrid();
     }
 

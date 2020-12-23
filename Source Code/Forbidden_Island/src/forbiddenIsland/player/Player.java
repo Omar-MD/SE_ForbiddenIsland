@@ -1,6 +1,7 @@
 package forbiddenIsland.player;
 
 import java.util.List;
+
 import forbiddenIsland.adventurer.*;
 import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
@@ -118,7 +119,8 @@ public class Player {
 						board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
 						return true;
 					}else{
-						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match");
+						return false;
 					}
 				case THE_EARTH_STONE:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_EARTH_STONE)){
@@ -128,6 +130,7 @@ public class Player {
 						return true;
 					}else{
 						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+						return false;
 					}
 					case THE_OCEANS_CHALICE:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_OCEANS_CHALICE)){
@@ -137,6 +140,7 @@ public class Player {
 						return true;
 					}else{
 						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+						return false;
 					}
 				case THE_STATUE_OF_THE_WIND:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)){
@@ -146,13 +150,15 @@ public class Player {
 						return true;
 					}else{
 						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+						return false;
 					}
 				default:
 					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
+					return false;
 				}
 			}
 			else
-				System.out.println("\nError(captureTreasure): Missing Matching Treasure Cards"); 
+				System.out.println("\nError(captureTreasure): Missing Matching Treasure Cards");
 		}
 		else
 			System.out.println("\nError(captureTreasure): Not on Treasure Tile"); 

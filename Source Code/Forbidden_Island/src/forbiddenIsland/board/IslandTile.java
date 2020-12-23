@@ -3,12 +3,13 @@ package forbiddenIsland.board;
 import forbiddenIsland.enums.*;
 
 /**
- * Class for Island Tiles on the Board in a game of Forbidden Island
+ * Class for Island Tiles on the Board in a game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */
 public class IslandTile {
+
     //-----------------------------------
     // Variable Setup
     //-----------------------------------
@@ -22,9 +23,9 @@ public class IslandTile {
     //-----------------------------------
     /**
      * Constructor for an Island Tile object.
-     * @param tileName The name of the Island Tile
-     * @param loc Position of the Island Tile
-     * @param state State of the Island Tile
+     * @param tileName Name of the Island Tile
+     * @param loc      Position of the Island Tile
+     * @param state    State of the Island Tile
      */
     public IslandTile(TilesEnums tileName, Position loc, StateEnums state) {
         this.tileName = tileName;
@@ -37,7 +38,7 @@ public class IslandTile {
     // Methods
     //-----------------------------------
     /**
-     * Get TreasureEnum from an Island Tile
+     * Get TreasureEnum from an Island Tile.
      * @return The TreasureEnum associated with the Island Tile or null
      * if no TreasureEnum is associated.
      */
@@ -60,8 +61,7 @@ public class IslandTile {
 	}
 
     /**
-	 * Changes the Island Tile state from DRY to FLOODED 
-     * or from FLOODED to SUNK.
+	 * Changes the Island Tile state from DRY to FLOODED or from FLOODED to SUNK.
      */
     public void flip() {
         if(isDry())
@@ -77,23 +77,23 @@ public class IslandTile {
     // Getters and Setters
     //-----------------------------------
     /**
-     * Returns the Island Tile name
-     * @return the tile name
+     * Returns the Island Tile name.
+     * @return tile name
      */
     public TilesEnums getTileName() {
         return tileName;
     }
 
     /**
-     * Sets the Island Tile name
-     * @param tileName the tile name
+     * Sets the Island Tile name.
+     * @param tileName tile name
      */
     public void setTileName(TilesEnums tileName) {
         this.tileName = tileName;
     }
 
     /**
-	   * Returns the position of the Island Tile
+     * Returns the position of the Island Tile.
      * @return the position
      */
     public Position getLoc() {
@@ -101,7 +101,7 @@ public class IslandTile {
     }
 
     /**
-	   * Sets the position of the Island Tile
+	 * Sets the position of the Island Tile.
      * @param loc the Position object
      */
     public void setLoc(Position loc) {
@@ -109,32 +109,32 @@ public class IslandTile {
     }
 
     /**
-	   * Returns the Island Tile state
+	 * Returns the Island Tile state.
      * @return the tile state
      */
     public StateEnums getState() {
         return state;
     }
 
-   /**
-	  * Sets the Island Tile state
-    * @param state the tile state
-    */
+    /**
+	 * Sets the Island Tile state.
+     * @param state the tile state
+     */
     public void setState(StateEnums state) {
         this.state = state;
         Grid.getInstance().setTileOutline(this);
     }
 
-   /**
-	  * Returns the Treasure enum associated with the Island Tile or null
-    * @return the treasure
-    */
+    /**
+	 * Returns the Treasure enum associated with the Island Tile or null.
+     * @return the treasure
+     */
     public TreasureEnums getTreasure() {
         return treasure;
     }
 
-   /**
-   * Sets the Treasure enum associated with the Island Tile
+    /**
+     * Sets the Treasure enum associated with the Island Tile.
 	 * @param treasure the treasure
 	 */
     public void setTreasure(TreasureEnums treasure) {
@@ -153,7 +153,7 @@ public class IslandTile {
     }
 
     /**
-	 * Returns true if Island tile is dry and false otherwise
+	 * Returns true if Island tile is dry and false otherwise.
 	 * @return boolean
 	 */
     public boolean isDry() {
@@ -161,7 +161,7 @@ public class IslandTile {
     }
 
     /**
-	 * Returns true if Island tile is flooded and false otherwise
+	 * Returns true if Island tile is flooded and false otherwise.
 	 * @return boolean
 	 */
     public boolean isFlooded() {
@@ -169,7 +169,7 @@ public class IslandTile {
     }
 
     /**
-	 * Returns true if Island tile is sunk and false otherwise
+	 * Returns true if Island tile is sunk and false otherwise.
 	 * @return boolean
 	 */
     public boolean isSunk() {
@@ -177,7 +177,7 @@ public class IslandTile {
     }
     
     /**
-	 * Returns string representing the Island Tile object
+	 * Returns string representing the Island Tile object.
 	 * @return the string representation
 	 */
     @Override
