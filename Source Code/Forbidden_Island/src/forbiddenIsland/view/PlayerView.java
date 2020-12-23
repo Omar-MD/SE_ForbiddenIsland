@@ -64,7 +64,7 @@ public class PlayerView {
         int count = 0;
         boolean turnOver = false;
 
-        printout("It is "+thisPlayer.getName()+"'s (Player "+ thisPlayer.getChar() +") turn!.");
+        printout("It is "+thisPlayer.getName()+"'s (Player "+ thisPlayer.getChar() +") turn! Please return.");
         inputScanner.nextLine(); // Make player press return to confirm turn start
         
         controller.showBoard();
