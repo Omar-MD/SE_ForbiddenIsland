@@ -4,17 +4,16 @@ import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.player.Pawn;
 
 /**
- * Class depicting adventurer type Explorer
- * in the game of Forbidden Island.
+ * Class depicting adventurer type Explorer in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */ 
 public class Explorer extends Adventurer {
 	
-	//----------------------------
+	//-----------------------------------
 	// Constructor
-	//----------------------------
+	//-----------------------------------
 	/**
      * Constructor for an Explorer role.
      */
@@ -22,14 +21,14 @@ public class Explorer extends Adventurer {
 		super();
 	}
 	
-	//----------------------------
+	//-----------------------------------
 	// Methods
-	//----------------------------
+	//-----------------------------------
 	@Override
 	/**
-	 * Explorer Swim Method, can also swim to diagonal tiles. 
+	 * Explorer Swim Method, can also swim to diagonal tiles.
 	 * @param pawn	   Player pawn 
-	 * @param newTile  New Adventurer Island Tile
+	 * @param newTile  New Island Tile
 	 */
 	public boolean swim(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||
@@ -45,7 +44,7 @@ public class Explorer extends Adventurer {
 
 	@Override 
 	/**
-	 * Print Explorer role 
+	 * Print Explorer role.
 	 * @return String
 	 */
 	public String toString() {

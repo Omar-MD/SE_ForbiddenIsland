@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="592" width="0" x="0" y="137"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="511" width="0" x="0" y="191"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="444" width="0" x="0" y="231"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="forbiddenIsland.player.Hand" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Hand.java" binary="false" label="hand" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="307"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="361"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="567"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="forbiddenIsland.card.TreasureDeck" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/card/TreasureDeck.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="459"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="forbiddenIsland.card.TreasureDeck" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/card/TreasureDeck.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="0" x="0" y="513"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="java.util.List" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="621"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="24" interaction-operator="ALT">    
+    <interaction-operand id="25" constraint="hand.hasSpecialCard(SpecialCardEnums.SANDBAGS)">      
+      <fragment refId="8"/>      
+      <fragment refId="26"/>      
+      <fragment refId="10"/>    
+    </interaction-operand>    
+    <interaction-operand id="27" constraint="else"/>    
+    <combined-fragment id="26" interaction-operator="OPT">      
+      <interaction-operand id="28" constraint="sCard.useSandbags(shoredTile)">        
+        <fragment refId="14"/>        
+        <fragment refId="16"/>        
+        <fragment refId="12"/>        
+        <fragment refId="18"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" 
+    operation="requestUseSandbagsCard(forbiddenIsland.player.Player,forbiddenIsland.board.IslandTile):boolean" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="useSandbagsCard(forbiddenIsland.board.IslandTile):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" operation="getCard(int):forbiddenIsland.card.Card" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getIndex(forbiddenIsland.enums.SpecialCardEnums):int" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="getInstance():forbiddenIsland.card.TreasureDeck" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="discard(forbiddenIsland.card.Card):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="getDeck():java.util.List&lt;Card&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="remove(java.lang.Object):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>
+</sequence-diagram>

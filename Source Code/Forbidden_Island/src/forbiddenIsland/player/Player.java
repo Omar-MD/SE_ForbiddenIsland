@@ -1,6 +1,7 @@
 package forbiddenIsland.player;
 
 import java.util.List;
+
 import forbiddenIsland.adventurer.*;
 import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
@@ -153,10 +154,11 @@ public class Player {
 					}
 				default:
 					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
+					return false;
 				}
 			}
 			else
-				System.out.println("\nError(captureTreasure): Missing Matching Treasure Cards"); 
+				System.out.println("\nError(captureTreasure): Missing Matching Treasure Cards");
 		}
 		else
 			System.out.println("\nError(captureTreasure): Not on Treasure Tile"); 

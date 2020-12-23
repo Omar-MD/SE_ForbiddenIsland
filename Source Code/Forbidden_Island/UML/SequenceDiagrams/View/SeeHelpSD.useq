@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.view.GameView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/GameView.java" binary="false" label="gameView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="2108" width="0" x="0" y="143"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="2027" width="0" x="0" y="197"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="298"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="27" width="0" x="0" y="365"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="27" width="0" x="0" y="530"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="27" width="0" x="0" y="678"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="27" width="0" x="0" y="2170"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="java.util.Scanner" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" label="inputScanner" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="27" width="0" x="0" y="405"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="controller" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="378" width="0" x="0" y="799"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="378" width="0" x="0" y="1247"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="378" width="0" x="0" y="1695"/>    
+    </execution>    
+    <execution id="34">      
+      <position height="27" width="0" x="0" y="1123"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="27" width="0" x="0" y="1571"/>    
+    </execution>    
+    <execution id="54">      
+      <position height="27" width="0" x="0" y="2019"/>    
+    </execution>  
+  </object>  
+  <object id="55" language="java" name="java.util.ArrayList" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" label="treasureNames" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="46">      
+      <position height="27" width="0" x="0" y="1722"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="27" width="0" x="0" y="1820"/>    
+    </execution>  
+  </object>  
+  <object id="56" language="java" name="forbiddenIsland.enums.TreasureEnums" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/enums/TreasureEnums.java" binary="false" label="treasure" 
+    type="enumeration" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="50">      
+      <position height="27" width="0" x="0" y="1874"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="27" width="0" x="0" y="1928"/>    
+    </execution>  
+  </object>  
+  <object id="57" language="java" name="java.util.ArrayList" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" label="stateNames" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="36">      
+      <position height="27" width="0" x="0" y="1274"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="27" width="0" x="0" y="1372"/>    
+    </execution>  
+  </object>  
+  <object id="58" language="java" name="forbiddenIsland.enums.StateEnums" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/enums/StateEnums.java" binary="false" label="state" type="enumeration" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="40">      
+      <position height="27" width="0" x="0" y="1426"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="27" width="0" x="0" y="1480"/>    
+    </execution>  
+  </object>  
+  <object id="59" language="java" name="java.util.ArrayList" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" label="tileNames" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="26">      
+      <position height="27" width="0" x="0" y="826"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="27" width="0" x="0" y="924"/>    
+    </execution>  
+  </object>  
+  <object id="60" language="java" name="forbiddenIsland.enums.TilesEnums" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/enums/TilesEnums.java" binary="false" label="tile" type="enumeration" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="30">      
+      <position height="27" width="0" x="0" y="978"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="27" width="0" x="0" y="1032"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="61" interaction-operator="LOOP">    
+    <interaction-operand id="62" constraint="while: !validInput || !returnCall">      
+      <fragment refId="7"/>      
+      <fragment refId="5"/>      
+      <fragment refId="63"/>      
+      <fragment refId="64"/>      
+      <fragment refId="9"/>      
+      <fragment refId="65"/>    
+    </interaction-operand>    
+    <combined-fragment id="65" interaction-operator="NEG">      
+      <interaction-operand id="66" constraint="NumberFormatException e">        
+        <fragment refId="11"/>      
+      </interaction-operand>    
+    </combined-fragment>    
+    <combined-fragment id="63" interaction-operator="ALT">      
+      <interaction-operand id="67" constraint="(userInt &gt;= 1) &amp;&amp; (userInt &lt;= 4)"/>      
+      <interaction-operand id="68" constraint="else">        
+        <fragment refId="13"/>      
+      </interaction-operand>    
+    </combined-fragment>    
+    <combined-fragment id="64" interaction-operator="ALT">      
+      <interaction-operand id="69" constraint="case 1:">        
+        <fragment refId="70"/>        
+        <fragment refId="33"/>        
+        <fragment refId="15"/>        
+        <fragment refId="25"/>      
+      </interaction-operand>      
+      <interaction-operand id="71" constraint="case 2:">        
+        <fragment refId="35"/>        
+        <fragment refId="17"/>        
+        <fragment refId="43"/>        
+        <fragment refId="72"/>      
+      </interaction-operand>      
+      <interaction-operand id="73" constraint="case 3:">        
+        <fragment refId="74"/>        
+        <fragment refId="45"/>        
+        <fragment refId="53"/>        
+        <fragment refId="19"/>      
+      </interaction-operand>      
+      <interaction-operand id="75" constraint="case 4:"/>      
+      <interaction-operand id="76" constraint="default:">        
+        <fragment refId="21"/>      
+      </interaction-operand>      
+      <combined-fragment id="70" interaction-operator="LOOP">        
+        <interaction-operand id="77" constraint="for: TilesEnums.values()">          
+          <fragment refId="27"/>          
+          <fragment refId="29"/>          
+          <fragment refId="31"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="72" interaction-operator="LOOP">        
+        <interaction-operand id="78" constraint="for: StateEnums.values()">          
+          <fragment refId="41"/>          
+          <fragment refId="37"/>          
+          <fragment refId="39"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="74" interaction-operator="LOOP">        
+        <interaction-operand id="79" constraint="for: TreasureEnums.values()">          
+          <fragment refId="47"/>          
+          <fragment refId="49"/>          
+          <fragment refId="51"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="seeHelp():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="nextLine():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="showTileNames():void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="showStateNames():void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="showTreasureNames():void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="25" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" operation="add(E):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="29" operation="getMapString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="33" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="add(E):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="getChar():char" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" operation="add(E):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" operation="getChar():char" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="52"/>  
+  </message>  
+  <message id="53" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="54"/>  
+  </message>
+</sequence-diagram>

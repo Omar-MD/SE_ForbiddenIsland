@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="1515" width="0" x="0" y="162"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="1434" width="0" x="0" y="216"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="1367" width="0" x="0" y="256"/>    
+    </execution>  
+  </object>  
+  <object id="42" language="java" name="forbiddenIsland.board.Board" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/board/Board.java" binary="false" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="366"/>    
+    </execution>  
+  </object>  
+  <object id="43" language="java" name="forbiddenIsland.gameplay.Treasure" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/Treasure.java" binary="false" label="crystalOfFire" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="498"/>    
+    </execution>  
+  </object>  
+  <object id="44" language="java" name="forbiddenIsland.player.PlayerList" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/PlayerList.java" binary="false" label="team" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="552"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="27" width="0" x="0" y="855"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="27" width="0" x="0" y="1158"/>    
+    </execution>    
+    <execution id="37">      
+      <position height="27" width="0" x="0" y="1461"/>    
+    </execution>  
+  </object>  
+  <object id="45" language="java" name="forbiddenIsland.player.Hand" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Hand.java" binary="false" label="hand" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="0" x="0" y="606"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="909"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="27" width="0" x="0" y="1212"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="27" width="0" x="0" y="1515"/>    
+    </execution>  
+  </object>  
+  <object id="46" language="java" name="forbiddenIsland.board.Board" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/board/Board.java" binary="false" label="board" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="660"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="27" width="0" x="0" y="963"/>    
+    </execution>    
+    <execution id="33">      
+      <position height="27" width="0" x="0" y="1266"/>    
+    </execution>    
+    <execution id="41">      
+      <position height="27" width="0" x="0" y="1569"/>    
+    </execution>  
+  </object>  
+  <object id="47" language="java" name="forbiddenIsland.gameplay.Treasure" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/Treasure.java" binary="false" label="earthStone" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="801"/>    
+    </execution>  
+  </object>  
+  <object id="48" language="java" name="forbiddenIsland.gameplay.Treasure" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/Treasure.java" binary="false" label="oceansChalice" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="27">      
+      <position height="27" width="0" x="0" y="1104"/>    
+    </execution>  
+  </object>  
+  <object id="49" language="java" name="forbiddenIsland.gameplay.Treasure" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/Treasure.java" binary="false" label="statueOfWind" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="35">      
+      <position height="27" width="0" x="0" y="1407"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="50" interaction-operator="ALT">    
+    <interaction-operand id="51" constraint="getPawn().isTreasureTile()">      
+      <fragment refId="52"/>    
+    </interaction-operand>    
+    <interaction-operand id="53" constraint="else"/>    
+    <combined-fragment id="52" interaction-operator="ALT">      
+      <interaction-operand id="54" constraint="hand.isTreasureDeck()">        
+        <fragment refId="8"/>        
+        <fragment refId="55"/>      
+      </interaction-operand>      
+      <interaction-operand id="56" constraint="else"/>      
+      <combined-fragment id="55" interaction-operator="ALT">        
+        <interaction-operand id="57" constraint="case THE_CRYSTAL_OF_FIRE:">          
+          <fragment refId="58"/>        
+        </interaction-operand>        
+        <interaction-operand id="59" constraint="case THE_EARTH_STONE:">          
+          <fragment refId="60"/>        
+        </interaction-operand>        
+        <interaction-operand id="61" constraint="case THE_OCEANS_CHALICE:">          
+          <fragment refId="62"/>        
+        </interaction-operand>        
+        <interaction-operand id="63" constraint="case THE_STATUE_OF_THE_WIND:">          
+          <fragment refId="64"/>        
+        </interaction-operand>        
+        <interaction-operand id="65" constraint="default:"/>        
+        <combined-fragment id="58" interaction-operator="ALT">          
+          <interaction-operand id="66" 
+            constraint="getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_CRYSTAL_OF_FIRE)">            
+            <fragment refId="10"/>            
+            <fragment refId="16"/>            
+            <fragment refId="12"/>            
+            <fragment refId="14"/>          
+          </interaction-operand>          
+          <interaction-operand id="67" constraint="else"/>        
+        </combined-fragment>        
+        <combined-fragment id="60" interaction-operator="ALT">          
+          <interaction-operand id="68" 
+            constraint="getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_EARTH_STONE)">            
+            <fragment refId="20"/>            
+            <fragment refId="22"/>            
+            <fragment refId="18"/>            
+            <fragment refId="24"/>          
+          </interaction-operand>          
+          <interaction-operand id="69" constraint="else"/>        
+        </combined-fragment>        
+        <combined-fragment id="62" interaction-operator="ALT">          
+          <interaction-operand id="70" 
+            constraint="getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_OCEANS_CHALICE)">            
+            <fragment refId="32"/>            
+            <fragment refId="30"/>            
+            <fragment refId="26"/>            
+            <fragment refId="28"/>          
+          </interaction-operand>          
+          <interaction-operand id="71" constraint="else"/>        
+        </combined-fragment>        
+        <combined-fragment id="64" interaction-operator="ALT">          
+          <interaction-operand id="72" 
+            constraint="getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)">            
+            <fragment refId="36"/>            
+            <fragment refId="38"/>            
+            <fragment refId="34"/>            
+            <fragment refId="40"/>          
+          </interaction-operand>          
+          <interaction-operand id="73" constraint="else"/>        
+        </combined-fragment>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="requestCaptureTreasure(forbiddenIsland.player.Player):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="captureTreasure():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" operation="getInstance():forbiddenIsland.board.Board" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="Treasure(forbiddenIsland.enums.TreasureEnums)" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="addCapturedTreasure(forbiddenIsland.gameplay.Treasure):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="discardTreasureSet():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="resetTreasures(forbiddenIsland.enums.TreasureEnums):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="Treasure(forbiddenIsland.enums.TreasureEnums)" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="addCapturedTreasure(forbiddenIsland.gameplay.Treasure):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="discardTreasureSet():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="resetTreasures(forbiddenIsland.enums.TreasureEnums):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="Treasure(forbiddenIsland.enums.TreasureEnums)" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="addCapturedTreasure(forbiddenIsland.gameplay.Treasure):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="discardTreasureSet():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="resetTreasures(forbiddenIsland.enums.TreasureEnums):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" operation="Treasure(forbiddenIsland.enums.TreasureEnums)" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="addCapturedTreasure(forbiddenIsland.gameplay.Treasure):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="discardTreasureSet():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="resetTreasures(forbiddenIsland.enums.TreasureEnums):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>
+</sequence-diagram>

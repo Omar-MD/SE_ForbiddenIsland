@@ -11,9 +11,9 @@ import forbiddenIsland.player.Pawn;
  */
 public class Diver extends Adventurer {
 
-	// ----------------------------
+	//-----------------------------------
 	// Constructor
-	// ----------------------------
+	//-----------------------------------
 	/**
 	 * Constructor for a Diver adventurer role.
 	 */
@@ -21,15 +21,15 @@ public class Diver extends Adventurer {
 		super();
 	}
 
-	// ----------------------------
+	//-----------------------------------
 	// Methods
-	// ----------------------------
+	//-----------------------------------
 	@Override
 	/**
-	 * Swim method for Diver class. Can move to nearest tile.
-	 * 
+	 * Swim method for Diver class.
+	 * Can move to nearest tile.
 	 * @param pawn    Player pawn
-	 * @param newTile New Adventurer Island Tile
+	 * @param newTile New Island Tile
 	 */
 	public boolean swim(Pawn pawn, IslandTile newTile) {
 		if (this.board.getNearestTiles(pawn.getPawnTile()).contains(newTile)) {
@@ -44,7 +44,7 @@ public class Diver extends Adventurer {
 
 	@Override
 	/**
-	 * Print Diver role
+	 * Print Diver role.
 	 * @return String
 	 */
 	public String toString() {

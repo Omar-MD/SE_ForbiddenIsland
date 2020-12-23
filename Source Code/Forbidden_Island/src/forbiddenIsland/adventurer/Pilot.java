@@ -4,17 +4,16 @@ import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.player.Pawn;
 
 /**
- * Class depicting adventurer type Pilot
- * in the game of Forbidden Island.
+ * Class depicting adventurer type Pilot in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */ 
 public class Pilot extends Adventurer {
 	
-	//----------------------------
+	//-----------------------------------
 	// Constructor
-	//----------------------------
+	//-----------------------------------
 	/**
      * Constructor for a Pilot adventurer role.
      */
@@ -22,14 +21,14 @@ public class Pilot extends Adventurer {
 		super();
 	}
 	
-	//----------------------------
+	//-----------------------------------
 	// Methods
-	//----------------------------
+	//-----------------------------------
 	/**
-	 * Pilot fly method. Can move to any tile. 
+	 * Pilot fly method. Can move to any tile.
 	 * @param pawn	   Player pawn 
 	 * @param newTile  New Adventurer Island Tile
-	 * @return boolean True if moved to new Tile. 
+	 * @return boolean True if successful, false otherwise
 	 */
 	public boolean fly(Pawn pawn,IslandTile newTile){
 		if (!newTile.isSunk()){
@@ -44,7 +43,7 @@ public class Pilot extends Adventurer {
 
 	@Override 
 	/**
-	 * Print Pilot role 
+	 * Print Pilot role.
 	 * @return String
 	 */
 	public String toString() {

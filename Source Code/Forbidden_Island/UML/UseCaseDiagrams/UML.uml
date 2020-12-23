@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_V-tTQEOKEeuPUtJX-BsvbQ" name="UML">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_WHusYEOKEeuPUtJX-BsvbQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_smTSIEQBEeuPUtJX-BsvbQ" name="User"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2zWU8EQBEeuPUtJX-BsvbQ" name="Setup">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_W42RwEQCEeuPUtJX-BsvbQ" name="Setup">
+      <generalization xmi:type="uml:Generalization" xmi:id="_H5xUcEQwEeuPUtJX-BsvbQ" general="_D40ngEQwEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_3SarMEQwEeuPUtJX-BsvbQ" general="_vpPpQEQCEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_RQ3xQEQxEeuPUtJX-BsvbQ" general="_pkAJUEQCEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_wCQq4EUuEeu7fMOgy_RoSg" general="_hGOrwEQCEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hGOrwEQCEeuPUtJX-BsvbQ" name="Board Setup"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pkAJUEQCEeuPUtJX-BsvbQ" name="Card Setup"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_vpPpQEQCEeuPUtJX-BsvbQ" name="WaterMeter Setup">
+      <include xmi:type="uml:Include" xmi:id="_9JW5cEUtEeu7fMOgy_RoSg" addition="_3DDe4ERDEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_D40ngEQwEeuPUtJX-BsvbQ" name="PlayerSetup">
+      <generalization xmi:type="uml:Generalization" xmi:id="_l7KEcEQwEeuPUtJX-BsvbQ" general="_KoPs4EQwEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_KoPs4EQwEeuPUtJX-BsvbQ" name="CreateAllPlayers">
+      <include xmi:type="uml:Include" xmi:id="_hiTBYEUuEeu7fMOgy_RoSg" addition="_PbuC8EQwEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_jGleoEUuEeu7fMOgy_RoSg" addition="_Rk0dcEQwEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_lsMO8EUuEeu7fMOgy_RoSg" addition="_MS9iQEQwEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_MS9iQEQwEeuPUtJX-BsvbQ" name="AssignAdventurerRole"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_PbuC8EQwEeuPUtJX-BsvbQ" name="CreatePlayerHand"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Rk0dcEQwEeuPUtJX-BsvbQ" name="CreatePlayerPawn"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_3DDe4ERDEeuPUtJX-BsvbQ" name="Setup GameDifficulty"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_xb3EIEQHEeuPUtJX-BsvbQ" name="&lt;includes>" client="_smTSIEQBEeuPUtJX-BsvbQ" supplier="_W42RwEQCEeuPUtJX-BsvbQ"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_doAeIEQSEeuPUtJX-BsvbQ" name="GameView">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fF8w4EQUEeuPUtJX-BsvbQ" name="run">
+      <generalization xmi:type="uml:Generalization" xmi:id="_2JTXwEQUEeuPUtJX-BsvbQ" general="_zc-7cEQUEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_zc-7cEQUEeuPUtJX-BsvbQ" name="doTurn">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Tx0ksEQpEeuPUtJX-BsvbQ" general="_lIMKsEQVEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_aJ4S8EQpEeuPUtJX-BsvbQ" general="_mwQUsEQVEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_bbHRUEQpEeuPUtJX-BsvbQ" general="_oC3MEEQVEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cTJskEQpEeuPUtJX-BsvbQ" general="_qmzIcEQVEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_dQrEwEQpEeuPUtJX-BsvbQ" general="_9zb8cEQVEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_emJp8EQpEeuPUtJX-BsvbQ" general="_K75AcEQWEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_fnoVEEQpEeuPUtJX-BsvbQ" general="_ZnFpkEQWEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hkecQEQpEeuPUtJX-BsvbQ" general="_f_Tv4EQWEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_itboYEQpEeuPUtJX-BsvbQ" general="_r09SwEQXEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_4Jt44EQrEeuPUtJX-BsvbQ" general="_F3tIUEQrEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lIMKsEQVEeuPUtJX-BsvbQ" name="Move"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mwQUsEQVEeuPUtJX-BsvbQ" name="ShoreUp"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_oC3MEEQVEeuPUtJX-BsvbQ" name="GiveTreasureCard"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_qmzIcEQVEeuPUtJX-BsvbQ" name="CaptureTreasure"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_9zb8cEQVEeuPUtJX-BsvbQ" name="UseSpecialCard">
+      <generalization xmi:type="uml:Generalization" xmi:id="_A4hnoEQiEeuPUtJX-BsvbQ" general="_4en9cEQhEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_C5LQwEQiEeuPUtJX-BsvbQ" general="_11WOEEQhEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_K75AcEQWEeuPUtJX-BsvbQ" name="TeamPlay">
+      <generalization xmi:type="uml:Generalization" xmi:id="__2uW8EQiEeuPUtJX-BsvbQ" general="_nvfRMEQiEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_DDt3YEQjEeuPUtJX-BsvbQ" general="_tGJM0EQiEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_FQWHAEQjEeuPUtJX-BsvbQ" general="_7HtqIEQiEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ZnFpkEQWEeuPUtJX-BsvbQ" name="ShowBoard"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_f_Tv4EQWEeuPUtJX-BsvbQ" name="ShowHand"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_r09SwEQXEeuPUtJX-BsvbQ" name="Help">
+      <generalization xmi:type="uml:Generalization" xmi:id="_xM6pYEQsEeuPUtJX-BsvbQ" general="_hPjNwEQsEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_y71pUEQsEeuPUtJX-BsvbQ" general="_ixL_oEQsEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_0GXiwEQsEeuPUtJX-BsvbQ" general="_owGOEEQsEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mhVG4EQgEeuPUtJX-BsvbQ" name="FindTile"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_9V3OoEQgEeuPUtJX-BsvbQ" name="&lt;include>" client="_lIMKsEQVEeuPUtJX-BsvbQ" supplier="_mhVG4EQgEeuPUtJX-BsvbQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_BaCOsEQhEeuPUtJX-BsvbQ" name="&lt;include>" client="_mwQUsEQVEeuPUtJX-BsvbQ" supplier="_mhVG4EQgEeuPUtJX-BsvbQ"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_LSs88EQhEeuPUtJX-BsvbQ" name="FindTreasureCard"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_PCu5AEQhEeuPUtJX-BsvbQ" name="&lt;include>" client="_oC3MEEQVEeuPUtJX-BsvbQ" supplier="_LSs88EQhEeuPUtJX-BsvbQ"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_c7fYkEQhEeuPUtJX-BsvbQ" name="CopyOf_FindTreasureCard_16"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_eudLAEQhEeuPUtJX-BsvbQ" name="CopyOf_FindTreasureCard_17"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fiPYYEQhEeuPUtJX-BsvbQ" name="FindSpecialCard"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lFYQ0EQhEeuPUtJX-BsvbQ" name="&lt;include>" client="_9zb8cEQVEeuPUtJX-BsvbQ" supplier="_fiPYYEQhEeuPUtJX-BsvbQ"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_11WOEEQhEeuPUtJX-BsvbQ" name="HelicopterLiftCard">
+      <include xmi:type="uml:Include" xmi:id="_Q5RfsEQoEeuPUtJX-BsvbQ" addition="_VluaAEQjEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_6chhoEQuEeuPUtJX-BsvbQ" addition="_lyPnwEQqEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_4en9cEQhEeuPUtJX-BsvbQ" name="SandBagsCard">
+      <include xmi:type="uml:Include" xmi:id="_VhBG4EQoEeuPUtJX-BsvbQ" addition="_mhVG4EQgEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_nvfRMEQiEeuPUtJX-BsvbQ" name="View Other Player's Hand">
+      <generalization xmi:type="uml:Generalization" xmi:id="_b4C9kEQsEeuPUtJX-BsvbQ" general="_f_Tv4EQWEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_haLGMEQoEeuPUtJX-BsvbQ" addition="_jYe_QEQjEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_tGJM0EQiEeuPUtJX-BsvbQ" name="Allow Other Player use Special Card">
+      <generalization xmi:type="uml:Generalization" xmi:id="_adcAwEQsEeuPUtJX-BsvbQ" general="_9zb8cEQVEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_imZowEQoEeuPUtJX-BsvbQ" addition="_jYe_QEQjEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_7HtqIEQiEeuPUtJX-BsvbQ" name="View Captured Treasures"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_VluaAEQjEeuPUtJX-BsvbQ" name="FindPlayers"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_jYe_QEQjEeuPUtJX-BsvbQ" name="FindOtherPlayers"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_5KeaAEQlEeuPUtJX-BsvbQ" name="EndTurn"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lyPnwEQqEeuPUtJX-BsvbQ" name="NotifyAllObservers">
+      <generalization xmi:type="uml:Generalization" xmi:id="_H61LwEQtEeuPUtJX-BsvbQ" general="_9ReAYEQsEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_Ix2TUEQtEeuPUtJX-BsvbQ" general="__h5K4EQsEeuPUtJX-BsvbQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_n6F9sEQtEeuPUtJX-BsvbQ" general="_dTcvIEQtEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_F3tIUEQrEeuPUtJX-BsvbQ" name="Pick2TreasureCards">
+      <generalization xmi:type="uml:Generalization" xmi:id="_SPEtoEQrEeuPUtJX-BsvbQ" general="_NpJrYEQrEeuPUtJX-BsvbQ"/>
+      <include xmi:type="uml:Include" xmi:id="_VTUi8ERFEeuPUtJX-BsvbQ" addition="_lyPnwEQqEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_NpJrYEQrEeuPUtJX-BsvbQ" name="DrawFloodCards">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hHhvoEQrEeuPUtJX-BsvbQ" general="_crawsEQrEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_crawsEQrEeuPUtJX-BsvbQ" name="FlipIslandTiles">
+      <generalization xmi:type="uml:Generalization" xmi:id="_A9FL8EQsEeuPUtJX-BsvbQ" general="_5KeaAEQlEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_tMyRQEQrEeuPUtJX-BsvbQ" name="CopyOf_EndTurn_34">
+      <generalization xmi:type="uml:Generalization" xmi:id="_tMyRQUQrEeuPUtJX-BsvbQ" general="_F3tIUEQrEeuPUtJX-BsvbQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hPjNwEQsEeuPUtJX-BsvbQ" name="Tiles"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ixL_oEQsEeuPUtJX-BsvbQ" name="Tile States"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_owGOEEQsEeuPUtJX-BsvbQ" name="Treasures"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_9ReAYEQsEeuPUtJX-BsvbQ" name="GameLose"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__h5K4EQsEeuPUtJX-BsvbQ" name="GameWin"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_dTcvIEQtEeuPUtJX-BsvbQ" name="Continue"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_bZ2cUERFEeuPUtJX-BsvbQ" client="_crawsEQrEeuPUtJX-BsvbQ" supplier="_VTUi8ERFEeuPUtJX-BsvbQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_OsnAYEQTEeuPUtJX-BsvbQ" name="Players">
+    <packagedElement xmi:type="uml:Actor" xmi:id="_k3zssEQSEeuPUtJX-BsvbQ" name="player1"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_xyI1IEQSEeuPUtJX-BsvbQ" name="player2"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_GOX6MEVPEeuGS_WjcOIMwQ" name="&lt;include>" client="_OsnAYEQTEeuPUtJX-BsvbQ" supplier="_fF8w4EQUEeuPUtJX-BsvbQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_j1scsEREEeuPUtJX-BsvbQ" name="ForbiddenIsland">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ucFzoEREEeuPUtJX-BsvbQ" name="Setup"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Xd3pYEQNEeuPUtJX-BsvbQ" name="Observer Setup">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_mIQaMEQNEeuPUtJX-BsvbQ" name="WinObserver"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_ngbHAEQNEeuPUtJX-BsvbQ" name="LoseObserver"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_jTkPkEQOEeuPUtJX-BsvbQ" name="Model View Controller">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_yhkDwEQOEeuPUtJX-BsvbQ" name="GameController"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_5niA4EQOEeuPUtJX-BsvbQ" name="GameView"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

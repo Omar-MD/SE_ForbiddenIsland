@@ -2,9 +2,7 @@ package forbiddenIsland.board;
 
 /**
  * Grid singleton class.
- * A single grid object is created and that object is 
- * called using the getInstance method.
- * 
+ * A single grid object is created and that object is called using the getInstance method.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
@@ -23,7 +21,7 @@ public class Grid {
     //-----------------------------------
     /**
      * getInstance method returns single instance of grid.
-     * @return theGrid. singleton Grid object.
+     * @return theGrid. singleton Grid object
      */
     public static Grid getInstance(){
         if(theGrid == null){
@@ -36,8 +34,8 @@ public class Grid {
     // Constructor
     //-----------------------------------
     /**
-     * Grid constructor. 
-     * Sets up the display grid. 
+     * Grid constructor.
+     * Sets up the display grid.
      */
     private Grid() {
         // The dimensions of displayGrid needed when printing Board
@@ -90,10 +88,10 @@ public class Grid {
 	}
 
 	/**
-	 * Draw the top of Island Tile
-	 * @param tile The Island Tile
-	 * @param y The row to draw the tile
-	 * @param xStart The beginning of the top of Tile
+	 * Draw the top of Island Tile.
+	 * @param tile   Island Tile
+	 * @param y    	 Row to draw the tile
+	 * @param xStart Beginning of the top of Tile
 	 */
 	private void drawTop(IslandTile tile, int y, int xStart) {
 		// If tile is sunk, replace top of tile with space chars
@@ -113,11 +111,11 @@ public class Grid {
 	}
 
 	/**
-	 * Draw the bottom of Island Tile
-	 * @param mapChar The character that represents the tile state
-	 * @param y    The row to draw the tile
-	 * @param xMin The beginning of the bottom of Tile
-	 * @param xMax The end of the bottom of Tile
+	 * Draw the bottom of Island Tile.
+	 * @param mapChar Character that represents the tile state
+	 * @param y    	  Row to draw the tile
+	 * @param xMin    Beginning of the bottom of Tile
+	 * @param xMax    End of the bottom of Tile
 	 */
 	private void drawBottom(char mapChar, int y, int xMin, int xMax) {
 		for (int x = xMin; x < xMax + 1; x++) {
@@ -126,11 +124,11 @@ public class Grid {
 	}
 
 	/**
-	 * Draw the side of Island Tile
-	 * @param mapChar The character that represents the tile state
-	 * @param x    The column to draw the tile
-	 * @param yMin The beginning of the side of Tile
-	 * @param yMax The end of the side of Tile
+	 * Draw the side of Island Tile.
+	 * @param mapChar Character that represents the tile state
+	 * @param x    	  Column to draw the tile
+	 * @param yMin    Beginning of the side of Tile
+	 * @param yMax    End of the side of Tile
 	 */
 	private void drawSide(char mapChar, int x, int yMin, int yMax) {
 		for (int y = yMin; y < yMax + 1; y++) {
@@ -140,8 +138,8 @@ public class Grid {
 
 	/**
 	 * Place the pawn on the grid.
-	 * @param tile The IslandTile that the pawn is currently on.
-	 * @param c    The pawn character
+	 * @param tile IslandTile that the pawn is currently on
+	 * @param c    Pawn character
 	 */
 	public void setPawnOnGrid(IslandTile tile, char c) {
 		// Get position x and y of Island tile
@@ -158,8 +156,8 @@ public class Grid {
 
 	/**
 	 * Removes the pawn character from the previous tile location.
-	 * @param tile The IslandTile that the pawn is currently on.
-	 * @param c    The pawn character
+	 * @param tile IslandTile that the pawn is currently on
+	 * @param c    Pawn character
 	 */
 	public void resetPawnChar(IslandTile tile, char c) {
 		// Get position x and y of Island tile
@@ -176,7 +174,7 @@ public class Grid {
 
 	/**
 	 * Resets the Treasure character for a treasure tile that is sunk.
-	 * @param tile The tile to draw a corresponding treasure
+	 * @param tile tile to draw a corresponding treasure
 	 */
 	public void resetTreasureChar(IslandTile tile) {
 		// Get position x and y of Island tile
@@ -193,7 +191,7 @@ public class Grid {
     //----------------------------------- 
     /**
      * returns the char array of grid to be displayed.
-     * @return the char array.
+     * @return char array
      */
     public char[][] getDisplayGrid() {
         return displayGrid;
@@ -224,8 +222,8 @@ public class Grid {
 
     //------------------------------------------
     // Singleton destroyer for unit testing ONLY
-    //------------------------------------------
-    
+	//------------------------------------------
+
     public void destroyMe() {
     	theGrid = null;
     }
