@@ -3,13 +3,13 @@ package forbiddenIsland.card;
 import forbiddenIsland.enums.TreasureEnums;
 
 /**
- * TreasureCard class depicting a Treasure Card object 
- * in the game of Forbidden Island.
+ * TreasureCard class depicting a Treasure Card object in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */
 public class TreasureCard extends Card{
+
     //-----------------------------------
     // Constructor
     //-----------------------------------
@@ -21,9 +21,12 @@ public class TreasureCard extends Card{
 		super(cardName);
 	}
 
+	//-----------------------------------
+    // Methods
+    //-----------------------------------
 	/**
-     * Returns boolean to check if treasure cards are the same
-     * @return the boolean
+     * Returns boolean to check if treasure cards are the same.
+     * @return boolean
      */
     @Override
 	public boolean equals(Object o) {
@@ -38,7 +41,7 @@ public class TreasureCard extends Card{
 	}
 
     /**
-     * Returns unique integer hashcode value
+     * Returns unique integer hashcode value.
      * @return unique integer value
      */
     @Override

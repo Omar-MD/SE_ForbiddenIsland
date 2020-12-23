@@ -6,18 +6,18 @@ import forbiddenIsland.board.Board;
 import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.enums.TilesEnums;
 
-
 /**
  * TileView class finds selected IslandTile on Board.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
 public class TileView {
+
     //------------------------
 	// Variables
 	//------------------------
-	private GameView       gameView;
-    private Scanner        inputScanner;
+	private GameView   gameView;
+    private Scanner    inputScanner;
     private boolean    isValidTile;
     private IslandTile validTile;
     
@@ -25,13 +25,13 @@ public class TileView {
 	// Constructor
 	//------------------------
     public TileView(){
-    	this.gameView       = GameView.getInstance();
-    	this.inputScanner   = gameView.getScanner();
-        this.isValidTile = false;
+    	this.gameView     = GameView.getInstance();
+    	this.inputScanner = gameView.getScanner();
+        this.isValidTile  = false;
     }
 
     //-----------------------
-    // Controller helper methods
+    // Methods
     //-----------------------
     /**
      * Method returns selected Island Tile from board.

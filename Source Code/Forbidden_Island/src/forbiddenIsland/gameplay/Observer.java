@@ -7,8 +7,9 @@ package forbiddenIsland.gameplay;
  *
  */
 public abstract class Observer {
+
     //----------------------------
-    // GamePlay status  
+    // Subject  
     //----------------------------
     protected GameController gameController;   
     

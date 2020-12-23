@@ -28,7 +28,7 @@ public class PlayerList {
 	//-----------------------------------
 	/**
 	 * getInstance method returns single instance of PlayerList.
-	 * @return instance singleton PlayerList object.
+	 * @return instance singleton PlayerList object
 	 */
 	public static PlayerList getInstance() {
 		if( thePlayerList== null)
@@ -53,7 +53,7 @@ public class PlayerList {
 	//----------------------------------
 	/**
 	 * Method returns list of players in game.
-	 * @return Integer Number of players.
+	 * @return Integer Number of players
 	 */
 	public int getNumPlayers() {
 		return this.playerList.size();
@@ -70,7 +70,7 @@ public class PlayerList {
     /**
      * Method returns Player's index in the PlayerList.
      * @param player	The player of interest
-     * @return 			Player's integer index.
+     * @return 			Player's integer index
      */
     public int getPlayerIndex(Player player){
     	return playerList.indexOf(player);
@@ -79,7 +79,7 @@ public class PlayerList {
 	/**
 	 * Method returns Player from list.
 	 * @param index		Index of Player
-	 * @return 			Player at index.
+	 * @return 			Player at index
 	 */
 	public Player getPlayer(int index) {
 		return this.playerList.get(index);
@@ -122,7 +122,7 @@ public class PlayerList {
 	}
 
 	/**
-	 * Print Player List excluding given player
+	 * Print Player List excluding given player.
 	 * @return String containing all the Players 
 	 */
 	public String printOtherPlayers(Player player) {
@@ -136,7 +136,7 @@ public class PlayerList {
 
 	@Override
 	/**
-	 * Print Player List 
+	 * Print Player List.
 	 * @return String containing all the Players 
 	 */
 	public String toString() {

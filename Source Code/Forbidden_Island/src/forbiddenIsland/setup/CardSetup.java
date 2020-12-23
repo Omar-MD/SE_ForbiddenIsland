@@ -13,24 +13,23 @@ import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
 /**
- * Class to handle all aspects of setting up the Cards for a game of Forbidden Island
+ * Class to handle all aspects of setting up the Cards for a game of Forbidden Island.
  * This class should only exist within the Setup facade.
- *
  * @author Jithin James and Omar Duadu
  * @version 1.0
  */
 
 public class CardSetup {
 
-	//===========================================================
-	// Variable Setup
-	//===========================================================
+	//-----------------------------------
+	// Variables Setup
+	//-----------------------------------
 	private FloodDeck floodDeck;
 	private TreasureDeck treasureDeck;
 
-	//===========================================================
+	//-----------------------------------
 	// Constructor
-	//===========================================================
+	//-----------------------------------
 	/**
 	 * Constructor for the CardSetup class
 	 */
@@ -39,12 +38,12 @@ public class CardSetup {
 		this.treasureDeck = TreasureDeck.getInstance();
 	}
 
-	//===========================================================
-	// Other methods
-	//===========================================================
+	//-----------------------------------
+	// Methods
+	//-----------------------------------
 	/**
-	 * Shuffle the Flood Deck and draw the top 6 cards. For each card
-	 * drawn, flip the Island Tile to its flooded state (DRY by default).
+	 * Shuffle the Flood Deck and draw the top 6 cards. 
+	 * For each card drawn, flip the Island Tile to its flooded state (DRY by default).
 	 * Each drawn card is placed into the Flood discard pile.
 	 */
 	public void drawFloodCards() {
@@ -63,7 +62,7 @@ public class CardSetup {
 
 	/**
 	 * Shuffle the Treasure Deck and assign 2 cards to each player.
-	 * If Waters Rise card is drawn, place it back in the deck and shuffle
+	 * If Waters Rise card is drawn, place it back in the deck and shuffle.
 	 */
 	public void drawTreasureCards() {
 		// Get instance of PlayerList

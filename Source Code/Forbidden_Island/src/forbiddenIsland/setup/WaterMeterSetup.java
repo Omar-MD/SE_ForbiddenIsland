@@ -25,7 +25,7 @@ public class WaterMeterSetup {
 	// Constructor
 	//--------------------------------------
 	/**
-	 * Constructor for WaterMeterSetup class
+	 * Constructor for WaterMeterSetup class.
 	 */
 	public WaterMeterSetup() {
         // Get first instance of WaterMeter
@@ -68,8 +68,8 @@ public class WaterMeterSetup {
 
 	/**
 	 * Helper method, Parses user string for starting game difficulty.
-	 * @param userString	 The user String containing game difficulty.
-	 * @return 				 The game difficulty index to set the WaterLevel.
+	 * @param userString	 The user String containing game difficulty
+	 * @return 				 The game difficulty index to set the WaterLevel
 	 */
 	public int setGameDifficulty(String userString) {
 		int game_difficulty = 0;

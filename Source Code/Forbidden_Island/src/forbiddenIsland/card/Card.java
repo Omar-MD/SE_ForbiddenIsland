@@ -19,7 +19,7 @@ public abstract class Card{
     //-----------------------------------
     /**
      * Constructor for a Card object.
-     * @param cardName The name of the Card
+     * @param cardName  Name of the Card
      */
 	@SuppressWarnings("rawtypes")
 	Card(Enum cardName){
@@ -30,8 +30,8 @@ public abstract class Card{
     // Getters and Setters
     //-----------------------------------
     /**
-     * Returns the Card name
-     * @return the card name 
+     * Returns the Card name enum.
+     * @return Card name enum 
      */
 	@SuppressWarnings("rawtypes")
 	public Enum getName(){
@@ -39,8 +39,8 @@ public abstract class Card{
     }
     
 	 /**
-     * Sets the Card name
-     * @param cardName the Card name
+     * Sets the Card name.
+     * @param cardName  Card name
      */
 	@SuppressWarnings("rawtypes")
 	public void setName(Enum cardName) {
@@ -49,7 +49,7 @@ public abstract class Card{
 
 	@Override
 	/**
-	 * Print Card enum name
+	 * Print Card enum name.
 	 * @return String containing Card enum
 	 */
 	public String toString() {

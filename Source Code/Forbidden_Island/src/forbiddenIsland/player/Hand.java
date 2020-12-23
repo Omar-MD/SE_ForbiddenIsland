@@ -3,6 +3,7 @@ package forbiddenIsland.player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
+
 import forbiddenIsland.card.Card;
 import forbiddenIsland.card.SpecialCard;
 import forbiddenIsland.card.TreasureCard;
@@ -37,7 +38,7 @@ public class Hand {
 	// Methods
 	//---------------------------
 	/**
-	 * Method to discard used treasure Cards to treasure Discard pile
+	 * Method to discard used treasure Cards to treasure Discard pile.
 	 */
 	public void discardTreasureSet(){
 		TreasureDeck treasureDeck = TreasureDeck.getInstance();
@@ -58,7 +59,7 @@ public class Hand {
 	}
 
 	/**
-	 * Checks if the player hand is empty
+	 * Checks if the player hand is empty.
 	 * @return boolean
 	 */
 	public boolean isEmpty() {
@@ -88,7 +89,7 @@ public class Hand {
 	// Getters
 	//---------------------------
 	/**
-	 * Return  Hand Deck 
+	 * Return  Hand Deck.
 	 * @return handDeck
 	 */
 	public List<Card> getDeck(){
@@ -127,7 +128,7 @@ public class Hand {
 	}
 
 	/**
-	 * Return list of Special Cards in player hand
+	 * Return list of Special Cards in player hand.
 	 * @return List of Special Cards
 	 */
 	public List<Card> getSpecialCards() {
@@ -141,7 +142,7 @@ public class Hand {
 	}
 
 	/**
-	 * Return list of Treasure Cards in player hand
+	 * Return list of Treasure Cards in player hand.
 	 * @return List of Treasure Cards
 	 */
 	public List<Card> getTreasureCards() {
@@ -155,8 +156,7 @@ public class Hand {
 	}
 
 	/**
-	 * Return Name of Treasure to be captured if player hand
-	 * consists of full treasure deck.
+	 * Return Name of Treasure to be captured if player hand consists of full treasure deck.
 	 * @return Treasure name enum
 	 */
 	public TreasureEnums getTreasureName() {
@@ -192,6 +192,7 @@ public class Hand {
 		}
 		return i;
 	}
+
 	//---------------------------
 	// Setter
 	//---------------------------
@@ -204,7 +205,7 @@ public class Hand {
 	}
 
 	/**
-	 * Print List of Cards from Player Hand 
+	 * Print List of Cards from Player Hand.
 	 * @return String containing List of Cards from Player Hand
 	 */
 	public String printCards(List<Card> listCards) {

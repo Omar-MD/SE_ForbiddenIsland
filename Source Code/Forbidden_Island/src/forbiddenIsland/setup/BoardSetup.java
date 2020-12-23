@@ -5,13 +5,11 @@ import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
 /**
- * Class to handle all aspects of setting up the Board for a game of Forbidden Island
+ * Class to handle all aspects of setting up the Board for a game of Forbidden Island.
  * This class should only exist within the Setup facade.
- * 
  * @author  Jithin James and Omar Duadu
  * @version 1.0
  */
-
 public class BoardSetup {
 
 	//-----------------------------------
@@ -24,7 +22,7 @@ public class BoardSetup {
 	// Constructor
 	//-----------------------------------
 	/**
-	 * Constructor for the BoardSetup Class
+	 * Constructor for the BoardSetup Class.
 	 */
 	public BoardSetup() {
 	    // Get first instance of Board
@@ -37,7 +35,7 @@ public class BoardSetup {
 	// Public methods
 	//-----------------------------------
 	/**
-	 * Build the layout of the Board 
+	 * Build the layout of the Board.
 	 */
 	public void initialiseBoard() { // Build the layout of the Board
 		drawTiles();
@@ -45,7 +43,7 @@ public class BoardSetup {
 	}
 
 	/**
-	 * Add all the Pawns relating to the Players in PlayerList to the Board
+	 * Add all the Pawns relating to the Players in PlayerList to the Board.
 	 */
 	public void addPlayerPawns() { // Add all Players' Pawns to the board
 		PlayerList playerList = PlayerList.getInstance();
@@ -60,7 +58,7 @@ public class BoardSetup {
     // Private methods
 	//-----------------------------------
 	/**
-	 * Add all the Treasures on the Board
+	 * Add all the Treasures on the Board.
 	 */
 	private void addTreasures() {
 		IslandTile[][] boardTiles = setupBoard.getTiles();
@@ -77,7 +75,7 @@ public class BoardSetup {
 	}
 
 	/**
-	 * Add the Treasure
+	 * Add the Treasure.
 	 * @param tile The tile to draw a corresponding treasure
 	 */
 	private void addTreasure(IslandTile tile) {
@@ -93,7 +91,7 @@ public class BoardSetup {
 	}
 
 	/**
-	 * Draw all the Tiles on the Board
+	 * Draw all the Tiles on the Board.
 	 */
 	private void drawTiles() {
 		IslandTile[][] boardTiles = setupBoard.getTiles();

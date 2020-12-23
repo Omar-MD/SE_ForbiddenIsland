@@ -8,7 +8,11 @@ package forbiddenIsland.enums;
  *
  */
 public enum TreasureEnums {
-	THE_EARTH_STONE        ("The Earth Stone"        ,'£'),
+
+	//---------------------------------
+    // Variable Setup
+    //---------------------------------
+	THE_EARTH_STONE        ("The Earth Stone"        ,'ï¿½'),
 	THE_STATUE_OF_THE_WIND ("The Statue of the Wind" ,'$'),
 	THE_CRYSTAL_OF_FIRE    ("The Crystal of Fire"    ,'#'),
 	THE_OCEANS_CHALICE     ("The Ocean's Chalice"    ,'@');
@@ -16,9 +20,12 @@ public enum TreasureEnums {
 	private final String displayName;
 	private final char mapChar;
 
+	//---------------------------------
+    // Constructor
+    //---------------------------------
 	/**
-	 * Constructor for treasure enum
-	 * @param s String which will be set to the display name of the treasure.
+	 * Constructor for treasure enum.
+	 * @param s String which will be set to the display name of the treasure
 	 * @param c Character associated with treasure to be printed on Board
 	 */
     private TreasureEnums(String s, char c){
@@ -26,17 +33,20 @@ public enum TreasureEnums {
     	mapChar = c; // char for default representation of treasure on Board
     }
 
+	//---------------------------------
+    // Methods
+    //---------------------------------
     /**
-     * gets character relating to a Treasure
-     * @return the character.
+     * gets character relating to a Treasure.
+     * @return Treasure character
      */
     public char getChar() {
         return mapChar;
     }
 
 	/**
-	 * Returns string representing the treasure enum
-	 * @return the string representation
+	 * Returns string representing the treasure enum.
+	 * @return Treasure enum string 
 	 */
     @Override
 	public String toString() {

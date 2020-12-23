@@ -12,27 +12,25 @@ public class ForbiddenIsland {
 
 	public static void main(String[] args) {
 
+		// User input
 		Scanner inputScanner = new Scanner(System.in);
 
+		// Game Setup
 		Setup.getInstance().doAllSetup(inputScanner);
 
-		// Setting up the Observers
-        WinObserver.getInstance(); 
-	    LoseObserver.getInstance();
+		// Observers Setup
+        WinObserver.getInstance(); 									// Get WinObserer instance
+	    LoseObserver.getInstance();									// Get LoseObserver instance
 
-        // Get the instance of the controller object
-        GameController controller =  GameController.getInstance();
-	    
-        // Get the instance of the View Object
-	    GameView gameView = GameView.getInstance();
+        // Model View Controller Setup
+        GameController controller =  GameController.getInstance();	// Get GameController instance
+	    GameView gameView = GameView.getInstance();					// Get GameView instance
+		gameView.setController(controller); 	 					// Set the game controller to the game view
 
-	    // Set the game controller to the game view
-		gameView.setController(controller);
+		// Run Game
+		gameView.run(inputScanner);	// Start gameView
 
-		// Start the View
-		gameView.run(inputScanner);
-
+		// Close User input
 		inputScanner.close();
-    	
 	}
 }

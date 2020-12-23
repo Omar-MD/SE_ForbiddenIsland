@@ -28,7 +28,7 @@ public class PlayerSetup {
 	// Constructor
 	//--------------------------------------
 	/**
-	 * Constructor for PlayerSetup class
+	 * Constructor for PlayerSetup class.
 	 */
 	public PlayerSetup() {
 		this.playerList = PlayerList.getInstance();
@@ -38,7 +38,7 @@ public class PlayerSetup {
 	//  Methods
 	//--------------------------------------
 	/**
-	 * Creates the players who will play the game
+	 * Creates the players who will play the game.
 	 */
 	protected void createAllPlayers(Scanner user) {
 		int numOfPlayers;
@@ -70,8 +70,8 @@ public class PlayerSetup {
 
 	/**
 	 * Helper method, Parses user string for number of players.
-	 * @param userString	 The user String containing number of players.
-	 * @return 				 The number of Players to create.
+	 * @param userString	 The user String containing number of players
+	 * @return 				 The number of Players to create
 	 */
 	public int setNumPlayers(String userString) {
 		int numOfPlayers = 0;
@@ -91,7 +91,7 @@ public class PlayerSetup {
 	}
 
 	/**
-	 * Assign role to a player, create Player and add Player to PlayerList
+	 * Assign role to a player, create Player and add Player to PlayerList.
 	 * @param user	Scanner which we read the users input from
 	 * @param i     Integer value representing the player number
 	 */

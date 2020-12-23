@@ -6,7 +6,6 @@ import forbiddenIsland.gameplay.GameController;
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
-
 /**
  * GameView singleton class manages all of the views.
  * @author Jithin James and Omar Duadu
@@ -27,7 +26,7 @@ public class GameView {
     //-----------------------------------
     /**
      * getInstance method returns single instance of GameView.
-     * @return instance singleton GameView object.
+     * @return instance singleton GameView object
      */
     public static GameView getInstance() {
     	if(instance == null)
@@ -85,8 +84,7 @@ public class GameView {
     }
 
 	/**
-	 * Team Play lets you view your team member's hands and
-	 * allow them to play a special card even during your turn.
+	 * Team Play lets you view your team member's hands and allow them to play a special card even during your turn.
 	 */
 	protected void giveTeamPlayOptions() {
 		printout("\nChoose one of the following:");
@@ -97,11 +95,11 @@ public class GameView {
     }
 
 	/**
-	 * Option to view game help
-	 * Tiles displays all the tile abbreviations in the game
-	 * Tile States displays all the tile state characters in the game
-	 * Treasures displays all the treasure abbreviations in the game
-	 * Return brings you back out of the Help
+	 * Option to view game help.
+	 * Tiles displays all the tile abbreviations in the game.
+	 * Tile States displays all the tile state characters in the game.
+	 * Treasures displays all the treasure abbreviations in the game.
+	 * Return brings you back out of the Help.
 	 */
 	public void seeHelp(){
 		int userInt;
@@ -142,13 +140,15 @@ public class GameView {
 	// Private Helper Methods
     //----------------------------
     /**
-	 * Return the input scanner
+	 * Return the input scanner.
+	 * @return the scanner
 	 */
     public Scanner getScanner(){
         return inputScanner;
     }
 
     /**
+	 * Get controller
      * @return the controller
      */
     public GameController getController() {
@@ -156,6 +156,7 @@ public class GameView {
     }
 
     /**
+	 * Set the controller
      * @param controller the controller to set
      */
     public void setController(GameController controller) {
@@ -167,7 +168,7 @@ public class GameView {
     //----------------------------
     /**
 	 * clean printout function to print to the console.
-	 * @param toPrint The string to be printed.
+	 * @param toPrint The string to be printed
 	 */
 	private void printout(String toPrint) {
 		System.out.println(toPrint);

@@ -8,30 +8,27 @@ import java.util.Stack;
 import forbiddenIsland.enums.TilesEnums;
 
 /**
- * Singleton Class for the Deck of Flood Cards in a game
- * of Forbidden Island. Can initialise a deck, refill the deck
- * and draw flood cards.
- *
+ * Singleton Class for the Deck of Flood Cards in a game of Forbidden Island. 
+ * Can initialise a deck, refill the deck and draw flood cards.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */
-
 public class FloodDeck {
 
-	//===========================================================
-	// Variable Setup
-	//===========================================================
+    //------------------------------------------
+    // Variable Setup
+    //------------------------------------------
 	private static FloodDeck theDeck;
 	private Stack<Card>      cardsInDeck;
 	private Stack<Card>      discardPile;
 
-	//===========================================================
-	// Get Instance of Singleton
-	//===========================================================
+    //------------------------------------------
+    // Get instance of Singleton
+    //------------------------------------------
 	/**
 	 * gets the singleton instance of the FloodDeck object.
-	 * @return the single FloodDeck object.
+	 * @return singleton FloodDeck object.
 	 */
 	public static FloodDeck getInstance(){
         if(theDeck == null){
@@ -40,9 +37,9 @@ public class FloodDeck {
         return theDeck;
     }
 
-	//===========================================================
-	// Constructor
-	//===========================================================
+    //------------------------------------------
+    // Constructor
+    //------------------------------------------
 	/**
 	 * Generates all the cards in the Flood Deck.
 	 */
@@ -53,11 +50,11 @@ public class FloodDeck {
 	    initFloodDeck();
 	}
 
-	//===========================================================
-	// Other Methods
-	//===========================================================
+    //------------------------------------------
+    // Methods
+    //------------------------------------------
 	/**
-     * Initialise the Flood Deck
+     * Initialise the Flood Deck.
      */
     private void initFloodDeck() {
     	// Each card corresponds to an Island Tile
@@ -67,7 +64,7 @@ public class FloodDeck {
     }
 
     /**
-	 * Shuffle the Flood Deck
+	 * Shuffle the Flood Deck.
 	 */
 	public void shuffleDeck() {
 		System.out.println("Shuffling the Flood Deck.");
@@ -75,8 +72,7 @@ public class FloodDeck {
 	}
 
 	/**
-	 * Place the cards in the Flood Discard Pile
-	 * back in the Flood Deck and shuffle it
+	 * Place the cards in the Flood Discard Pile back in the Flood Deck and shuffle it.
 	 */
 	public void refillDeck() {
 		System.out.println("Adding the discard pile back into the Flood Deck.");
@@ -87,8 +83,7 @@ public class FloodDeck {
 	}
 
 	/**
-	 * Draw the top card from the Flood Deck and
-	 * place it in the Flood discard pile.
+	 * Draw the top card from the Flood Deck and place it in the Flood discard pile.
 	 * @return The drawn Card
 	 */
 	public Card drawCard() {
@@ -102,8 +97,7 @@ public class FloodDeck {
 	}
 
 	/**
-	 * Draw the top i cards from the Flood Deck and
-	 * place them in the Flood discard pile.
+	 * Draw the top i cards from the Flood Deck and place them in the Flood discard pile.
 	 * @return List<Card> The drawn Cards
 	 */
 	public List<Card> drawCard(int i) {
@@ -119,12 +113,13 @@ public class FloodDeck {
 		}
 		return drawnCards;
 	}
-	//-----------------------------------
+
+	//------------------------------------------
     // Getters
-    //-----------------------------------
+    //------------------------------------------
     /**
      * returns the Flood deck.
-     * @return the Flood deck.
+     * @return the Flood deck
      */
     public Stack<Card> getDeck() {
         return cardsInDeck;
@@ -132,15 +127,15 @@ public class FloodDeck {
 
     /**
      * returns the Flood discard pile.
-     * @return the Flood discard pile.
+     * @return the Flood discard pile
      */
     public Stack<Card> getDiscardPile() {
         return discardPile;
     }
 
-	//===========================================================
-	// Singleton destroyer for unit testing ONLY
-	//===========================================================
+    //------------------------------------------
+    // Singleton Destroyer for Unit-Testing Only
+    //------------------------------------------
 
 	public void destroyMe() {
 	    theDeck = null;

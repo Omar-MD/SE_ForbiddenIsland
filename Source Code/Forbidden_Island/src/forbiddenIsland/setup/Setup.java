@@ -4,16 +4,15 @@ import java.util.Scanner;
 
 /**
  * Singleton Facade to handle all required setup for a game of Forbidden Island.
- *
  * @author  Jithin James and Omar Duadu
  * @version 1.0
  */
 
 public class Setup {
 
-    //===========================================================
-    // Variable Setup
-    //===========================================================
+	//-----------------------------------
+	// Variables Setup
+	//-----------------------------------
 	// Self singleton
     private static Setup theSetup;
 
@@ -23,11 +22,11 @@ public class Setup {
     private BoardSetup  boardHandler;
     private WaterMeterSetup waterMeterHandler;
 
-    //===========================================================
-    // Get Instance of Singleton
-    //===========================================================
+	//-----------------------------------
+	// Get Instance of Singleton
+	//-----------------------------------
     /**
-     * getInstance of singleton Setup class
+     * getInstance of singleton Setup class.
      * @return instance of Setup class
      */
     public static Setup getInstance(){
@@ -37,11 +36,11 @@ public class Setup {
         return theSetup;
     }
 
-    //===========================================================
-    // Constructor
-    //===========================================================
+	//-----------------------------------
+	// Constructor
+	//-----------------------------------
     /**
-     * Constructor class for Setup
+     * Constructor class for Setup.
      */
     private Setup() {
         this.playerHandler      = new PlayerSetup();
@@ -50,9 +49,9 @@ public class Setup {
         this.waterMeterHandler  = new WaterMeterSetup();
     }
 
-    //===========================================================
-    // Setup Methods
-    //===========================================================
+	//-----------------------------------
+	// Setup Methods
+	//-----------------------------------
     /**
      * Handles all setup
      */
@@ -75,8 +74,7 @@ public class Setup {
     }
 
     /**
-     * Printout a Welcome / start screen
-     * TODO: Needs more work.
+     * Printout a Welcome / start screen.
      */
     public void welcomeScreen(){
         System.out.println("Welcome to Forbidden Island!");

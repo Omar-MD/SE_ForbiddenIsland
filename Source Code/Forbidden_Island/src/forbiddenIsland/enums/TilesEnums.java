@@ -8,6 +8,10 @@ package forbiddenIsland.enums;
  *
  */
 public enum TilesEnums {
+
+	//----------------------------------------------
+    // Variables Setup
+    //----------------------------------------------
 	TWILIGHT_HOLLOW    ("Twilight Hollow"    ,"TWH"),
 	BREAKERS_BRIDGE    ("Breakers Bridge"    ,"BRB"),
 	CLIFFS_OF_ABANDON  ("Cliffs of Abandon"  ,"COA"),
@@ -35,9 +39,13 @@ public enum TilesEnums {
 
 	private final String displayName;
 	private final String mapString;
+
+	//----------------------------------------------
+    // Constructor
+    //----------------------------------------------
 	/**
-	 * Constructor for tile enum
-	 * @param s String which will be set to the display name of the tile.
+	 * Constructor for tile enum.
+	 * @param s String which will be set to the display name of the tile
 	 * @param m String associated with tile to be printed on Board
 	 */
     private TilesEnums(String s, String m){
@@ -45,17 +53,20 @@ public enum TilesEnums {
     	mapString = m; // String for default representation of Island Tile on Board
     }
 
+	//----------------------------------------------
+    // Methods
+    //----------------------------------------------
     /**
-     * gets String relating to the Tile representation on the Board
-     * @return the string.
+     * gets String relating to the Tile representation on the Board.
+     * @return Tile board string
      */
     public String getMapString() {
         return mapString;
     }
 
 	/**
-	 * Returns string representing the tile enum
-	 * @return the string representation
+	 * Returns string representing the tile enum.
+	 * @return Tile enum string
 	 */
     @Override
 	public String toString() {

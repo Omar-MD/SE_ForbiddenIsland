@@ -27,6 +27,7 @@ import forbiddenIsland.player.PlayerList;
  * @version 1.0
  */
 public class PlayerView {
+
     //------------------------
 	// Variables
 	//------------------------
@@ -143,7 +144,7 @@ public class PlayerView {
 
     /**
      * Pick up two treasure cards and if game is finished during this, return true.
-     * @return boolean True if game finished, false otherwise
+     * @return boolean 
      */
     private boolean pickUpTwoCards(){
     	int i = 0;
@@ -159,6 +160,7 @@ public class PlayerView {
 
     /**
      * Discard extra card in player deck. If special card is chosen, it can be used first.
+	 * @param player
      */
     private void checkForDiscard(Player player){
     	if(getPlayerDeck(player).size()>5) {
@@ -384,6 +386,7 @@ public class PlayerView {
     //----------------------------
     /**
      * Try use Special card.
+	 * @param player
      */
     public void tryUseSpecialCard(Player player){
     	if(!player.getHand().hasSpecialCard(SpecialCardEnums.SANDBAGS) 
@@ -409,6 +412,7 @@ public class PlayerView {
 
     /**
      * Try use SandBags card.
+	 * @param player
      */
     private void tryUseSandbagsCard(Player player){
     	printout("\n"+player.getName()+" (Player "+ player.getChar() +") is on "+ playerPawnTileName());
@@ -432,6 +436,7 @@ public class PlayerView {
 
     /**
      * Try use HelicopterLift card.
+	 * @param player
      */
     private void tryUseHelicopterLiftCard(Player player){
  		// CheckWin Conditions
@@ -572,7 +577,7 @@ public class PlayerView {
 
 	/**
 	 * Print List of IslandTiles
-	 * @return String containing name of IslandTiles
+	 * @param listTiles list of IslandTiles
 	 */
 	private void printIslandTiles(List<IslandTile> listTiles) {
 		List<String> tiles = new ArrayList<String>();
@@ -678,7 +683,7 @@ public class PlayerView {
   	}
 
   	/**
-  	 * Returns the maximum of an Integer list or 0 if list is empty
+  	 * Returns the maximum of an Integer list or 0 if list is empty.
   	 * @return Integer maximum 
   	 */
   	public int findMax(List<Integer> list){
@@ -709,7 +714,7 @@ public class PlayerView {
   	//----------------------------
   	/**
   	 * Return boolean action.
-  	 * @return boolean True or false
+  	 * @return boolean
   	 */
   	public boolean isActionValid(){
   		return this.action;
@@ -725,7 +730,7 @@ public class PlayerView {
 
   	/**
   	 * Returns if chosen players are valid.
-  	 * @return Boolean True or false
+  	 * @return Boolean
   	 */
   	public boolean isValidPlayer(){
   		return this.isValidPlayer;
@@ -741,7 +746,8 @@ public class PlayerView {
 
   	/**
   	 * clean playerDeck function that returns the Hand Deck of a player.
-  	 * @return Player Hand Deck
+  	 * @param player Player
+	 * @return Player deck
   	 */
   	protected List<Card> getPlayerDeck(Player player) {
   		return player.getHand().getDeck();
@@ -749,6 +755,7 @@ public class PlayerView {
 
   	/**
   	 * clean seeHand function that prints the player Hand on screen.
+	 * @param player 
   	 */
   	protected void seeHand(Player player){
   		if (player.getHand().isEmpty())

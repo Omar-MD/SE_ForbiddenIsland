@@ -1,12 +1,13 @@
 package forbiddenIsland.board;
 
 /**
- * Class for (X,Y) position on the Board in a game of Forbidden Island
+ * Class for (X,Y) position on the Board in a game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */
 public class Position {
+
     //-----------------------------------
     // Variable Setup
     //-----------------------------------
@@ -30,7 +31,7 @@ public class Position {
     // Getters and Setters
     //-----------------------------------
 	/**
-	 * Returns the X coordinate of the position
+	 * Returns the X coordinate of the position.
      * @return x
      */
     public int getX() {
@@ -38,15 +39,15 @@ public class Position {
     }
 
     /**
-	 * Sets the X coordinate of the position
-     * @param x the X coordinate
+	 * Sets the X coordinate of the position.
+     * @param x X coordinate
      */
     public void setX(int x) {
         this.x = x;
     }
 
     /**
-	 * Returns the Y coordinate of the position
+	 * Returns the Y coordinate of the position.
      * @return y
      */
     public int getY() {
@@ -54,25 +55,25 @@ public class Position {
     }
 
     /**
-	 * Sets the Y coordinate of the position
-     * @param y the Y coordinate
+	 * Sets the Y coordinate of the position.
+     * @param y Y coordinate
      */
     public void setY(int y) {
         this.y = y;
     }
 
     /**
-	 * Returns the Manhattan distance between two positions
-	 * @param pos the Position to calculate the distance against
-     * @return the Manhattan distance
+	 * Returns the Manhattan distance between two positions.
+	 * @param pos  Position to calculate the distance against
+     * @return     Manhattan distance
      */
     public int getManhattan(Position pos) {
         return Math.abs(x-pos.getX())+Math.abs(y-pos.getY());
     }
 
     /**
-     * Returns boolean to check if positions are equal
-     * @return the boolean
+     * Returns boolean to check if positions are equal.
+     * @return boolean
      */
     @Override
 	public boolean equals(Object o) {
@@ -87,8 +88,8 @@ public class Position {
 	}
 
     /**
-	 * Returns string representing the Position object
-	 * @return the string representation in (X,Y) coordinate form
+	 * Returns string representing the Position object.
+	 * @return string representation in (X,Y) coordinate form
 	 */
     @Override
 	public String toString() {

@@ -9,8 +9,7 @@ import forbiddenIsland.gameplay.WaterMeter;
 import forbiddenIsland.player.Player;
 
 /**
- * SpecialCard class for special cards found
- * in a Treasure Deck in the game of forbidden Island.
+ * SpecialCard class for special cards found in a Treasure Deck in the game of forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -32,7 +31,7 @@ public class SpecialCard extends Card{
 	// Methods
 	//-----------------------------------
 	/**
-	 * Method to play the Waters Rise card, increases the game water level.
+	 * Play the Waters Rise card. Increases the game water level.
 	 */
 	public void useWatersRise(){
 		WaterMeter  WMeter = WaterMeter.getInstance();
@@ -40,9 +39,9 @@ public class SpecialCard extends Card{
 	}
 
 	/**
-	 * Use the ability of the Sandbags card, used to shore up any Island Tile. 
-	 * @param islandTile 	Island Tile to be shored up.
-	 * @return boolean      Boolean representing whether Sandbags card was used or not
+	 * Use the Sandbags card. Use to shore up any Island Tile. 
+	 * @param islandTile 	Island Tile to be shored up
+	 * @return boolean      True if successful, false otherwise
 	 */
 	public boolean useSandbags(IslandTile islandTile){
 		if (islandTile.isFlooded()) {
@@ -62,12 +61,11 @@ public class SpecialCard extends Card{
 	}
 
 	/**
-	 * Use the ability of the Helicopter lift card, transports Player(s) to another Island Tile.
-	 * Players must be on the same tile. 
-	 * If all team players are on Fool's landing, used to reach the Finish.
+	 * Use the Helicopter lift card. Transports Player(s) to another Island Tile.
+	 * If all team players are on Fool's landing, used to win the game.
 	 * @param flyingPlayers	 List of Players to be transported
-	 * @param newTile	 	 Island Tile destination.
-	 * @return boolean       Boolean representing whether Helicopter Lift card was used or not
+	 * @param newTile	 	 Island Tile destination
+	 * @return boolean       True if successful, false otherwise
 	 */
 	public boolean useHelicopterLift(List<Player> flyingPlayers,IslandTile newTile){
 		// Check if destination Island Tile is Sunk

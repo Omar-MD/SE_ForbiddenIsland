@@ -1,8 +1,7 @@
 package forbiddenIsland.gameplay;
 
 /**
- * Class depicting Water meter object
- * in the game of Forbidden Island.
+ * Class depicting Water meter object in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -19,8 +18,8 @@ public class WaterMeter {
 	// Get Instance of Singleton
 	//-----------------------------------
 	/**
-	 * getInstance method returns single instance of WaterMeter.
-	 * @return instance singleton WaterMeter object.
+	 * getInstance method returns singleton instance of WaterMeter.
+	 * @return  instance of singleton WaterMeter object
 	 */
 	public static WaterMeter getInstance() {
 		if(instance == null)
@@ -54,7 +53,7 @@ public class WaterMeter {
 	// Setter
 	//-----------------------
 	/**
-	 * Set Water level to its associated difficulty 
+	 * Set Water level to its associated difficulty.
 	 * @param difficulty Game Difficulty  
 	 */
 	public void setWaterLevel(String difficulty){
@@ -80,7 +79,7 @@ public class WaterMeter {
 	// Getter
 	//-----------------------
 	/**
-	 * Return Water meter level 
+	 * Return Water meter level.
 	 * @return waterLevel Water level 
 	 */
 	public int getWaterLevel(){
@@ -88,7 +87,7 @@ public class WaterMeter {
 	}
 
 	/**
-	 * Return number of cards to draw
+	 * Return number of cards to draw.
 	 * @return cardsToDraw Integer number of cards to draw 
 	 */
 	public int getCardsToDraw(){

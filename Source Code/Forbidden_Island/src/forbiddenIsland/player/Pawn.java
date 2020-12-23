@@ -6,8 +6,7 @@ import forbiddenIsland.board.IslandTile;
 import forbiddenIsland.enums.TilesEnums;
 
 /**
- * Pawn holding the Players IslandTile
- * in the game of Forbidden Island.
+ * Pawn Class holding the Players IslandTile in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -54,16 +53,15 @@ public class Pawn {
 	// Setters
 	//-----------------------------------
 	/**
-	 * Method to return the character associated to this
-	 * pawn which will be printed to the board.
-	 * @return the pawn character
+	 * Method to return the character associated to this pawn which will be printed to the board.
+	 * @return  pawn character
 	 */
 	public char getChar() {
 	    return mapChar;
 	}
 
 	/**
-	 * Set Pawn Island Tile
+	 * Set Pawn Island Tile.
 	 * @param islandTile
 	 */
 	public void setPawnTile(IslandTile islandTile){
@@ -75,7 +73,7 @@ public class Pawn {
 	}
 	
 	/**
-	 * Initialize Pawn Island Tile
+	 * Initialize Pawn Island Tile.
 	 * @param startTileEnum
 	 */
 	public void initPawnTile(TilesEnums startTileEnum) {
@@ -87,7 +85,7 @@ public class Pawn {
 	// Getters
 	//------------------------------------
 	/**
-	 * Return Pawn Island Tile
+	 * Return Pawn Island Tile.
 	 * @return pawnTile
 	 */
 	public IslandTile getPawnTile(){
@@ -96,7 +94,7 @@ public class Pawn {
 
 	@Override 
 	/**
-	 * Print Pawn location 
+	 * Print Pawn location.
 	 * @return String
 	 */
 	public String toString() {

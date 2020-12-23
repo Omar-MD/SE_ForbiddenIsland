@@ -15,7 +15,7 @@ import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.gameplay.Treasure;
 
 /**
- * Player class containing the name, adventurer role, pawn and hand in the game of Forbidden Island.
+ * Player class containing the name, adventurer role, pawn and hand of a player in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -62,7 +62,7 @@ public class Player {
 
 	/**
 	 * Shore Up Island Tile.
-	 * @param shoredTile  ShoredUp IslandTile.
+	 * @param shoredTile  ShoredUp IslandTile
 	 * @return boolean	  True if successful, false otherwise
 	 */
 	public boolean shoreUp(IslandTile shoredTile) {
@@ -71,7 +71,7 @@ public class Player {
 
 	/**
 	 * Swim away from sinking Island Tile.
-	 * @param newTile  	new IslandTile.
+	 * @param newTile  	new IslandTile
 	 * @return boolean	True if successful, false otherwise
 	 */
 	public boolean swim(IslandTile newTile) {
@@ -82,7 +82,7 @@ public class Player {
 	 * Give a treasure card present in player deck to another player.
 	 * Except for the Messenger the Treasure card can only be given
 	 * if both players are on same Island Tile
-	 * @param  card		Treasure Card given.
+	 * @param  card		Treasure Card given
 	 * @param  teamMate	Player receiving card
 	 * @return boolean	True if successful, false otherwise
 	 */
@@ -102,8 +102,7 @@ public class Player {
 	}
 
 	/**
-	 * Capture Treasure if the Player is on a treasure Tile 
-	 * and if the player deck consists of 4 matching treasure cards.
+	 * Capture Treasure if the Player is on a treasure Tile and if the player deck consists of 4 matching treasure cards.
 	 * Also discards the used treasure cards to the Treasure Discard pile.
 	 * @return boolean	True if successful, false otherwise
 	 */
@@ -170,7 +169,7 @@ public class Player {
 	//-----------------------------------
 	/**
 	 * Use Sandbags Special Card.
-	 * @param shoredTile	Shored Island Tile. 
+	 * @param shoredTile	Shored Island Tile
 	 * @return boolean		True if successful, false otherwise
 	 */
 	public boolean useSandbagsCard(IslandTile shoredTile) {
@@ -191,8 +190,8 @@ public class Player {
 
 	/**
 	 * Use HelicopterLift Special Card.
-	 * @param flyingPlayers Players to be flown.
-	 * @param newTile		Island Tile Destination.
+	 * @param flyingPlayers Players to be flown
+	 * @param newTile		Island Tile Destination
 	 * @return boolean		True if successful, false otherwise
 	 */
 	public boolean useHelicopterLiftCard(List<Player> flyingPlayers,IslandTile newTile) {
@@ -231,7 +230,7 @@ public class Player {
 	}
 
 	/**
-	 * Return Player pawn
+	 * Return Player pawn.
 	 * @return pawn
 	 */
 	public Pawn getPawn(){
@@ -239,7 +238,7 @@ public class Player {
 	}
 
 	/**
-	 * Return Player hand
+	 * Return Player hand.
 	 * @return hand
 	 */
 	public Hand getHand(){
@@ -247,7 +246,7 @@ public class Player {
 	}
 
 	/**
-	 * Gets the character associated to a Player's Pawn
+	 * Gets the character associated to a Player's Pawn.
 	 * @return the pawn character
 	 */
 	public char getChar() {
@@ -316,8 +315,8 @@ public class Player {
 	}
 
 	/**
-     * Returns boolean to check if players are the same
-     * @return the boolean
+     * Check if two players are the same.
+     * @return boolean
      */
     @Override
 	public boolean equals(Object o) {
@@ -335,7 +334,7 @@ public class Player {
 
 	@Override
 	/**
-	 * Print Player character and name 
+	 * Print Player character and name.
 	 * @return String containing necessary Player information
 	 */
 	public String toString() {

@@ -22,6 +22,7 @@ public class CardView {
     private Scanner  inputScanner;
     private Card     validCard;
     private int      cardIndex;
+
     //------------------------
 	// Constructor
 	//------------------------
@@ -32,8 +33,11 @@ public class CardView {
         this.cardIndex    = 0;
     }
 
+    //------------------------
+	// Methods
+	//------------------------
     /**
-     * Method Finds Chosen card
+     * Method Finds Chosen card.
      * @param Scanner input scanner
      * @return selected Card
      */
@@ -59,7 +63,7 @@ public class CardView {
     }
 
     /**
-     * Method Finds Chosen Treasure card from Player Hand
+     * Method Finds Chosen Treasure card from Player Hand.
      * @param Scanner input scanner
      * @return selected Treasure Card
      */
@@ -85,7 +89,7 @@ public class CardView {
     }
 
     /**
-     * Method Finds Chosen Special card from Player Hand
+     * Method Finds Chosen Special card from Player Hand.
      * @param Scanner input scanner
      * @return selected Special Card
      */
@@ -111,7 +115,7 @@ public class CardView {
     }
 
      /**
-     * Method returns Chosen card index
+     * Method returns Chosen card index.
      * @return card index
      */
     public int getValidCardIndex(){
@@ -119,7 +123,7 @@ public class CardView {
     }
 
      /**
-     * Method returns Chosen card
+     * Method returns Chosen card.
      * @return Chosen valid card
      */
     public Card getValidCard(){

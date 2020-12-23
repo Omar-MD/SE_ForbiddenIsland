@@ -46,10 +46,9 @@ public class LoseObserver extends Observer {
     private LoseObserver(){
         this.gameController = GameController.getInstance();
         this.gameController.attach(this);
-
-        this.board           = Board.getInstance();
         this.waterMeter = WaterMeter.getInstance();
         this.playerList = PlayerList.getInstance();
+        this.board      = Board.getInstance();
     }
 
     //------------------------
@@ -59,6 +58,7 @@ public class LoseObserver extends Observer {
     /**
 	 * Automatically check if playing team meets game losing conditions.
      * Executed whenever an observed subject state changes.
+     * @return boolean True if gameOver, false otherwise
 	 */
     public boolean update() {
         // WaterMeter at 10
@@ -73,7 +73,6 @@ public class LoseObserver extends Observer {
             gameOver();
             return true;
         }
-            
         // Treasure Tiles sink before treasure is captured
         if(isTreasureLost()){
             System.out.println("TREASURE TILE SUNK");
@@ -89,7 +88,7 @@ public class LoseObserver extends Observer {
         return false;
     }
 
-    /**TODO: gameOver() Message 
+    /**
 	 * Method executed if the team loses the game.
 	 */
     private void gameOver(){
@@ -104,8 +103,8 @@ public class LoseObserver extends Observer {
 	// Helper Methods
 	//------------------------
     /**
-	 * Checks if water level is at Cross & Bones.
-	 * @return true if that is the case, false otherwise.
+	 * Checks if water level is at Skull & Bones.
+	 * @return boolean
 	 */
     private boolean isSkullAndBones(){
         // Check if water level at 10
@@ -116,7 +115,7 @@ public class LoseObserver extends Observer {
 
     /**
 	 * Checks if Fool's Landing is sunk.
-	 * @return true if that is the case, false otherwise.
+	 * @return boolean
 	 */
     private boolean isFoolsLandingSunk(){
         // Check if Fool's Landing is Sunk
@@ -127,7 +126,7 @@ public class LoseObserver extends Observer {
 
     /**
 	 * Checks if the treasure tiles sunk before the treasure was captured.
-	 * @return true if that is the case, false otherwise.
+	 * @return boolean
 	 */
     private boolean isTreasureLost(){
     	// Crystal of Fire 
@@ -163,7 +162,7 @@ public class LoseObserver extends Observer {
 
     /** 
 	 * Checks if any of the players is on a Sunk tile and failed to escape.
-	 * @return true if that is the case, false otherwise.
+	 * @return boolean
 	 */
     private boolean playerDrowned(){
         // Check if any players Sunk

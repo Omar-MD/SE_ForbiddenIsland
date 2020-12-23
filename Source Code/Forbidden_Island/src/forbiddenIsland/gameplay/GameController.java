@@ -43,8 +43,8 @@ public class GameController {
 	// Get Instance of Singleton
 	//-----------------------------------
 	/**
-	 * getInstance method returns single instance of WaterMeter.
-	 * @return instance singleton WaterMeter object.
+	 * getInstance method returns singleton instance of GameController.
+	 * @return singleton GameController object
 	 */
 	public static GameController getInstance() {
 		if(instance == null)
@@ -67,10 +67,10 @@ public class GameController {
 	}    
 
 	//----------------------------
-	// Player actions
+	// Methods
 	//----------------------------
 	/**
-	 * Draw a treasure card from treasure deck as per player turn
+	 * Draw a treasure card from treasure deck as per player turn.
 	 */
 	public void drawTreasureCard(Player player){
 		Card drawnCard = treasureDeck.drawCard();
@@ -87,8 +87,8 @@ public class GameController {
 	}
 
 	/**
-	 * Returns the drawn flood cards corresponding to the water level
-	 * @return the drawn flood cards
+	 * Returns the drawn flood cards corresponding to the water level.
+	 * @return     drawn flood cards
 	 */
 	public List<Card> drawFloodCards(){
 		List<Card> drawnFloodCards = floodDeck.drawCard(waterMeter.getCardsToDraw());
@@ -96,7 +96,7 @@ public class GameController {
 	}
 
 	/**
-	 * Discard input card from treasure deck and remove from input player deck
+	 * Discard input card from treasure deck and remove from input player deck.
 	 */
 	public void discardChosenCard(Player player, Card card){
 		// Discard card
@@ -105,9 +105,8 @@ public class GameController {
 	}
 
 	/**
-	 * Change the state of the Island Tiles matching the
-	 * the drawn flood cards. From DRY to Flooded, or from 
-	 * Flooded to SUNK.
+	 * Change the state of the Island Tiles matching the drawn flood cards. 
+	 * From DRY to Flooded, or from Flooded to SUNK.
 	 * Allow the players to escape from sinking tiles and notify observers.
 	 */
 	public void flipIslandTiles(List<Card> floodcards){
@@ -122,7 +121,7 @@ public class GameController {
 				playerView.tryEscapeSinkingTile();
 			}
 		}
-		// Notify LoseObserver, Check if Fools Landing or Player cannot escape sinking tile
+		// Notify LoseObserver, Check if Fools Landing Sunk or Player cannot escape sinking tile
 		notifyAllObservers();
 	}
 
@@ -160,17 +159,21 @@ public class GameController {
 	}
 
 	/**
-	 * Send request to Board to print Board on screen.
+	 * Send board print request to Board object to print board on screen.
 	 */
 	public void showBoard(){
 		// Check if board is visible
 		board.printBoard();
 	}
+
 	//----------------------------
 	// Player actions
 	//----------------------------
 	/**
 	 * Send request to Player class to move player pawn to input tile.
+	 * @param player   Player 
+	 * @param moveTile New player pawn Tile
+	 * @return boolean True if successful, false otherwise
 	 */
 	public boolean requestMove(Player player, IslandTile moveTile){
 		return player.move(moveTile);
@@ -178,6 +181,9 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to shore up an input tile.
+	 * @param player      Player
+	 * @param shoredTile  Island Tile to be shored up
+	 * @return boolean    True if successful, false otherwise
 	 */
 	public boolean requestShoreUp(Player player, IslandTile shoredTile){
 		return player.shoreUp(shoredTile);
@@ -185,6 +191,10 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to give an input treasure card to an input player.
+	 * @param player   Player giving card
+	 * @param card     TreasureCard
+	 * @param teamMate Player receiving card
+	 * @return boolean True if successful, false otherwise
 	 */
 	public boolean requestGiveTreasureCard(Player player, TreasureCard card, Player teamMate){
 		return player.giveTreasureCard(card, teamMate);
@@ -192,6 +202,8 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to capture treasure.
+	 * @param player   Player 
+	 * @return boolean True if successful, false otherwise 
 	 */
 	public boolean requestCaptureTreasure(Player player){
 		return player.captureTreasure();
@@ -199,6 +211,9 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to use a Sandbags card.
+	 * @param player      Player
+	 * @param tile  	  Island Tile to be shored up
+	 * @return boolean    True if successful, false otherwise
 	 */
 	public boolean requestUseSandbagsCard(Player player, IslandTile tile){
 		return player.useSandbagsCard(tile);
@@ -206,6 +221,10 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to use a Helicopter Lift card.
+	 * @param player   		Player using Card
+	 * @param flyingPlayer  list of flying players
+	 * @param tile			Island Tile destination
+	 * @return boolean      True if successful, false otherwise
 	 */
 	public boolean requestUseHelicopterLiftCard(Player player, List<Player> flyingPlayers, IslandTile tile){
 		return player.useHelicopterLiftCard(flyingPlayers, tile);
@@ -213,7 +232,10 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to escape sinking tile by flying.
-	 * Note we must have a Player with a pilot role
+	 * Note we must have a Player with a pilot role.
+	 * @param player   Pilot player adventurer
+	 * @param tile	   Island Tile destination
+	 * @return boolean True if successful, false otherwise
 	 */
 	public boolean requestEscapeSinkingTileByFlight(Player player, IslandTile tile){
 		Pilot pilot = (Pilot) player.getRole();
@@ -222,13 +244,17 @@ public class GameController {
 
 	/**
 	 * Send request to Player class to escape sinking tile by swimming.
+	 * @param player   Player swimming
+	 * @param tile 	   Island Tile destination
+	 * @return boolean True if successful, false otherwise
 	 */
 	public boolean requestEscapeSinkingTileBySwim(Player player, IslandTile tile){
 		return player.swim(tile);
 	}
+
 	/**
 	 * Return game finish status.
-	 * @return boolean True or false
+	 * @return boolean
 	 */
 	public boolean getGameFinish(){
 		return this.gameFinish;
@@ -236,9 +262,7 @@ public class GameController {
 
 	/**
 	 * Set boolean gameFinish.
-	 * 
 	 * @param boolean bool
-	 * @return
 	 */
 	public void setGameFinish(boolean bool) {
 		this.gameFinish = bool;
@@ -246,7 +270,7 @@ public class GameController {
 
 	/**
 	 * clean printout function to print to the console.
-	 * @param toPrint The string to be printed.
+	 * @param toPrint String to be printed
 	 */
 	private void printout(String toPrint) {
 		System.out.println(toPrint);

@@ -53,6 +53,7 @@ public class WinObserver extends Observer{
     @Override
     /**
 	 * Check if playing team meets game winning conditions.
+     * @return boolean True if readyToFly is true, false otherwise
 	 */
     public boolean update() {
         // Check if all treasures are captured
@@ -68,7 +69,7 @@ public class WinObserver extends Observer{
 
     /**
 	 * Checks if all player pawns are on Fool's Landing.
-	 * @return true if that is the case, false otherwise.
+	 * @return boolean
 	 */
     private boolean isAllAtFoolsLanding(){
         for(Player p:playerList.getAllPlayers())
@@ -77,7 +78,7 @@ public class WinObserver extends Observer{
         return true;
     }
 
-    /**TODO: gameWin() Message
+    /**
 	 * Method executed if the team wins the game.
 	 */
     public void gameWin(){
@@ -92,7 +93,7 @@ public class WinObserver extends Observer{
 	//  Getter & Setter
     //------------------------
      /**
-	 * Get readyToFly boolean
+	 * Get readyToFly boolean.
      * @return boolean
 	 */
     public boolean getReadyToFly(){
@@ -100,8 +101,8 @@ public class WinObserver extends Observer{
     }
 
     /**
-	 * Set readyToFly boolean
-     * @param boolean
+	 * Set readyToFly boolean.
+     * @param val     boolean
 	 */
     private void setReadyToFly(boolean val){
         this.readyToFly=val;

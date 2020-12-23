@@ -3,8 +3,7 @@ package forbiddenIsland.gameplay;
 import forbiddenIsland.enums.TreasureEnums;
 
 /**
- * Public Treasure Class depicting treasure object
- * in the game of Forbidden Island
+ * Public Treasure Class depicting treasure object in the game of Forbidden Island.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
@@ -12,7 +11,7 @@ import forbiddenIsland.enums.TreasureEnums;
 public class Treasure {
 
 	//----------------------------
-	// Treasure Name variable
+	// Variable Setup
 	//----------------------------
 	private TreasureEnums treasureName;
 	
@@ -28,19 +27,11 @@ public class Treasure {
 	}
 
 	//----------------------------
-	// Getter 
+	// Methods 
 	//----------------------------
-	/**
-	 * Getter for the name of a Treasurer object.
-	 * @return name	 Treasure name
-	 */
-	public TreasureEnums getTreasureName() {
-		return this.treasureName;
-	}
-
     /**
-     * Returns boolean to check if treasure are equal
-     * @return the boolean
+     * Check if two treasures are equal.
+     * @return boolean
      */
     @Override
 	public boolean equals(Object o) {
@@ -54,8 +45,16 @@ public class Treasure {
 		return false;
 	}
 
+	/**
+	 * Getter for the name of a Treasurer object.
+	 * @return Treasure name enum	
+	 */
+	public TreasureEnums getTreasureName() {
+		return this.treasureName;
+	}
+
     /**
-     * Returns unique integer hashcode value
+     * Returns treasures unique integer hashcode value.
      * @return unique integer value
      */
     @Override

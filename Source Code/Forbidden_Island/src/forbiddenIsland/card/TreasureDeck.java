@@ -2,34 +2,32 @@ package forbiddenIsland.card;
 
 import java.util.Collections;
 import java.util.Stack;
+
 import forbiddenIsland.enums.SpecialCardEnums;
 import forbiddenIsland.enums.TreasureEnums;
 
 /**
- * Singleton Class for the Treasure Deck in a game
- * of Forbidden Island. Can initialise a deck, refill the deck,
- * draw treasure cards and discard them.
- *
+ * Singleton Class for the Treasure Deck in a game of Forbidden Island. 
+ * Can initialise a deck, refill the deck, draw treasure cards and discard them.
  * @author Jithin James and Omar Duadu
  * @version 1.0
  *
  */
-
 public class TreasureDeck {
 
-	//===========================================================
-	// Variable Setup
-	//===========================================================
+    //-------------------------------------------
+    // Variable Setup
+    //-------------------------------------------
 	private static TreasureDeck theDeck;
 	private Stack<Card>         cardsInDeck;
 	private Stack<Card>         discardPile;
 
-	//===========================================================
-	// Get Instance of Singleton
-	//===========================================================
+    //-------------------------------------------
+    // Get Instance of Singleton
+    //-------------------------------------------
 	/**
 	 * gets the singleton instance of the TreasureDeck object.
-	 * @return the single TreasureDeck object.
+	 * @return  singleton TreasureDeck object
 	 */
 	public static TreasureDeck getInstance(){
         if(theDeck == null){
@@ -38,9 +36,9 @@ public class TreasureDeck {
         return theDeck;
     }
 
-	//===========================================================
-	// Constructor
-	//===========================================================
+    //-------------------------------------------
+    // Constructor
+    //-------------------------------------------
 	/**
 	 * Generates all the cards in the Treasure Deck.
 	 */
@@ -51,11 +49,11 @@ public class TreasureDeck {
 	    initTreasureDeck();
 	}
 
-	//===========================================================
-	// Other Methods
-	//===========================================================
+    //-------------------------------------------
+    // Methods
+    //-------------------------------------------
 	/**
-     * Initialise the Treasure Deck
+     * Initialise the Treasure Deck.
      */
     private void initTreasureDeck() {
     	// Treasure Deck contains 20 Treasure Cards each associated with a Treasure
@@ -80,7 +78,7 @@ public class TreasureDeck {
     }
 
     /**
-	 * Shuffle the Treasure Deck
+	 * Shuffle the Treasure Deck.
 	 */
 	public void shuffleDeck() {
 		System.out.println("Shuffling the Treasure Deck.");
@@ -88,8 +86,7 @@ public class TreasureDeck {
 	}
 
 	/**
-	 * Place the cards in the Treasure Discard Pile
-	 * back in the Treasure Deck and shuffle it
+	 * Place the cards in the Treasure Discard Pile back in the Treasure Deck and shuffle it.
 	 */
 	public void refillDeck() {
 		System.out.println("Adding the discard pile back into the Treasure Deck.");
@@ -100,7 +97,7 @@ public class TreasureDeck {
 	}
 
 	/**
-	 * Draw the top card from the Treasure Deck
+	 * Draw the top card from the Treasure Deck.
 	 * @return The drawn Card
 	 */
 	public Card drawCard() {
@@ -113,19 +110,19 @@ public class TreasureDeck {
 	}
 
 	/**
-	 * Discard the input card
-	 * @param The input Card
+	 * Discard the input card.
+	 * @param c    input Card
 	 */
 	public void discard(Card c) {
 		discardPile.push(c);
 	}
 
-	//-----------------------------------
+	//----------------------------------------
     // Getters
-    //-----------------------------------
+    //----------------------------------------
     /**
      * returns the Treasure deck.
-     * @return the Treasure deck.
+     * @return     Treasure deck
      */
     public Stack<Card> getDeck() {
         return cardsInDeck;
@@ -133,15 +130,15 @@ public class TreasureDeck {
 
     /**
      * returns the Treasure discard pile.
-     * @return the Treasure discard pile.
+     * @return     Treasure discard pile
      */
     public Stack<Card> getDiscardPile() {
         return discardPile;
     }
 
-	//===========================================================
-	// Singleton destroyer for unit testing ONLY
-	//===========================================================
+    //-------------------------------------------
+    // Singleton destroyers for Unit-Testing only
+    //-------------------------------------------
 
 	public void destroyMe() {
 	    theDeck = null;
