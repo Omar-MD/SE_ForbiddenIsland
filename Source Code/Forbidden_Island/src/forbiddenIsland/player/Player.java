@@ -117,8 +117,9 @@ public class Player {
 						hand.discardTreasureSet();
 						board.resetTreasures(TreasureEnums.THE_CRYSTAL_OF_FIRE);
 						return true;
-					}else{
-						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					} else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match");
+						return false;
 					}
 				case THE_EARTH_STONE:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_EARTH_STONE)){
@@ -126,8 +127,9 @@ public class Player {
 						hand.discardTreasureSet();
 						board.resetTreasures(TreasureEnums.THE_EARTH_STONE);
 						return true;
-					}else{
-						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					} else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match");
+						return false;
 					}
 					case THE_OCEANS_CHALICE:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_OCEANS_CHALICE)){
@@ -135,8 +137,9 @@ public class Player {
 						hand.discardTreasureSet();
 						board.resetTreasures(TreasureEnums.THE_OCEANS_CHALICE);
 						return true;
-					}else{
-						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					} else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match");
+						return false;
 					}
 				case THE_STATUE_OF_THE_WIND:
 					if(getPawn().getPawnTile().getTreasure().equals(TreasureEnums.THE_STATUE_OF_THE_WIND)){
@@ -144,8 +147,9 @@ public class Player {
 						hand.discardTreasureSet();
 						board.resetTreasures(TreasureEnums.THE_STATUE_OF_THE_WIND);
 						return true;
-					}else{
-						System.out.println("\nError(captureTreasure): Incorrect Treasure Match"); 
+					} else{
+						System.out.println("\nError(captureTreasure): Incorrect Treasure Match");
+						return false;
 					}
 				default:
 					System.out.println("\nError(captureTreasure): Failed to Capture Treasure"); 
