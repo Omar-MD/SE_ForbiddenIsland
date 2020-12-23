@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.view.GameView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/GameView.java" binary="false" label="gameView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="2948" width="0" x="0" y="134"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="2867" width="0" x="0" y="188"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="1088"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="27" width="0" x="0" y="2303"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="forbiddenIsland.view.PlayerView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/PlayerView.java" binary="false" label="playerView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="296"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="2678" width="0" x="0" y="350"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="404"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="687"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="27" width="0" x="0" y="862"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="27" width="0" x="0" y="1267"/>    
+    </execution>    
+    <execution id="40">      
+      <position height="27" width="0" x="0" y="1415"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="27" width="0" x="0" y="1573"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="27" width="0" x="0" y="1683"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="27" width="0" x="0" y="1793"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="27" width="0" x="0" y="1903"/>    
+    </execution>    
+    <execution id="50">      
+      <position height="27" width="0" x="0" y="2013"/>    
+    </execution>    
+    <execution id="54">      
+      <position height="27" width="0" x="0" y="2220"/>    
+    </execution>    
+    <execution id="57">      
+      <position height="27" width="0" x="0" y="2427"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="27" width="0" x="0" y="2537"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="27" width="0" x="0" y="2685"/>    
+    </execution>    
+    <execution id="63">      
+      <position height="27" width="0" x="0" y="2752"/>    
+    </execution>    
+    <execution id="69">      
+      <position height="27" width="0" x="0" y="2974"/>    
+    </execution>  
+  </object>  
+  <object id="70" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="thisPlayer" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="0" x="0" y="444"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="498"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="27" width="0" x="0" y="727"/>    
+    </execution>  
+  </object>  
+  <object id="71" language="java" name="java.util.Scanner" project="Forbidden_Island" 
+    file="C:/Program Files/Java/jdk-11.0.9/lib/jrt-fs.jar" binary="true" label="inputScanner" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="552"/>    
+    </execution>    
+    <execution id="36">      
+      <position height="27" width="0" x="0" y="1142"/>    
+    </execution>  
+  </object>  
+  <object id="72" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="controller" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="27" width="0" x="0" y="606"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="27" width="0" x="0" y="2096"/>    
+    </execution>    
+    <execution id="65">      
+      <position height="27" width="0" x="0" y="2839"/>    
+    </execution>    
+    <execution id="67">      
+      <position height="27" width="0" x="0" y="2893"/>    
+    </execution>  
+  </object>  
+  <object id="73" language="java" name="forbiddenIsland.adventurer.Adventurer" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/adventurer/Adventurer.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="27">      
+      <position height="27" width="0" x="0" y="781"/>    
+    </execution>  
+  </object>  
+  <object id="74" language="java" name="forbiddenIsland.gameplay.WaterMeter" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/WaterMeter.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="31">      
+      <position height="27" width="0" x="0" y="902"/>    
+    </execution>  
+  </object>  
+  <object id="75" language="java" name="forbiddenIsland.gameplay.WaterMeter" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/WaterMeter.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="33">      
+      <position height="27" width="0" x="0" y="956"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="76" interaction-operator="LOOP">    
+    <interaction-operand id="77" constraint="while: !controller.getGameFinish()">      
+      <fragment refId="78"/>    
+    </interaction-operand>    
+    <combined-fragment id="78" interaction-operator="LOOP">      
+      <interaction-operand id="79" constraint="for: PlayerList.getInstance().getAllPlayers()">        
+        <fragment refId="24"/>        
+        <fragment refId="80"/>        
+        <fragment refId="68"/>        
+        <fragment refId="28"/>        
+        <fragment refId="32"/>        
+        <fragment refId="26"/>        
+        <fragment refId="12"/>        
+        <fragment refId="30"/>        
+        <fragment refId="66"/>        
+        <fragment refId="7"/>        
+        <fragment refId="18"/>        
+        <fragment refId="20"/>        
+        <fragment refId="5"/>        
+        <fragment refId="14"/>        
+        <fragment refId="16"/>        
+        <fragment refId="64"/>        
+        <fragment refId="22"/>      
+      </interaction-operand>      
+      <combined-fragment id="80" interaction-operator="LOOP">        
+        <interaction-operand id="81" constraint="while: !turnOver &amp;&amp; count&lt;3">          
+          <fragment refId="82"/>          
+          <fragment refId="83"/>          
+          <fragment refId="84"/>        
+        </interaction-operand>        
+        <combined-fragment id="82" interaction-operator="LOOP">          
+          <interaction-operand id="85" constraint="while: !validInput">            
+            <fragment refId="86"/>            
+            <fragment refId="35"/>            
+            <fragment refId="87"/>            
+            <fragment refId="34"/>          
+          </interaction-operand>          
+          <combined-fragment id="86" interaction-operator="NEG">            
+            <interaction-operand id="88" constraint="NumberFormatException e">              
+              <fragment refId="37"/>            
+            </interaction-operand>          
+          </combined-fragment>          
+          <combined-fragment id="87" interaction-operator="ALT">            
+            <interaction-operand id="89" constraint="(userInput &gt;= 0) &amp;&amp; (userInput &lt;= 9)"/>            
+            <interaction-operand id="90" constraint="else">              
+              <fragment refId="39"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>        
+        <combined-fragment id="84" interaction-operator="ALT">          
+          <interaction-operand id="91" constraint="case 0:"/>          
+          <interaction-operand id="92" constraint="case 1:">            
+            <fragment refId="41"/>          
+          </interaction-operand>          
+          <interaction-operand id="93" constraint="case 2:">            
+            <fragment refId="43"/>          
+          </interaction-operand>          
+          <interaction-operand id="94" constraint="case 3:">            
+            <fragment refId="45"/>          
+          </interaction-operand>          
+          <interaction-operand id="95" constraint="case 4:">            
+            <fragment refId="47"/>          
+          </interaction-operand>          
+          <interaction-operand id="96" constraint="case 5:">            
+            <fragment refId="49"/>          
+          </interaction-operand>          
+          <interaction-operand id="97" constraint="case 6:">            
+            <fragment refId="51"/>          
+          </interaction-operand>          
+          <interaction-operand id="98" constraint="case 7:">            
+            <fragment refId="53"/>          
+          </interaction-operand>          
+          <interaction-operand id="99" constraint="case 8:">            
+            <fragment refId="55"/>          
+          </interaction-operand>          
+          <interaction-operand id="100" constraint="case 9:">            
+            <fragment refId="56"/>          
+          </interaction-operand>          
+          <interaction-operand id="101" constraint="default:">            
+            <fragment refId="58"/>          
+          </interaction-operand>        
+        </combined-fragment>        
+        <combined-fragment id="83" interaction-operator="ALT">          
+          <interaction-operand id="102" constraint="!controller.getGameFinish()">            
+            <fragment refId="62"/>            
+            <fragment refId="60"/>          
+          </interaction-operand>          
+          <interaction-operand id="103" constraint="else"/>        
+        </combined-fragment>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="run(java.util.Scanner):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="PlayerView(forbiddenIsland.player.Player)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="doTurn():void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="12" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="getName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="getChar():char" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="nextLine():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="showBoard():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="getRole():forbiddenIsland.adventurer.Adventurer" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="getInstance():forbiddenIsland.gameplay.WaterMeter" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="getWaterLevel():int" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" operation="giveOptions():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="35" operation="nextLine():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="tryMove():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="tryShoreUp():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="tryGiveTreasureCard():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" operation="tryCaptureTreasure():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" operation="tryUseSpecialCard(forbiddenIsland.player.Player):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" operation="showBoard():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="52"/>  
+  </message>  
+  <message id="53" operation="seeHand(forbiddenIsland.player.Player):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="54"/>  
+  </message>  
+  <message id="55" operation="seeHelp():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="56" operation="tryTeamPlay():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="57"/>  
+  </message>  
+  <message id="58" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="59"/>  
+  </message>  
+  <message id="60" operation="setValidAction(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="62" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="63"/>  
+  </message>  
+  <message id="64" operation="drawFloodCards():java.util.List&lt;Card&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="65"/>  
+  </message>  
+  <message id="66" operation="flipIslandTiles(java.util.List&lt;forbiddenIsland.card.Card&gt;):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="67"/>  
+  </message>  
+  <message id="68" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="69"/>  
+  </message>
+</sequence-diagram>

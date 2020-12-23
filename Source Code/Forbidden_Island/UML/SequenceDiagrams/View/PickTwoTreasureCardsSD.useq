@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.view.PlayerView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/PlayerView.java" binary="false" label="playerView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="781" width="0" x="0" y="154"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="700" width="0" x="0" y="208"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="27" width="0" x="0" y="854"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="controller" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="518" width="0" x="0" y="282"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="434"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="609"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="forbiddenIsland.card.TreasureDeck" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/card/TreasureDeck.java" binary="false" label="treasureDeck" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="309"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="528"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="forbiddenIsland.gameplay.WaterMeter" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/WaterMeter.java" binary="false" label="waterMeter" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="0" x="0" y="474"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="27" width="0" x="0" y="692"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="forbiddenIsland.player.Hand" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Hand.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="746"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="28" interaction-operator="LOOP">    
+    <interaction-operand id="29" constraint="while: i &lt; 2">      
+      <fragment refId="7"/>      
+      <fragment refId="10"/>      
+      <fragment refId="5"/>      
+      <fragment refId="30"/>    
+    </interaction-operand>    
+    <combined-fragment id="30" interaction-operator="ALT">      
+      <interaction-operand id="31" constraint="drawnCard.getName().equals(SpecialCardEnums.WATERS_RISE)">        
+        <fragment refId="16"/>        
+        <fragment refId="14"/>        
+        <fragment refId="12"/>        
+        <fragment refId="18"/>      
+      </interaction-operand>      
+      <interaction-operand id="32" constraint="else">        
+        <fragment refId="20"/>        
+        <fragment refId="22"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="pickUpTwoCards():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="drawTreasureCard(forbiddenIsland.player.Player):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="checkForDiscard(forbiddenIsland.player.Player):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="10" operation="drawCard():forbiddenIsland.card.Card" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="raiseWaterLevel():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="discard(forbiddenIsland.card.Card):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="notifyAllObservers():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="getHand():forbiddenIsland.player.Hand" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="addCard(forbiddenIsland.card.Card):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>
+</sequence-diagram>

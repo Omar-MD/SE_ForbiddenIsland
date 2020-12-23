@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.view.PlayerView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/PlayerView.java" binary="false" label="playerView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="384" width="0" x="0" y="130"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="303" width="0" x="0" y="184"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="285"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="thisPlayer" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="27" width="0" x="0" y="325"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="forbiddenIsland.player.PlayerList" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/PlayerList.java" binary="false" label="team" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="27" width="0" x="0" y="379"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="forbiddenIsland.enums.TreasureEnums" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/enums/TreasureEnums.java" binary="false" type="enumeration" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="27" width="0" x="0" y="433"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="16" interaction-operator="OPT">    
+    <interaction-operand id="17" constraint="controller.requestCaptureTreasure(thisPlayer)"/>  
+  </combined-fragment>  
+  <combined-fragment id="18" interaction-operator="OPT">    
+    <interaction-operand id="19" constraint="controller.requestCaptureTreasure(thisPlayer)">      
+      <fragment refId="9"/>      
+      <fragment refId="7"/>      
+      <fragment refId="5"/>      
+      <fragment refId="11"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <message id="3" operation="tryCaptureTreasure():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="getName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getLastTreasure():forbiddenIsland.enums.TreasureEnums" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>
+</sequence-diagram>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="602" width="0" x="0" y="105"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="521" width="0" x="0" y="159"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="199"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="27" width="0" x="0" y="626"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="forbiddenIsland.adventurer.Pilot" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/adventurer/Pilot.java" binary="false" label="pilot" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="346" width="0" x="0" y="253"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="forbiddenIsland.player.Pawn" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Pawn.java" binary="false" label="pawn" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="243" width="0" x="0" y="329"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="forbiddenIsland.board.Grid" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/board/Grid.java" binary="false" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="356"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="27" width="0" x="0" y="464"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="forbiddenIsland.board.Grid" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/board/Grid.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="410"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="forbiddenIsland.board.Grid" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/board/Grid.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="518"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="27" interaction-operator="ALT">    
+    <interaction-operand id="28" constraint="!newTile.isSunk()">      
+      <fragment refId="18"/>      
+      <fragment refId="20"/>      
+      <fragment refId="22"/>      
+      <fragment refId="16"/>      
+      <fragment refId="13"/>    
+    </interaction-operand>    
+    <interaction-operand id="29" constraint="else"/>  
+  </combined-fragment>  
+  <message id="3" 
+    operation="requestEscapeSinkingTileByFlight(forbiddenIsland.player.Player,forbiddenIsland.board.IslandTile):boolean" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="getRole():forbiddenIsland.adventurer.Adventurer" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="fly(forbiddenIsland.player.Pawn,forbiddenIsland.board.IslandTile):boolean" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getPawn():forbiddenIsland.player.Pawn" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="13" operation="setPawnTile(forbiddenIsland.board.IslandTile):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" operation="getInstance():forbiddenIsland.board.Grid" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="resetPawnChar(forbiddenIsland.board.IslandTile,char):void" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="getInstance():forbiddenIsland.board.Grid" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="setPawnOnGrid(forbiddenIsland.board.IslandTile,char):void" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>
+</sequence-diagram>

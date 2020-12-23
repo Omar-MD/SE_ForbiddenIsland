@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.view.PlayerView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/PlayerView.java" binary="false" label="playerView" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="828" width="0" x="0" y="146"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="747" width="0" x="0" y="200"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="267"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="27" width="0" x="0" y="442"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="27" width="0" x="0" y="509"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="27" width="0" x="0" y="772"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="27" width="0" x="0" y="893"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="forbiddenIsland.player.Player" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/player/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="27" width="0" x="0" y="307"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="27" width="0" x="0" y="361"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="27" width="0" x="0" y="812"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="forbiddenIsland.view.TileView" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/view/TileView.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="27" width="0" x="0" y="593"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="27" width="0" x="0" y="647"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="27" interaction-operator="LOOP">    
+    <interaction-operand id="28" constraint="while: !didShoreUp">      
+      <fragment refId="15"/>      
+      <fragment refId="29"/>      
+      <fragment refId="17"/>    
+    </interaction-operand>    
+    <combined-fragment id="29" interaction-operator="OPT">      
+      <interaction-operand id="30" constraint="controller.requestUseSandbagsCard(player, validTile)">        
+        <fragment refId="19"/>        
+        <fragment refId="23"/>        
+        <fragment refId="21"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="tryUseSandbagsCard(forbiddenIsland.player.Player):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="getName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getChar():char" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="playerPawnTileName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="TileView()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="findTile():forbiddenIsland.board.IslandTile" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="printout(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="getName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="getName(forbiddenIsland.board.IslandTile):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>
+</sequence-diagram>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.4" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="209" width="0" x="0" y="139"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="128" width="0" x="0" y="193"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="forbiddenIsland.gameplay.Observer" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/Observer.java" binary="false" label="ob" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="27" width="0" x="0" y="267"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="forbiddenIsland.gameplay.WinObserver" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/WinObserver.java" binary="false" label="winObserver" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="395" y="0"/>    
+    <execution id="9">      
+      <position height="270" width="0" x="0" y="203"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="189" width="0" x="0" y="257"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="392"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="27" width="0" x="0" y="566"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController1" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="16" language="java" name="forbiddenIsland.gameplay.LoseObserver" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/LoseObserver.java" binary="false" label="loseObserver" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="747" width="0" x="0" y="522"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="666" width="0" x="0" y="576"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="94" width="0" x="0" y="677"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="892"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="27" width="0" x="0" y="1040"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="27" width="0" x="0" y="1188"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="forbiddenIsland.gameplay.GameController" project="Forbidden_Island" 
+    file="/Forbidden_Island/src/forbiddenIsland/gameplay/GameController.java" binary="false" label="gameController2" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="29">      
+      <position height="27" width="0" x="0" y="717"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="31" interaction-operator="LOOP">    
+    <interaction-operand id="32" constraint="for: observers">      
+      <fragment refId="5"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="33" interaction-operator="OPT">    
+    <interaction-operand id="34" constraint="playerList.getCapturedTreasure().size()==4">      
+      <fragment refId="35"/>    
+    </interaction-operand>    
+    <combined-fragment id="35" interaction-operator="OPT">      
+      <interaction-operand id="36" constraint="isAllAtFoolsLanding()">        
+        <fragment refId="12"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <combined-fragment id="37" interaction-operator="OPT">    
+    <interaction-operand id="38" constraint="isSkullAndBones()">      
+      <fragment refId="28"/>      
+      <fragment refId="20"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="39" interaction-operator="OPT">    
+    <interaction-operand id="40" constraint="isFoolsLandingSunk()">      
+      <fragment refId="22"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="41" interaction-operator="OPT">    
+    <interaction-operand id="42" constraint="isTreasureLost()">      
+      <fragment refId="24"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="43" interaction-operator="OPT">    
+    <interaction-operand id="44" constraint="playerDrowned()">      
+      <fragment refId="26"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <message id="3" operation="notifyAllObservers():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="update():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="10" operation="update():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="setReadyToFly(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="18" operation="update():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="gameOver():void" asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="gameOver():void" asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="gameOver():void" asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="gameOver():void" asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="setGameFinish(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>
+</sequence-diagram>
