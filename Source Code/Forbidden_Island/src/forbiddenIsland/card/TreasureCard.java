@@ -26,6 +26,7 @@ public class TreasureCard extends Card{
     //-----------------------------------
 	/**
      * Returns boolean to check if treasure cards are the same.
+     * @param o the reference object with which to compare
      * @return boolean
      */
     @Override

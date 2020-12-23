@@ -38,7 +38,6 @@ public class CardView {
 	//------------------------
     /**
      * Method Finds Chosen card.
-     * @param Scanner input scanner
      * @return selected Card
      */
     public Card findCard(){
@@ -64,7 +63,6 @@ public class CardView {
 
     /**
      * Method Finds Chosen Treasure card from Player Hand.
-     * @param Scanner input scanner
      * @return selected Treasure Card
      */
     public TreasureCard findTreasureCard(){
@@ -90,7 +88,6 @@ public class CardView {
 
     /**
      * Method Finds Chosen Special card from Player Hand.
-     * @param Scanner input scanner
      * @return selected Special Card
      */
     public SpecialCard findSpecialCard(){
@@ -131,7 +128,7 @@ public class CardView {
     }
 
     /**
-   	 * clean printout function to print to the console.
+   	 * Clean printout function to print to the console.
    	 * @param toPrint The string to be printed.
    	 */
     private void printout(String toPrint) {

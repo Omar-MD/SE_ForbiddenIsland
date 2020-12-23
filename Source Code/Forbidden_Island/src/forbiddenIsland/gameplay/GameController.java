@@ -71,6 +71,7 @@ public class GameController {
 	//----------------------------
 	/**
 	 * Draw a treasure card from treasure deck as per player turn.
+	 * @param player the player
 	 */
 	public void drawTreasureCard(Player player){
 		Card drawnCard = treasureDeck.drawCard();
@@ -97,6 +98,8 @@ public class GameController {
 
 	/**
 	 * Discard input card from treasure deck and remove from input player deck.
+	 * @param player the player
+	 * @param card   the card to be discarded
 	 */
 	public void discardChosenCard(Player player, Card card){
 		// Discard card
@@ -108,6 +111,7 @@ public class GameController {
 	 * Change the state of the Island Tiles matching the drawn flood cards. 
 	 * From DRY to Flooded, or from Flooded to SUNK.
 	 * Allow the players to escape from sinking tiles and notify observers.
+	 * @param floodcards the drawn flood cards
 	 */
 	public void flipIslandTiles(List<Card> floodcards){
 		for(Card c:floodcards){
@@ -222,7 +226,7 @@ public class GameController {
 	/**
 	 * Send request to Player class to use a Helicopter Lift card.
 	 * @param player   		Player using Card
-	 * @param flyingPlayer  list of flying players
+	 * @param flyingPlayers list of flying players
 	 * @param tile			Island Tile destination
 	 * @return boolean      True if successful, false otherwise
 	 */
@@ -262,14 +266,14 @@ public class GameController {
 
 	/**
 	 * Set boolean gameFinish.
-	 * @param boolean bool
+	 * @param boolean
 	 */
 	public void setGameFinish(boolean bool) {
 		this.gameFinish = bool;
 	}
 
 	/**
-	 * clean printout function to print to the console.
+	 * Clean printout function to print to the console.
 	 * @param toPrint String to be printed
 	 */
 	private void printout(String toPrint) {

@@ -36,8 +36,9 @@ public class Player {
 	//----------------------------
 	/**
 	 * Constructor for a Player object.
-	 * @param name	 Player Name
-	 * @param role	 String depicting Adventurer Role
+	 * @param playerNum The player number to assign to pawn
+	 * @param name	    Player Name
+	 * @param role	    String depicting Adventurer Role
 	 * 
 	 */
 	public Player(int playerNum, String name, String role){
@@ -258,7 +259,7 @@ public class Player {
 	//----------------------------
 	/**
 	 * Setter for Player adventurer role.
-	 * @param String role	Players role
+	 * @param role	String representing players role
 	 */
 	private void setRole(String role) {
 		switch(role) {
@@ -287,7 +288,8 @@ public class Player {
 
 	/**
 	 * Setter for Player pawn.
-	 * @param String role	Players role
+	 * @param role	    String representing the players role
+	 * @param playerNum	The player number to assignt to pawn
 	 */
 	private void setPawn(String role, int playerNum) {
 		switch(role) {
@@ -316,13 +318,14 @@ public class Player {
 
 	/**
      * Check if two players are the same.
+     * @param o the reference object with which to compare
      * @return boolean
      */
     @Override
 	public boolean equals(Object o) {
-		// Check if o is an instance of Position
+		// Check if o is an instance of Player
 		if(o instanceof Player) {
-			// Typecast o to Position so that we can compare data members
+			// Typecast o to Player so that we can compare data members
 			Player p = (Player) o;
 			// Compare the data members and return accordingly
 			return name.equals(p.getName()) && 

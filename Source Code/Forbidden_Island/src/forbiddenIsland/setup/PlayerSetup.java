@@ -39,6 +39,7 @@ public class PlayerSetup {
 	//--------------------------------------
 	/**
 	 * Creates the players who will play the game.
+	 * @param user The scanner with which we read the users input
 	 */
 	protected void createAllPlayers(Scanner user) {
 		int numOfPlayers;
@@ -58,7 +59,7 @@ public class PlayerSetup {
 
 	/**
 	 * Gets Number of Players who are playing.
-	 * @param user 	The scanner the user which we read the users input from
+	 * @param user 	The scanner with which we read the users input
 	 * @return 		The number of Players to create
 	 */
 	public int getNumberOfPlayers(Scanner user) {
@@ -92,7 +93,7 @@ public class PlayerSetup {
 
 	/**
 	 * Assign role to a player, create Player and add Player to PlayerList.
-	 * @param user	Scanner which we read the users input from
+	 * @param user	The scanner with which we read the users input
 	 * @param i     Integer value representing the player number
 	 */
 	public void createIndividualPlayer(Scanner user, int i) {
@@ -109,7 +110,10 @@ public class PlayerSetup {
 		playerList.addPlayer(new Player(i+1, name, role));
 	}
 
-	// Needed for testing
+	/**
+	 * Needed for testing.
+	 * @return boolean True if valid number of players 
+	 */
 	public boolean getValidNumPlayers(){
 		return validNumPlayers;
 	}

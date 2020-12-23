@@ -157,7 +157,7 @@ public class Hand {
 
 	/**
 	 * Return Name of Treasure to be captured if player hand consists of full treasure deck.
-	 * @return Treasure name enum
+	 * @return Treasure name enum or null
 	 */
 	public TreasureEnums getTreasureName() {
 		for(TreasureCard c:getTreasureCardSet()){

@@ -160,7 +160,7 @@ public class PlayerView {
 
     /**
      * Discard extra card in player deck. If special card is chosen, it can be used first.
-	 * @param player
+	 * @param player the player
      */
     private void checkForDiscard(Player player){
     	if(getPlayerDeck(player).size()>5) {
@@ -471,7 +471,6 @@ public class PlayerView {
     //----------------------------
     /**
      * Method for player to escape sinking tile
-	 * @param Player player
      */
     public void tryEscapeSinkingTile(){
     	// Method to escape sinking tile
@@ -512,7 +511,7 @@ public class PlayerView {
 	
 	/**
      * Method to select player's valid escape Tile
-	 * @param List<IslandTile> escapeTiles 
+	 * @param escapeTiles List of IslandTiles
      */
 	private IslandTile findEscapeTile(List<IslandTile> escapeTiles){
 		IslandTile validTile = null;
@@ -541,7 +540,7 @@ public class PlayerView {
 	/**
   	 * Find players escape Island Tiles.
 	 * @param Player player
-  	 * @return List<IslandTile> 
+  	 * @return List of IslandTiles 
   	 */
 	private List<IslandTile> escapeOptions(Player player){
 		Board board = Board.getInstance();
@@ -562,7 +561,7 @@ public class PlayerView {
 
 	/**
   	 * Find all non-sunk Island Tiles.
-  	 * @return List<IslandTile> 
+  	 * @return List of valid IslandTiles 
   	 */
 	private List<IslandTile> getValidTiles(){
 		List<IslandTile> validTiles = new ArrayList<IslandTile>();
@@ -589,7 +588,6 @@ public class PlayerView {
 	
     /**
   	 * Find selected other player.
-  	 * @param Scanner User input
   	 * @return Selected player
   	 */
   	public Player findOtherPlayer(){
@@ -619,7 +617,6 @@ public class PlayerView {
 
   	/**
   	 * Find selected players.
-  	 * @param Scanner User input
   	 * @return Selected List of players
   	 */
   	public List<Player> findPlayers(){
@@ -684,6 +681,7 @@ public class PlayerView {
 
   	/**
   	 * Returns the maximum of an Integer list or 0 if list is empty.
+  	 * @param Integer list
   	 * @return Integer maximum 
   	 */
   	public int findMax(List<Integer> list){
@@ -693,7 +691,7 @@ public class PlayerView {
   	}
 
     /**
-     * clean playerPawnTile function that returns the name of a players pawn Tile.
+     * Clean playerPawnTile function that returns the name of a players pawn Tile.
      * @return Player pawn Tile name
      */
   	private String playerPawnTileName() {
@@ -701,7 +699,7 @@ public class PlayerView {
       }
    
   	/**
-  	 * clean getName function that returns the String name of an IslandTile.
+  	 * Clean getName function that returns the String name of an IslandTile.
   	 * @param  IslandTile islandTile
   	 * @return String Name of IslandTile
   	 */
@@ -722,7 +720,7 @@ public class PlayerView {
 
   	/**
   	 * Set boolean action.
-  	 * @param boolean bool
+  	 * @param boolean
   	 */
   	public void setValidAction(boolean bool){
   		this.action = bool;
@@ -765,7 +763,7 @@ public class PlayerView {
   	}
 
   	/**
-  	 * clean printout function to print to the console.
+  	 * Clean printout function to print to the console.
   	 * @param toPrint The string to be printed.
   	 */
   	private void printout(String toPrint) {

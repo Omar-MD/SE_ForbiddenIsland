@@ -49,6 +49,7 @@ public class GameView {
 	//----------------------------
     /**
      * Prepares the user interface of the program.
+     * @param inputScanner The scanner with which we read the users input
      */
     public void run(Scanner inputScanner) {
     	this.inputScanner = inputScanner;
@@ -167,7 +168,7 @@ public class GameView {
 	// Clean Methods
     //----------------------------
     /**
-	 * clean printout function to print to the console.
+	 * Clean printout function to print to the console.
 	 * @param toPrint The string to be printed
 	 */
 	private void printout(String toPrint) {

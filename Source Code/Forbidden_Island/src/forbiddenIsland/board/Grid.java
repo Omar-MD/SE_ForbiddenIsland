@@ -67,6 +67,7 @@ public class Grid {
     //----------------------------------------------------------
     /**
 	 * Outline the tile to represent in the form of a grid.
+	 * @param tile the Island tile to outline
 	 */
 	public void setTileOutline(IslandTile tile) {
 		// Get position x and y of Island tile

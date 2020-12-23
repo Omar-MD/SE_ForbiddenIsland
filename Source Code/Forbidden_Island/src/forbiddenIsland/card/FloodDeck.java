@@ -98,6 +98,7 @@ public class FloodDeck {
 
 	/**
 	 * Draw the top i cards from the Flood Deck and place them in the Flood discard pile.
+	 * @param i the number of cards to draw
 	 * @return List<Card> The drawn Cards
 	 */
 	public List<Card> drawCard(int i) {

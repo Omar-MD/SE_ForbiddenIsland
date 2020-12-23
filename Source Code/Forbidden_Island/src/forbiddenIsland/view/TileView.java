@@ -35,7 +35,6 @@ public class TileView {
     //-----------------------
     /**
      * Method returns selected Island Tile from board.
-     * @param Scanner User Input
      * @return selected IslandTile
      */
     public IslandTile findTile(){

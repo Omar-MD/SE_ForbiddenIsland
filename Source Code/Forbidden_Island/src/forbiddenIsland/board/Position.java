@@ -73,6 +73,7 @@ public class Position {
 
     /**
      * Returns boolean to check if positions are equal.
+     * @param o the reference object with which to compare
      * @return boolean
      */
     @Override

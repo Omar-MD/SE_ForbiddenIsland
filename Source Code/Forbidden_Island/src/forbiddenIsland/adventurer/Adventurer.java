@@ -72,8 +72,9 @@ public abstract class Adventurer {
 	/**
 	 * Swim method for Adventurer, can only move to neighbouring tiles.
 	 * Cannot move to diagonal or non-sunk tiles.
-	 * @param pawn	   Player pawn 
-	 * @param newTile  New Island Tile
+	 * @param pawn	    Player pawn 
+	 * @param newTile   New Island Tile
+	 * @return boolean	True if successful, false otherwise
 	 */
 	public boolean swim(Pawn pawn,IslandTile newTile){
 		return move(pawn, newTile);

@@ -28,8 +28,9 @@ public class Diver extends Adventurer {
 	/**
 	 * Swim method for Diver class.
 	 * Can move to nearest tile.
-	 * @param pawn    Player pawn
-	 * @param newTile New Island Tile
+	 * @param pawn      Player pawn
+	 * @param newTile   New Island Tile
+	 * @return boolean	True if successful, false otherwise
 	 */
 	public boolean swim(Pawn pawn, IslandTile newTile) {
 		if (this.board.getNearestTiles(pawn.getPawnTile()).contains(newTile)) {

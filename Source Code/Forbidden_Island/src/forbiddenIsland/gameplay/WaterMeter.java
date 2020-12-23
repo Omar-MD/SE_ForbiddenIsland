@@ -32,7 +32,8 @@ public class WaterMeter {
 	//------------------------
 	/**
 	 * Default Water Meter Constructor.
-	 * Initializes water level to 1. 
+	 * Initializes water level to 1.
+	 * @param difficulty the String representing the difficulty
 	 */
 	private WaterMeter(String difficulty) {
 		setWaterLevel(difficulty);

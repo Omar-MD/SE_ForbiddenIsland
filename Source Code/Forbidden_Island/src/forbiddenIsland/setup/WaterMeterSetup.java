@@ -38,7 +38,8 @@ public class WaterMeterSetup {
 	//  Methods
 	//--------------------------------------
 	/**
-	 * Sets the starting WaterMeter water Level in the Forbidden Island game.  
+	 * Sets the starting WaterMeter water Level in the Forbidden Island game.
+	 * @param user The scanner with which we read the users input  
 	 */
 	protected void setupWaterLevel(Scanner user) {
 		int gameDifficulty=0;
@@ -55,7 +56,7 @@ public class WaterMeterSetup {
 
 	/**
 	 * Gets starting Game difficulty from user.
-	 * @param user 	The scanner the user which we read the users input from
+	 * @param user The scanner with which we read the users input
 	 * @return 		Game difficulty index
 	 */
 	public int getGameDifficulty(Scanner user) {
@@ -88,7 +89,10 @@ public class WaterMeterSetup {
 		return (game_difficulty-1);
 	}
 
-	// Needed for testing
+	/**
+	 * Needed for testing.
+	 * @return boolean True if valid difficulty
+	 */
 	public boolean getValidDifficulty(){
 		return valid_difficulty;
 	}

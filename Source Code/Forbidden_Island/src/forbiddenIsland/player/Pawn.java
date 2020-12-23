@@ -25,6 +25,7 @@ public class Pawn {
 	/**
 	 * Constructor for a player Pawn object.
 	 * @param startTileEnum	 Pawn Island Tile
+	 * @param mapChar        Pawn map character
 	 */
 	Pawn(TilesEnums startTileEnum, char mapChar){
 		initPawnTile(startTileEnum);
@@ -36,7 +37,8 @@ public class Pawn {
 	//-----------------------------------
 	/**
 	 * Check if two Pawns are on the same Island Tile.
-	 * @param pawn
+	 * @param pawn the pawn to compare with
+	 * @return boolean
 	 */
 	public boolean isSameTile(Pawn pawn) {
 		return getPawnTile().equals(pawn.getPawnTile());
@@ -44,6 +46,7 @@ public class Pawn {
 	
 	/**
 	 * Check for treasure in Island Tile.
+	 * @return boolean
 	 */
 	public boolean isTreasureTile() {
 		return getPawnTile().getTreasure() != null;

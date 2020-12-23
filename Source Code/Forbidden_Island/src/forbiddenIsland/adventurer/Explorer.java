@@ -27,8 +27,9 @@ public class Explorer extends Adventurer {
 	@Override
 	/**
 	 * Explorer Swim Method, can also swim to diagonal tiles.
-	 * @param pawn	   Player pawn 
-	 * @param newTile  New Island Tile
+	 * @param pawn	    Player pawn 
+	 * @param newTile   New Island Tile
+	 * @return boolean	True if successful, false otherwise
 	 */
 	public boolean swim(Pawn pawn,IslandTile newTile){
 		if (this.board.getAdjacent(pawn.getPawnTile()).contains(newTile) ||

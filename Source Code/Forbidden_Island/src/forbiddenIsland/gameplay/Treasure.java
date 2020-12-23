@@ -31,6 +31,7 @@ public class Treasure {
 	//----------------------------
     /**
      * Check if two treasures are equal.
+     * @param o the reference object with which to compare
      * @return boolean
      */
     @Override

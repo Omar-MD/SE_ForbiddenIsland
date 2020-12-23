@@ -40,8 +40,8 @@ public class SpecialCard extends Card{
 
 	/**
 	 * Use the Sandbags card. Use to shore up any Island Tile. 
-	 * @param islandTile 	Island Tile to be shored up
-	 * @return boolean      True if successful, false otherwise
+	 * @param islandTile Island Tile to be shored up
+	 * @return boolean   True if successful, false otherwise
 	 */
 	public boolean useSandbags(IslandTile islandTile){
 		if (islandTile.isFlooded()) {

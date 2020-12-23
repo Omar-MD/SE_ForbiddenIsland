@@ -23,6 +23,12 @@ import forbiddenIsland.gameplay.Treasure;
 import forbiddenIsland.player.Player;
 import forbiddenIsland.player.PlayerList;
 
+/**
+ * JUnit test cases for the Player class to test the main methods.
+ * 
+ * @author Jithin James and Omar Duadu
+ * @version 1.0
+ */
 public class PlayerTest {
 
 	private Board testBoard;
