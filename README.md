@@ -5,10 +5,8 @@ Software Engineering (COMP 41670) 2020
 Authors: Jithin James and Omar Duadu
 
 This document outlines the following:
-	1.	How to Play
-	2.	Our software development process
 
-1.	How to Play:
+### 1.	How to Play:
 
 1)	Open up the Project and press the run button. 
 2)	You will be greeted with the following welcome screen:
@@ -234,7 +232,7 @@ _____  _____  _____  _____    _____  _____  _____  _____
 |  |  ||     || | | ||   __|  |  |  ||  |  ||   __||    -|
 |_____||__|__||_|_|_||_____|  |_____| \___/ |_____||__|__|
 ```
-2.	Our software development process:
+### 2.	Our software development process:
 
 1)	At the start, we created a Project in Github where we created issues of classes to create, features to work on, etc.
 	
