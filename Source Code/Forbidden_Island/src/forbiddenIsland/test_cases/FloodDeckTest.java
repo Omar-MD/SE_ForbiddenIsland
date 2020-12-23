@@ -44,7 +44,7 @@ public class FloodDeckTest {
 		// Refill deck
 		floodDeck.refillDeck();
 		assertEquals(24,floodDeck.getDeck().size(), "Checking if deck has refilled as expected");
-		assertEquals(0,floodDeck.getDiscardPile().size(), "Checking if discard pile contains one new card after drawing");
+		assertEquals(0,floodDeck.getDiscardPile().size(), "Checking if discard pile is empty");
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class FloodDeckTest {
 		// Refill deck
 		floodDeck.refillDeck();
 		assertEquals(24,floodDeck.getDeck().size(), "Checking if deck has refilled as expected");
-		assertEquals(0,floodDeck.getDiscardPile().size(), "Checking if discard pile contains one new card after drawing");
+		assertEquals(0,floodDeck.getDiscardPile().size(), "Checking if discard pile is empty");
 	}
 
 	@Test
