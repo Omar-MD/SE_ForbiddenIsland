@@ -71,8 +71,8 @@ public class WaterMeterSetup {
 	 * @param userString	 The user String containing game difficulty.
 	 * @return 				 The game difficulty index to set the WaterLevel.
 	 */
-	private int setGameDifficulty(String userString) {
-		int game_difficulty =0;
+	public int setGameDifficulty(String userString) {
+		int game_difficulty = 0;
 		try {
 			game_difficulty = Integer.parseInt(userString);
 		} catch (NumberFormatException e) {
@@ -80,11 +80,16 @@ public class WaterMeterSetup {
         }
         
 		if ((game_difficulty >= 1) && (game_difficulty <= 4)) {
-			valid_difficulty= true;
+			valid_difficulty = true;
 		}
 		else{
 			System.out.println("Incorrect input\n");
 		}
 		return (game_difficulty-1);
+	}
+
+	// Needed for testing
+	public boolean getValidDifficulty(){
+		return valid_difficulty;
 	}
 }
