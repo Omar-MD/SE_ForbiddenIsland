@@ -12,7 +12,7 @@ public enum TreasureEnums {
 	//---------------------------------
     // Variable Setup
     //---------------------------------
-	THE_EARTH_STONE        ("The Earth Stone"        ,'ï¿½'),
+	THE_EARTH_STONE        ("The Earth Stone"        ,'£'),
 	THE_STATUE_OF_THE_WIND ("The Statue of the Wind" ,'$'),
 	THE_CRYSTAL_OF_FIRE    ("The Crystal of Fire"    ,'#'),
 	THE_OCEANS_CHALICE     ("The Ocean's Chalice"    ,'@');
