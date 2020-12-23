@@ -146,4 +146,12 @@ public class PlayerList {
 		}
 		return String.join(" ", players);
 	}
+
+	//------------------------------------------
+    // Singleton destroyer for unit testing ONLY
+    //------------------------------------------
+    
+    public void destroyMe() {
+    	thePlayerList = null;
+    }
 }

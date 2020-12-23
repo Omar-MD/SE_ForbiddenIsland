@@ -63,10 +63,6 @@ public abstract class Adventurer {
 				System.out.println("Error(shoreUp): Cannot Shore Up Dry Island Tile");
 				return false;
 			}
-			else if(shoredTile.isSunk()){
-				System.out.println("Error(shoreUp): Cannot Shore Up Sunk Island Tile");
-				return false;
-			}
 		}
 		else
 			System.out.println("Error(shoreUp): Cannot Shore Up non-adjacent Island Tile");

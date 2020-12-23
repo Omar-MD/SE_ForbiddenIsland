@@ -73,8 +73,8 @@ public class PlayerSetup {
 	 * @param userString	 The user String containing number of players.
 	 * @return 				 The number of Players to create.
 	 */
-	private int setNumPlayers(String userString) {
-		int numOfPlayers =0;
+	public int setNumPlayers(String userString) {
+		int numOfPlayers = 0;
 		try {
 			numOfPlayers = Integer.parseInt(userString);
 		} catch (NumberFormatException e) {
@@ -108,6 +108,10 @@ public class PlayerSetup {
 		// want players to be from 1-4 rather than 0-3
 		playerList.addPlayer(new Player(i+1, name, role));
 	}
-	
+
+	// Needed for testing
+	public boolean getValidNumPlayers(){
+		return validNumPlayers;
+	}
 }
 

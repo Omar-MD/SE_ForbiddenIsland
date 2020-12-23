@@ -107,4 +107,12 @@ public class WaterMeter {
 		}
 		return cardsToDraw;
 	}
+
+	//------------------------------------------
+    // Singleton destroyer for unit testing ONLY
+    //------------------------------------------
+    
+    public void destroyMe() {
+    	instance = null;
+    }
 }

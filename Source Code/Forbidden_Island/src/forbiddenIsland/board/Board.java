@@ -54,7 +54,7 @@ public class Board {
 
         // Create blank Tiles for Board
         this.boardTiles = new IslandTile[6][6];
-        initBoard(); // Initialise Board
+        initBoard(false); // Initialise Board with debugMode input as false
     }
 
     //----------------------------------------------------------
@@ -89,14 +89,16 @@ public class Board {
 
 	/**
      * Initialise the board and set up Island tiles.
+     * @param debugMode Boolean needed for testing. If true, do not shuffle. Else shuffle
      */
-    private void initBoard() {
+    public void initBoard(boolean debugMode) {
     	// Create an ArrayList of type TilesEnums containing all of the enum values
     	ArrayList<TilesEnums> tilesEnums = new ArrayList<TilesEnums>(EnumSet.allOf(TilesEnums.class));
     	
-    	// Island tiles must be shuffled initially
-    	Collections.shuffle(validTilePositions);
-    	Collections.shuffle(tilesEnums);
+    	if (!debugMode) {
+    		// Island tiles must be shuffled initially
+        	Collections.shuffle(tilesEnums);
+    	}
 
     	// Initialise an index
     	int i = 0;
